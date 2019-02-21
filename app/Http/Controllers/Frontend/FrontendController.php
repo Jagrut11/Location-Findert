@@ -17,7 +17,8 @@ class FrontendController extends Controller
     public function index()
     {
         $settingData = Setting::first();
-        $google_analytics = $settingData->google_analytics;
+        $google_analytics = $settingData -> google_analytics;
+        //$google_analytics = $settingData -> google_analytics;
 
         return view('frontend.index', compact('google_analytics', $google_analytics));
     }
