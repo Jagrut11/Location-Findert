@@ -20,6 +20,18 @@
                 <li></li>
             </ul> --}}
             <ul class="nav navbar-nav navbar-right">
+    
+<div id="users-table_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="users-table"></label></div>
+
+                            
+                <li><a href="">Contact us</a></li>
+                <li><a href="">About us</a></li>
+               <!--  <li>
+                    <form action="/action_page.php">
+      <input type="text" placeholder="Search.." name="search">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+                </li> -->
                 @if (config('locale.status') && count(config('locale.languages')) > 1)
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
