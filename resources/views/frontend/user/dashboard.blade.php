@@ -6,8 +6,7 @@
         <div class="col-xs-12">
 
             <div class="panel panel-default">
-                <div class="panel-heading">{{ trans('navs.frontend.dashboard') }}</div>
-
+ <div class="panel-heading">{{ trans('Home') }}</div>
                 <div class="panel-body">
 
                     <div class="row">
@@ -40,23 +39,18 @@
 
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4>Sidebar Item</h4>
+                                    <h4>Communicate With Us</h4>
                                 </div><!--panel-heading-->
 
                                 <div class="panel-body">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non qui facilis deleniti expedita fuga ipsum numquam aperiam itaque cum maxime.
+                                  <a href=""> Contact Us</a>
                                 </div><!--panel-body-->
-                            </div><!--panel-->
-
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4>Sidebar Item</h4>
-                                </div><!--panel-heading-->
-
                                 <div class="panel-body">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non qui facilis deleniti expedita fuga ipsum numquam aperiam itaque cum maxime.
+                                  <a href=""> About Us</a>
                                 </div><!--panel-body-->
                             </div><!--panel-->
+
+                            
                         </div><!--col-md-4-->
 
                         <div class="col-md-8 col-md-pull-4">
@@ -68,7 +62,7 @@
                                         </div><!--panel-heading-->
 
                                         <div class="panel-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non qui facilis deleniti expedita fuga ipsum numquam aperiam itaque cum maxime.</p>
+                                            <div id="faqs-table_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="faqs-table"></label></div>
                                         </div><!--panel-body-->
                                     </div><!--panel-->
                                 </div><!--col-xs-12-->
