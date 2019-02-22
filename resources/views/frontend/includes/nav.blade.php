@@ -11,7 +11,7 @@
            {{--   @if(settings()->logo)
             <a href="{{ route('frontend.index') }}" class="logo"><img height="48" width="226" class="navbar-brand" src="{{route('frontend.index')}}/img/site_logo/{{settings()->logo}}"></a>
             @else --}}
-             {{ link_to_route('frontend.index',app_name(), [], ['class' => 'navbar-brand']) }}
+             {{ link_to_route('frontend.index',"Welcome User", [], ['class' => 'navbar-brand']) }}
            {{--  @endif --}}
         </div><!--navbar-header-->
 
@@ -19,16 +19,24 @@
             {{-- <ul class="nav navbar-nav">
                 <li></li>
             </ul> --}}
+
             <ul class="nav navbar-nav navbar-right">
+             <li> <a href="" role="button"> Contact Us</a></li>
+            <li><a href="" role="button"> About Us</a></li>
+            <li><a href="" role="button">How It Works</a></li>
                 @if (config('locale.status') && count(config('locale.languages')) > 1)
+
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+            
+                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             {{ trans('menus.language-picker.language') }}
                             <span class="caret"></span>
                         </a>
 
+                                
                         @include('includes.partials.lang')
                     </li>
+
                 @endif
 
                 @if ($logged_in_user)
