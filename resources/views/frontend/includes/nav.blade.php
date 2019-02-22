@@ -22,7 +22,7 @@
 
             <ul class="nav navbar-nav navbar-right">
              <li> <a href="" role="button"> Contact Us</a></li>
-            <li><a href="" role="button"> About Us</a></li>
+            <li><a href="{{ trans('AboutUs') }}" role="button"> About Us</a></li>
             <li><a href="" role="button">How It Works</a></li>
                 @if (config('locale.status') && count(config('locale.languages')) > 1)
 
