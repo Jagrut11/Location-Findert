@@ -47,10 +47,10 @@
                                 </div><!--panel-heading-->
 
                                 <div class="panel-body">
-                                  <a href=""> Contact Us</a>
+                                  <a href=""> sdfgfdyvdfyvf</a>
                                 </div><!--panel-body-->
                                 <div class="panel-body">
-                                  <a href=""> About Us</a>
+                                  <a href=""> sdjgdsyfdbf</a>
                                 </div><!--panel-body-->
                             </div><!--panel-->
 
