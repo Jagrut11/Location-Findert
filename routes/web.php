@@ -17,6 +17,9 @@ Route::get('lang/{lang}', 'LanguageController@swap');
 Route::group(['namespace' => 'Frontend', 'as' => 'frontend.'], function () {
     includeRouteFiles(__DIR__.'/Frontend/');
 });
+Route::get('/contactus', function(){
+    return view('frontend.contactus');
+});
 
 /* ----------------------------------------------------------------------- */
 
