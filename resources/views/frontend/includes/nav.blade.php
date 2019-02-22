@@ -21,24 +21,17 @@
             </ul> --}}
 
             <ul class="nav navbar-nav navbar-right">
-<<<<<<< HEAD
-    
-<div id="users-table_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="users-table"></label></div>
-
-                            
-                <li><a href="">Contact us</a></li>
-                <li><a href="">About us</a></li>
-               <!--  <li>
+        <!--  <li>
                     <form action="/action_page.php">
       <input type="text" placeholder="Search.." name="search">
       <button type="submit"><i class="fa fa-search"></i></button>
     </form>
                 </li> -->
-=======
+
              <li> <a href="" role="button"> Contact Us</a></li>
             <li><a href="" role="button"> About Us</a></li>
             <li><a href="" role="button">How It Works</a></li>
->>>>>>> 88bac23505efa92f70d1fb8d8be8a7e03b06c906
+
                 @if (config('locale.status') && count(config('locale.languages')) > 1)
 
                     <li class="dropdown">
