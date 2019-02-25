@@ -21,9 +21,17 @@
             </ul> --}}
 
             <ul class="nav navbar-nav navbar-right">
+        <!--  <li>
+                    <form action="/action_page.php">
+      <input type="text" placeholder="Search.." name="search">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+                </li> -->
+
              <li> <a href="" role="button"> Contact Us</a></li>
             <li><a href="{{ trans('AboutUs') }}" role="button"> About Us</a></li>
             <li><a href="" role="button">How It Works</a></li>
+
                 @if (config('locale.status') && count(config('locale.languages')) > 1)
 
                     <li class="dropdown">
