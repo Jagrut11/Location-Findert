@@ -46,6 +46,11 @@ class User extends Authenticatable implements JWTSubject
         'created_by',
         'updated_by',
         'designation',
+<<<<<<< HEAD
+=======
+        'contact',
+        'department',
+>>>>>>> 99fbb850d59c32643b0c4f01cd2f8b12eef7da57
     ];
 
     /**
@@ -98,6 +103,9 @@ class User extends Authenticatable implements JWTSubject
             'status'          => $this->status,
             'created_at'      => $this->created_at->toIso8601String(),
             'updated_at'      => $this->updated_at->toIso8601String(),
+            'designation'     => $this->designation,
+            'contact'         => $this->contact,
+            'department'      => $this->department,
         ];
     }
 }

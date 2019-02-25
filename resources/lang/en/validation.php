@@ -154,6 +154,8 @@ return [
                     'password'                => 'New Password',
                     'password_confirmation'   => 'New Password Confirmation',
                     'send_confirmation_email' => 'Send Confirmation E-mail',
+                    'designation'             => 'designation of the user',
+                    
                 ],
             ],
             'pages' => [

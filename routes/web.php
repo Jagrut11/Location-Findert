@@ -24,6 +24,11 @@ Route::get('/contactus', function(){
 Route::get('/AboutUs', function () {
     return view('frontend.AboutUs');
 });
+
+Route::get('/howitworks', function () {
+    return view('frontend.howitworks');
+});
+
 /* ----------------------------------------------------------------------- */
 
 /*
