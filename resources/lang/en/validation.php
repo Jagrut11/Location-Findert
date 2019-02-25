@@ -241,6 +241,7 @@ return [
                 'new_password'              => 'New Password',
                 'new_password_confirmation' => 'New Password Confirmation',
                 'terms_and_conditions'      => 'terms and conditions',
+                'designation'               =>  'abc'
             ],
         ],
     ],

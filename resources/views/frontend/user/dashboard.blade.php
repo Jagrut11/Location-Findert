@@ -66,7 +66,8 @@
                                         </div><!--panel-heading-->
 
                                         <div class="panel-body">
-                                            <div id="faqs-table_filter" class="dataTables_filter"><label>Search:<input style="width: 450%;" type="search" class="form-control input-sm" placeholder="" aria-controls="faqs-table"></label>
+                                            <div id="faqs-table_filter" class="dataTables_filter">
+                                                <label>Search:<input style = "width: 370%;" type="search" class="form-control input-sm" placeholder="" aria-controls="faqs-table"></label>
                                             </div>
                                         </div><!--panel-body-->
                                     </div><!--panel-->
@@ -92,7 +93,7 @@
                                 <div class="col-md-6">
                                     <div class="panel panel-default" class="box">
                                         <div class="panel-heading">
-                                            <h4>Fix Appoinment</h4>
+                                            <h4>Fix Appointment</h4>
                                         </div><!--panel-heading-->
 
                                         <div class="panel-body">
