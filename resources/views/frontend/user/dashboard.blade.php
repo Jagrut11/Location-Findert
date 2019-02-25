@@ -5,7 +5,7 @@
   <source src="C:\wamp64\www\Final LF\Location-Findert\public\img\frontend\bgvideo.mp4" type="video/mp4">
   Your browser does not support HTML5 video.
 </video> 
- -->    <div class="row">
+ -->    <div class="row" class="box-wrap">
 
         <div class="col-xs-12">
 
@@ -60,13 +60,14 @@
                         <div class="col-md-8 col-md-pull-4">
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <div class="panel panel-default" >
+                                    <div class="panel panel-default" class="box">
                                         <div class="panel-heading" class="heading-color" >
                                             <h4 >Search Employee</h4>
                                         </div><!--panel-heading-->
 
                                         <div class="panel-body">
-                                            <div id="faqs-table_filter" class="dataTables_filter"><label>Search:<input style="width: 450%;" type="search" class="form-control input-sm" placeholder="" aria-controls="faqs-table"></label></div>
+                                            <div id="faqs-table_filter" class="dataTables_filter"><label>Search:<input style="width: 450%;" type="search" class="form-control input-sm" placeholder="" aria-controls="faqs-table"></label>
+                                            </div>
                                         </div><!--panel-body-->
                                     </div><!--panel-->
                                 </div><!--col-xs-12-->
@@ -74,7 +75,7 @@
 
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div class="panel panel-default">
+                                    <div class="panel panel-default" class="box">
                                         <div class="panel-heading">
                                             <h4>Find Location</h4>
                                         </div><!--panel-heading-->
@@ -82,20 +83,25 @@
                                         <div class="panel-body">
                                             <p>
                                                 <center><img src="img/frontend/location1.jpg"></center ><br>
-                                                Quick and easy fix the meeting with an employee or just track it's location down.
+                                                Quick and easy to track down the location of employee.
                                             </p>
                                         </div><!--panel-body-->
                                     </div><!--panel-->
                                 </div><!--col-md-6-->
 
                                 <div class="col-md-6">
-                                    <div class="panel panel-default">
+                                    <div class="panel panel-default" class="box">
                                         <div class="panel-heading">
-                                            <h4>Item</h4>
+                                            <h4>Fix Appoinment</h4>
                                         </div><!--panel-heading-->
 
                                         <div class="panel-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non qui facilis deleniti expedita fuga ipsum numquam aperiam itaque cum maxime.</p>
+                                            <p>
+                                                <center>
+                                                    <img style="height: 224px; width: 300px;" src="img/frontend/fix-Meeting.jpg">
+                                                </center ><br>
+                                                Quick and easy to fix the meeting with an employee <br>
+                                            </p>
                                         </div><!--panel-body-->
                                     </div><!--panel-->
                                 </div><!--col-md-6-->
