@@ -48,6 +48,9 @@ class DashboardController extends Controller
         $user = User::find($userId);
         $user->first_name = $input['first_name'];
         $user->last_name = $input['last_name'];
+        $user->designation = $input['designation'];
+        $user->department = $input['department'];
+        $user->contact = $input['contact'];
         $user->updated_by = access()->user()->id;
 
         if ($user->save()) {

@@ -46,6 +46,7 @@
                             {{ Form::input('password', 'password_confirmation', null, ['class' => 'form-control', 'placeholder' => trans('validation.attributes.frontend.register-user.password_confirmation')]) }}
                         </div><!--col-md-6-->
                     </div><!--form-group-->
+    
 
                     <div class="form-group">
                             <div class="col-xs-7">

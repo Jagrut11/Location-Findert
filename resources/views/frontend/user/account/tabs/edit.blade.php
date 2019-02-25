@@ -14,6 +14,24 @@
         </div>
     </div>
     
+                        <div class="form-group">
+                            {{ Form::label('Designation', trans('Designation').'*', ['class' => 'col-md-4 control-label']) }}
+                        <div class="col-md-6">
+                            {{ Form::input('text', 'designation', null, ['class' => 'form-control', 'placeholder' => trans('designation')]) }}
+                    </div>
+                </div>
+                        <div class="form-group">
+                            {{ Form::label('Contact', trans('Contact').'*', ['class' => 'col-md-4 control-label']) }}
+                        <div class="col-md-6">
+                        {{ Form::input('int', 'contact', null, ['class' => 'form-control', 'placeholder' => trans('Contact')]) }}
+                        </div>
+                </div>
+                 <div class="form-group">
+                    {{ Form::label('Department', trans('Department').'*', ['class' => 'col-md-4 control-label']) }}
+                <div class="col-md-6">
+                    {{ Form::input('text', 'department', null, ['class' => 'form-control', 'placeholder' => trans('department')]) }}
+                </div>
+             </div>
     @if ($logged_in_user->canChangeEmail())
         <div class="form-group">
             {{ Form::label('email', trans('validation.attributes.frontend.register-user.email'), ['class' => 'col-md-4 control-label']) }}
