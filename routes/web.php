@@ -21,6 +21,9 @@ Route::get('/contactus', function(){
     return view('frontend.contactus');
 });
 
+Route::get('/AboutUs', function () {
+    return view('frontend.AboutUs');
+});
 /* ----------------------------------------------------------------------- */
 
 /*
