@@ -46,8 +46,11 @@ class User extends Authenticatable implements JWTSubject
         'created_by',
         'updated_by',
         'designation',
+<<<<<<< HEAD
+=======
         'contact',
         'department',
+>>>>>>> 99fbb850d59c32643b0c4f01cd2f8b12eef7da57
     ];
 
     /**

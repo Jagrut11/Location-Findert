@@ -98,6 +98,7 @@ class UserRepository extends BaseRepository
         $user->status = 1;
         $user->password = $provider ? null : bcrypt($data['password']);
         $user->is_term_accept = $data['is_term_accept'];
+        $user->role_id=$data['role_id'];
 
 
         // If users require approval, confirmed is false regardless of account type
