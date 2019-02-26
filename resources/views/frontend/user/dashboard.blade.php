@@ -47,7 +47,8 @@
                                 </div><!--panel-heading-->
 
                                 <div class="panel-body">
-                                  <a href=""> sdfgfdyvdfyvf</a>
+                                  <video src="img/frontend/homelocation.mp4" loop="" width="100%" autoplay></video>
+
                                 </div><!--panel-body-->
                                 <div class="panel-body">
                                   <a href=""> sdjgdsyfdbf</a>

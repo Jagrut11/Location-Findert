@@ -11,7 +11,7 @@
            {{--   @if(settings()->logo)
             <a href="{{ route('frontend.index') }}" class="logo"><img height="48" width="226" class="navbar-brand" src="{{route('frontend.index')}}/img/site_logo/{{settings()->logo}}"></a>
             @else --}}
-             {{ link_to_route('frontend.index',"Welcome User", [], ['class' => 'navbar-brand']) }}
+             {{ link_to_route('frontend.index',"Location Finder", [], ['class' => 'navbar-brand']) }}
            {{--  @endif --}}
         </div><!--navbar-header-->
 
