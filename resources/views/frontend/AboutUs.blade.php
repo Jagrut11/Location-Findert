@@ -7,11 +7,20 @@
         <div class="col-xs-12">
 
             <div class="panel panel-default">
- 					<div class="panel-heading">{{ trans('About Us') }}</div>
+ 					<div class="panel-heading"><center><font size="3">{{ trans('About Us') }}</font></center></div>
                 <div class="panel-body">
-                		dshfhdfnvfdiygfuiedoh
+                <center><font size="4">
+                <p>ejdhfer</p>
+ 						<p>frhvurrui</p>
+ 						<p>fchgyubuyg</p></font></center>		
                 </div>
             </div>
         </div>
+
     </div>
+                <div class="panel panel-default">
+ 					<div class="panel-heading"><center><font size="3">
+ 							To provide Location of Employees to our Users.
+ 					</font></center></div>
+ 				</div>
 @endsection
