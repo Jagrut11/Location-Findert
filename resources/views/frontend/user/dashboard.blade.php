@@ -94,7 +94,7 @@
                                 <div class="col-md-6">
                                     <div class="panel panel-default" class="box">
                                         <div class="panel-heading">
-                                            <h4>Fix Appointment</h4>
+                                            <a href="fixappointment"><h4>Fix Appointment</h4></a>
                                         </div><!--panel-heading-->
 
                                         <div class="panel-body">

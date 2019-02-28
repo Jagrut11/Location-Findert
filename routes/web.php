@@ -28,6 +28,9 @@ Route::get('/AboutUs', function () {
 Route::get('/howitworks', function () {
     return view('frontend.howitworks');
 });
+Route::get('/fixappointment', function () {
+    return view('frontend.fixappointment');
+});
 
 
 
