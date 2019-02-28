@@ -29,6 +29,8 @@ Route::get('/howitworks', function () {
     return view('frontend.howitworks');
 });
 
+
+
 /* ----------------------------------------------------------------------- */
 
 /*
