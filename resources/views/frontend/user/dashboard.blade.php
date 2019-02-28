@@ -68,7 +68,7 @@
 
                                         <div class="panel-body">
                                             <div id="faqs-table_filter" class="dataTables_filter">
-                                                <label>Search:<input style = "width: 370%;" type="search" class="form-control input-sm" placeholder="" aria-controls="faqs-table"></label>
+                                                <form action="{{ trans('userdetails')}}"><label>Search:<input style = "width: 370%;" type="search" class="form-control input-sm" placeholder="" aria-controls="faqs-table"></label><input type="submit" name="submit"></form>
                                             </div>
                                         </div><!--panel-body-->
                                     </div><!--panel-->

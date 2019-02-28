@@ -32,6 +32,8 @@ Route::get('/fixappointment', function () {
     return view('frontend.fixappointment');
 });
 
+
+
 /* ----------------------------------------------------------------------- */
 
 /*
