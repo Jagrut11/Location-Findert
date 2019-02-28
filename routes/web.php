@@ -17,6 +17,22 @@ Route::get('lang/{lang}', 'LanguageController@swap');
 Route::group(['namespace' => 'Frontend', 'as' => 'frontend.'], function () {
     includeRouteFiles(__DIR__.'/Frontend/');
 });
+Route::get('/contactus', function(){
+    return view('frontend.contactus');
+});
+
+Route::get('/AboutUs', function () {
+    return view('frontend.AboutUs');
+});
+
+Route::get('/howitworks', function () {
+    return view('frontend.howitworks');
+});
+Route::get('/fixappointment', function () {
+    return view('frontend.fixappointment');
+});
+
+
 
 /* ----------------------------------------------------------------------- */
 
@@ -34,3 +50,8 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'as' => 'admin.', '
      */
     includeRouteFiles(__DIR__.'/Backend/');
 });
+
+/*
+* Routes From Module Generator
+*/
+includeRouteFiles(__DIR__.'/Generator/');
