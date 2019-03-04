@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Models\Company;
+namespace App\Models\Branch;
 
 use App\Models\ModelTrait;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Company\Traits\CompanyAttribute;
-use App\Models\Company\Traits\CompanyRelationship;
+use App\Models\Branch\Traits\BranchAttribute;
+use App\Models\Branch\Traits\BranchRelationship;
 
-class Company extends Model
+class Branch extends Model
 {
     use ModelTrait,
-        CompanyAttribute,
-    	CompanyRelationship {
-            // CompanyAttribute::getEditButtonAttribute insteadof ModelTrait;
+        BranchAttribute,
+    	BranchRelationship {
+            // BranchAttribute::getEditButtonAttribute insteadof ModelTrait;
         }
 
     /**
@@ -24,15 +24,16 @@ class Company extends Model
      * The database table used by the model.
      * @var string
      */
-    protected $table = 'companies';
+    protected $table = 'branches';
 
     /**
      * Mass Assignable fields of model
      * @var array
      */
     protected $fillable = [
-        'company_id',
-        'company_name'
+        'branch_id',
+        'branch_name',
+        'company_id'
 
     ];
 

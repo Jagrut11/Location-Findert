@@ -30,6 +30,7 @@ class CompanyRepository extends BaseRepository
         return $this->query()
             ->select([
                 config('module.companies.table').'.id',
+                config('module.companies.table').'.company_name',
                 config('module.companies.table').'.created_at',
                 config('module.companies.table').'.updated_at',
             ]);
