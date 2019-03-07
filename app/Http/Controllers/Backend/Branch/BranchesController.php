@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers\Backend\Branch;
-
+use DB;
 use App\Models\Branch\Branch;
+use App\Models\Company\Company;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Responses\RedirectResponse;
@@ -27,7 +28,7 @@ class BranchesController extends Controller
      * variable to store the repository object
      * @var BranchRepository
      */
-    protected $repository;
+    protected $company;
 
     /**
      * contructor to initialize repository object
@@ -43,14 +44,17 @@ class BranchesController extends Controller
      * Display a listing of the resource.
      *
      * @param  App\Http\Requests\Backend\Branch\ManageBranchRequest  $request
-     * @return \App\Http\Responses\ViewResponse
+     * @return \App\Http\Responses\ViewResponse0
      */
     public function index(ManageBranchRequest $request)
     {
-        // $companies= DB::table('companies')-> select('company_name','id')-> get();
-        // $companies= Company::all()->toarray();
+        //$company= DB::table('companies')-> select('company_name')-> get();
 
-        return new ViewResponse('backend.branches.index');
+        // $request = DB::table('companies')-> select('company_name')-> get();
+        // dd($request);
+        return view('backend.branches.index');
+        //->with('companies', $company)
+        //return new ViewResponse('backend.branches.index');
         //return($companies);
     }
     /**
@@ -61,9 +65,9 @@ class BranchesController extends Controller
      */
     public function create(CreateBranchRequest $request)
     {
-        //return new CreateResponse('backend.branches.create');
-        $company = $this->company->getAll();
-        return new CreateResponse($company);
+        
+        //$company = $this->company->getAll();
+        return new CreateResponse('backend.branches.create');
     }
     /**
      * Store a newly created resource in storage.
@@ -76,7 +80,7 @@ class BranchesController extends Controller
         //Input received from the request
         $input = $request->except(['_token']);
         //Create the model using repository create method
-        $this->repository->create($input);
+        $this->branch->create($input);
         //return with successfull message
         return new RedirectResponse(route('admin.branches.index'), ['flash_success' => trans('alerts.backend.branches.created')]);
     }
@@ -89,9 +93,9 @@ class BranchesController extends Controller
      */
     public function edit(Branch $branch, EditBranchRequest $request)
     {
-        $branch = $this->branch->getAll();
-        $company = Company::getSelectData('company_name');
-        return new EditResponse($branch,$company);
+        // $branch = $this->branch->getAll();
+        // $company = Company::getSelectData('company_name');
+         return new EditResponse($branch);
     }
     /**
      * Update the specified resource in storage.
@@ -105,7 +109,7 @@ class BranchesController extends Controller
         //Input received from the request
         $input = $request->except(['_token']);
         //Update the model using repository update method
-        $this->repository->update( $branch, $input );
+        $this->branch->update( $branch, $input );
         //return with successfull message
         return new RedirectResponse(route('admin.branches.index'), ['flash_success' => trans('alerts.backend.branches.updated')]);
     }
@@ -119,7 +123,7 @@ class BranchesController extends Controller
     public function destroy(Branch $branch, DeleteBranchRequest $request)
     {
         //Calling the delete method on repository
-        $this->repository->delete($branch);
+        $this->branch->delete($branch);
         //returning with successfull message
         return new RedirectResponse(route('admin.branches.index'), ['flash_success' => trans('alerts.backend.branches.deleted')]);
     }

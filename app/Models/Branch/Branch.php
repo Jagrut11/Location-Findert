@@ -4,6 +4,7 @@ namespace App\Models\Branch;
 
 use App\Models\ModelTrait;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Company\Company;
 use App\Models\Branch\Traits\BranchAttribute;
 use App\Models\Branch\Traits\BranchRelationship;
 
@@ -30,8 +31,10 @@ class Branch extends Model
      * Mass Assignable fields of model
      * @var array
      */
+
+
+   
     protected $fillable = [
-        'branch_id',
         'branch_name',
         'company_id'
 
@@ -71,6 +74,8 @@ class Branch extends Model
     {
         parent::__construct($attributes);
         $this->table = config('modules.branches.table');
-       // return Company::where('id',$this->company_id);
+        //return Company::where('id',$this->company_id);
+        //return $this->belongsTo(Company::class);
+
     }
 }
