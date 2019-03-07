@@ -64,5 +64,15 @@ return [
 	"deleted" => "The Branch was successfully deleted.",
 	"updated" => "The Branch was successfully updated.",
 	],
+	"floors" => [
+	"created" => "The Floor was successfully created.",
+	"deleted" => "The Floor was successfully deleted.",
+	"updated" => "The Floor was successfully updated.",
+	],
+	"branchcompanies" => [
+	"created" => "The Branchcompany was successfully created.",
+	"deleted" => "The Branchcompany was successfully deleted.",
+	"updated" => "The Branchcompany was successfully updated.",
+	],
 	],
 ];

@@ -1,31 +1,28 @@
 @extends ('backend.layouts.app')
 
-@section ('title', trans('labels.backend.floors.management'))
+@section ('title', trans('labels.backend.branchcompanies.management'))
 
 @section('page-header')
-    <h1>{{ trans('labels.backend.floors.management') }}</h1>
+    <h1>{{ trans('labels.backend.branchcompanies.management') }}</h1>
 @endsection
 
 @section('content')
     <div class="box box-info">
         <div class="box-header with-border">
-            <h3 class="box-title">{{ trans('labels.backend.floors.management') }}</h3>
+            <h3 class="box-title">{{ trans('labels.backend.branchcompanies.management') }}</h3>
 
             <div class="box-tools pull-right">
-                @include('backend.floors.partials.floors-header-buttons')
+                @include('backend.branchcompanies.partials.branchcompanies-header-buttons')
             </div>
         </div><!--box-header with-border-->
 
         <div class="box-body">
             <div class="table-responsive data-table-wrapper">
-                <table id="floors-table" class="table table-condensed table-hover table-bordered">
+                <table id="branchcompanies-table" class="table table-condensed table-hover table-bordered">
                     <thead>
                         <tr>
-                            <th>{{ trans('labels.backend.floors.table.id') }}</th>
-                            
-                            <th>{{ trans('labels.backend.floors.table.floor_no') }}</th>
-                            <th>{{ trans('labels.backend.floors.table.branch_id') }}</th>
-                            <th>{{ trans('labels.backend.floors.table.createdat') }}</th>
+                            <th>{{ trans('labels.backend.branchcompanies.table.id') }}</th>
+                            <th>{{ trans('labels.backend.branchcompanies.table.createdat') }}</th>
                             <th>{{ trans('labels.general.actions') }}</th>
                         </tr>
                     </thead>
@@ -49,18 +46,16 @@
     <script>
         //Below written line is short form of writing $(document).ready(function() { })
         $(function() {
-            var dataTable = $('#floors-table').dataTable({
+            var dataTable = $('#branchcompanies-table').dataTable({
                 processing: true,
                 serverSide: true,
                 ajax: {
-                    url: '{{ route("admin.floors.get") }}',
+                    url: '{{ route("admin.branchcompanies.get") }}',
                     type: 'post'
                 },
                 columns: [
-                    {data: 'id', name: '{{config('module.floors.table')}}.id'},
-                    {data: 'floor_no', name: '{{config('module.floors.table')}}.floor_no'},
-                    {data: 'branch_id', name: '{{config('module.floors.table')}}.branch_id'},
-                    {data: 'created_at', name: '{{config('module.floors.table')}}.created_at'},
+                    {data: 'id', name: '{{config('module.branchcompanies.table')}}.id'},
+                    {data: 'created_at', name: '{{config('module.branchcompanies.table')}}.created_at'},
                     {data: 'actions', name: 'actions', searchable: false, sortable: false}
                 ],
                 order: [[0, "asc"]],

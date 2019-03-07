@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBranchesTable extends Migration
+class AddForeignkeysToBranchCompanyTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateBranchesTable extends Migration
      */
     public function up()
     {
-        Schema::create('branches', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('branch_name');
-             $table->integer('company_id')->unsigned()->index('branches_company_id_foreign');
-            $table->timestamps();
+            Schema::table('branchcompanies', function (Blueprint $table) {
+            $table->foreign('company_id')->references('id')->on('companies')->onUpdate('RESTRICT')->onDelete('CASCADE');
         });
     }
 
@@ -28,6 +25,8 @@ class CreateBranchesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('branches');
+        Schema::table('branch_company', function (Blueprint $table) {
+            //
+        });
     }
 }

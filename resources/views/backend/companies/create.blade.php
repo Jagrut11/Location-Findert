@@ -27,7 +27,7 @@
                     {{ Form::label('name', 'Company Id', ['class' => 'col-lg-2 control-label required']) }}
 
                     <div class="col-lg-10">
-                        {{ Form::text('company_id', null, ['class' => 'form-control box-size', 'placeholder' => 'Enter Company Id', 'required' => 'required']) }}
+                        {{ Form::text('id', null, ['class' => 'form-control box-size', 'placeholder' => 'Enter Company Id', 'required' => 'required']) }}
                     </div><!--col-lg-10-->
                 </div><!--form control-->
 

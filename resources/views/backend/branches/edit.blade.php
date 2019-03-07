@@ -31,7 +31,6 @@
                     </div><!--col-lg-10-->
                 </div><!--form control-->
 
-
                 <div class="form-group">
                     {{-- Including Form blade file --}}
                     @include("backend.branches.form")

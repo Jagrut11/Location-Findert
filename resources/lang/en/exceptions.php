@@ -92,6 +92,20 @@ return [
 	"not_found" => "That Branch does not exist.",
 	"update_error" => "There was a problem updating this Branch. Please try again.",
 	],
+	"floors" => [
+	"already_exists" => "That Floor already exists. Please choose a different name.",
+	"create_error" => "There was a problem creating this Floor. Please try again.",
+	"delete_error" => "There was a problem deleting this Floor. Please try again.",
+	"not_found" => "That Floor does not exist.",
+	"update_error" => "There was a problem updating this Floor. Please try again.",
+	],
+	"branchcompanies" => [
+	"already_exists" => "That Branchcompany already exists. Please choose a different name.",
+	"create_error" => "There was a problem creating this Branchcompany. Please try again.",
+	"delete_error" => "There was a problem deleting this Branchcompany. Please try again.",
+	"not_found" => "That Branchcompany does not exist.",
+	"update_error" => "There was a problem updating this Branchcompany. Please try again.",
+	],
 	],
 	"frontend" => [
 	"auth" => [

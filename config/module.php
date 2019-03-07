@@ -26,4 +26,10 @@ return [
 	"branches" => [
 	"table" => "branches",
 	],
+	"floors" => [
+	"table" => "floors",
+	],
+	"branchcompanies" => [
+	"table" => "branchcompanies",
+	],
 ];

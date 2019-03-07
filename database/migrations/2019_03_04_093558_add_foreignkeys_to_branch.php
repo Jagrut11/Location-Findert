@@ -14,6 +14,7 @@ class AddForeignkeysToBranch extends Migration
     public function up()
     {
         Schema::table('branches', function (Blueprint $table) {
+             //$table->foreign('company_id')->references('company_name')->on('company')->onUpdate('RESTRICT')->onDelete('CASCADE');
              $table->foreign('company_id')->references('id')->on('company')->onUpdate('RESTRICT')->onDelete('CASCADE');
            
         });

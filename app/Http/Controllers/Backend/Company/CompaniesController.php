@@ -32,9 +32,9 @@ class CompaniesController extends Controller
      * contructor to initialize repository object
      * @param CompanyRepository $repository;
      */
-    public function __construct(CompanyRepository $repository)
+    public function __construct(CompanyRepository $company)
     {
-        $this->repository = $repository;
+        $this->company = $company;
     }
 
     /**
@@ -55,8 +55,11 @@ class CompaniesController extends Controller
      */
     public function create(CreateCompanyRequest $request)
     {
-        return new CreateResponse('backend.companies.create');
+
+        return new CreateResponse($company);
     }
+
+        // return new CreateResponse('backend.companies.create');
     /**
      * Store a newly created resource in storage.
      *

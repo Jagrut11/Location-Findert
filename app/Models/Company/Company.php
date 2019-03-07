@@ -68,5 +68,6 @@ class Company extends Model
     public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);
+         $this->table = config('companies.companies_table');
     }
 }

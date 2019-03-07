@@ -22,10 +22,10 @@
                     <thead>
                         <tr>
                             <th>{{ trans('labels.backend.branches.table.id') }}</th>
-                            <th>{{ trans('labels.backend.branches.table.branch_id') }}</th>
                             <th>{{ trans('labels.backend.branches.table.branch_name') }}</th>
-                            <th>{{ trans('labels.backend.branches.table.company_id') }}</th>
+                            <th>{{ trans('labels.backend.companies.table.company_id') }}</th>
                             <th>{{ trans('labels.backend.branches.table.createdat') }}</th>
+                            
                             <th>{{ trans('labels.general.actions') }}</th>
                         </tr>
                     </thead>
@@ -53,14 +53,14 @@
                 processing: true,
                 serverSide: true,
                 ajax: {
-                    url: '{{ route("admin.branches.get","admin.companies.get") }}',
+                    url: '{{ route("admin.branches.get") }}',
                     type: 'post'
+
                 },
                 columns: [
                     {data: 'id', name: '{{config('module.branches.table')}}.id'},
-                    {data: 'branch_id', name: '{{config('module.branches.table')}}.branch_id'},
                     {data: 'branch_name', name: '{{config('module.branches.table')}}.branch_name'},
-                    {data: 'company_id', name: '{{config('module.companies.table')}}.company_id'},
+                    {data: 'company_id', name: '{{config('module.companies.table')}}.company_name'},
                     {data: 'created_at', name: '{{config('module.branches.table')}}.created_at'},
                     {data: 'actions', name: 'actions', searchable: false, sortable: false}
                 ],

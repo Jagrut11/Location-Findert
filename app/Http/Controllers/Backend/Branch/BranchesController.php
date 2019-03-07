@@ -10,6 +10,7 @@ use App\Http\Responses\ViewResponse;
 use App\Http\Responses\Backend\Branch\CreateResponse;
 use App\Http\Responses\Backend\Branch\EditResponse;
 use App\Repositories\Backend\Branch\BranchRepository;
+use App\Repositories\Backend\Company\CompanyRepository;
 use App\Http\Requests\Backend\Branch\ManageBranchRequest;
 use App\Http\Requests\Backend\Branch\CreateBranchRequest;
 use App\Http\Requests\Backend\Branch\StoreBranchRequest;
@@ -32,9 +33,10 @@ class BranchesController extends Controller
      * contructor to initialize repository object
      * @param BranchRepository $repository;
      */
-    public function __construct(BranchRepository $repository)
+    public function __construct(BranchRepository $branch , CompanyRepository $company)
     {
-        $this->repository = $repository;
+        $this->company = $company;
+        $this->branch=$branch;
     }
 
     /**
@@ -45,7 +47,11 @@ class BranchesController extends Controller
      */
     public function index(ManageBranchRequest $request)
     {
+        // $companies= DB::table('companies')-> select('company_name','id')-> get();
+        // $companies= Company::all()->toarray();
+
         return new ViewResponse('backend.branches.index');
+        //return($companies);
     }
     /**
      * Show the form for creating a new resource.
@@ -55,7 +61,9 @@ class BranchesController extends Controller
      */
     public function create(CreateBranchRequest $request)
     {
-        return new CreateResponse('backend.branches.create');
+        //return new CreateResponse('backend.branches.create');
+        $company = $this->company->getAll();
+        return new CreateResponse($company);
     }
     /**
      * Store a newly created resource in storage.
@@ -81,7 +89,9 @@ class BranchesController extends Controller
      */
     public function edit(Branch $branch, EditBranchRequest $request)
     {
-        return new EditResponse($branch);
+        $branch = $this->branch->getAll();
+        $company = Company::getSelectData('company_name');
+        return new EditResponse($branch,$company);
     }
     /**
      * Update the specified resource in storage.

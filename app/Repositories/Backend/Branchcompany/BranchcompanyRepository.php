@@ -1,23 +1,23 @@
 <?php
 
-namespace App\Repositories\Backend\Floor;
+namespace App\Repositories\Backend\Branchcompany;
 
 use DB;
 use Carbon\Carbon;
-use App\Models\Floor\Floor;
+use App\Models\Branchcompany\Branchcompany;
 use App\Exceptions\GeneralException;
 use App\Repositories\BaseRepository;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class FloorRepository.
+ * Class BranchcompanyRepository.
  */
-class FloorRepository extends BaseRepository
+class BranchcompanyRepository extends BaseRepository
 {
     /**
      * Associated Repository Model.
      */
-    const MODEL = Floor::class;
+    const MODEL = Branchcompany::class;
 
     /**
      * This method is used by Table Controller
@@ -29,11 +29,9 @@ class FloorRepository extends BaseRepository
     {
         return $this->query()
             ->select([
-                config('module.floors.table').'.id',
-                config('module.floors.table').'.branch_id',
-                config('module.floors.table').'.company_id',
-                config('module.floors.table').'.created_at',
-                config('module.floors.table').'.updated_at',
+                config('module.branchcompanies.table').'.id',
+                config('module.branchcompanies.table').'.created_at',
+                config('module.branchcompanies.table').'.updated_at',
             ]);
     }
 
@@ -46,41 +44,41 @@ class FloorRepository extends BaseRepository
      */
     public function create(array $input)
     {
-        if (Floor::create($input)) {
+        if (Branchcompany::create($input)) {
             return true;
         }
-        throw new GeneralException(trans('exceptions.backend.floors.create_error'));
+        throw new GeneralException(trans('exceptions.backend.branchcompanies.create_error'));
     }
 
     /**
      * For updating the respective Model in storage
      *
-     * @param Floor $floor
+     * @param Branchcompany $branchcompany
      * @param  $input
      * @throws GeneralException
      * return bool
      */
-    public function update(Floor $floor, array $input)
+    public function update(Branchcompany $branchcompany, array $input)
     {
-    	if ($floor->update($input))
+    	if ($branchcompany->update($input))
             return true;
 
-        throw new GeneralException(trans('exceptions.backend.floors.update_error'));
+        throw new GeneralException(trans('exceptions.backend.branchcompanies.update_error'));
     }
 
     /**
      * For deleting the respective model from storage
      *
-     * @param Floor $floor
+     * @param Branchcompany $branchcompany
      * @throws GeneralException
      * @return bool
      */
-    public function delete(Floor $floor)
+    public function delete(Branchcompany $branchcompany)
     {
-        if ($floor->delete()) {
+        if ($branchcompany->delete()) {
             return true;
         }
 
-        throw new GeneralException(trans('exceptions.backend.floors.delete_error'));
+        throw new GeneralException(trans('exceptions.backend.branchcompanies.delete_error'));
     }
 }

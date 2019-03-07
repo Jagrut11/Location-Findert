@@ -19,17 +19,16 @@ class CompanyTableSeeder extends Seeder
         $this->disableForeignKeys();
         $this->truncate(config('access.company_table'));
 
-        //Add the master administrator, user id of 1
+        //Add the master administrator, user id of 1 
         $company = [
             [
                 'company_name'        => 'Cygnet',
-                'updated_by'        => null,
                 'created_at'        => Carbon::now(),
                 'updated_at'        => Carbon::now(),
             ],
  ];
 
-        DB::table(config('access.company_table'))->insert($users);
+        DB::table(config('access.company_table'))->insert($company);
 
         $this->enableForeignKeys();
     }

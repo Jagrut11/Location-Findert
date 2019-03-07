@@ -66,8 +66,11 @@ class Branch extends Model
      * Constructor of Model
      * @param array $attributes
      */
+   
     public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);
+        $this->table = config('modules.branches.table');
+       // return Company::where('id',$this->company_id);
     }
 }

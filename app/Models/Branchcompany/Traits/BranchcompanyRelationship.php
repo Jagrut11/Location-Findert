@@ -1,18 +1,16 @@
 <?php
 
-namespace App\Models\Company\Traits;
+namespace App\Models\Branchcompany\Traits\Relationship;
 
 /**
- * Class CompanyRelationship
+ * Class BranchcompanyRelationship
  */
-trait CompanyRelationship
+trait BranchcompanyRelationship
 {
-             public function branches()
+    public function creator()
     {
-        //return $this->belongsTo(Branch::class,'company_id');
-        return $this->belongsTo(Branch::class ,'branchcompanies_table','company_id','branch_id');
+        return $this->belongsTo(User::class,'created_by');
     }
-
     /*
     * put you model relationships here
     * Take below example for reference
