@@ -22,6 +22,9 @@
                     <thead>
                         <tr>
                             <th>{{ trans('labels.backend.branches.table.id') }}</th>
+                            <th>{{ trans('labels.backend.branches.table.branch_id') }}</th>
+                            <th>{{ trans('labels.backend.branches.table.branch_name') }}</th>
+                            <th>{{ trans('labels.backend.branches.table.company_id') }}</th>
                             <th>{{ trans('labels.backend.branches.table.createdat') }}</th>
                             <th>{{ trans('labels.general.actions') }}</th>
                         </tr>

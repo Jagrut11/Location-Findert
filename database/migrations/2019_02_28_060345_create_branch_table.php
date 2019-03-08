@@ -15,6 +15,9 @@ class CreateBranchTable extends Migration
     {
         Schema::create('branch', function (Blueprint $table) {
             $table->increments('id');
+            $table->Integer('branch_id')->unique();
+            $table->String('branch_name');
+            $table->Integer('company_id')->foregin();
             $table->timestamps();
         });
     }

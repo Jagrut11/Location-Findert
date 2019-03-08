@@ -243,6 +243,9 @@ return [
 	"title" => "Branches",
 	"table" => [
 	"id" => "Id",
+	"branch_id" => "Branch Id",
+	"branch_name" => "Branch Name",
+	"company_id" => "Company Id",
 	"createdat" => "Created At",
 	],
 	],

@@ -98,8 +98,6 @@ class UserRepository extends BaseRepository
         $user->status = 1;
         $user->password = $provider ? null : bcrypt($data['password']);
         $user->is_term_accept = $data['is_term_accept'];
-        $user->role_id=$data['role_id'];
-
 
         // If users require approval, confirmed is false regardless of account type
         if (config('access.users.requires_approval')) {
@@ -245,9 +243,6 @@ class UserRepository extends BaseRepository
         $user = $this->find($id);
         $user->first_name = $input['first_name'];
         $user->last_name = $input['last_name'];
-        $user->designation = $input['designation'];
-        $user->contact = $input['contact'];
-        $user->department = $input['department'];
         $user->updated_by = access()->user()->id;
 
         if ($user->canChangeEmail()) {

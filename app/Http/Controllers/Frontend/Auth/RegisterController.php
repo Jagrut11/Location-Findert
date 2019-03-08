@@ -63,10 +63,7 @@ class RegisterController extends Controller
         }*/
 
         if (config('access.users.confirm_email') || config('access.users.requires_approval')) {
-
-            $user = $this->user->create($request->only('first_name', 'last_name', 'email', 'password', 'is_term_accept','designation'));
-
-            $user = $this->user->create($request->all());
+            $user = $this->user->create($request->only('first_name', 'last_name', 'email', 'password', 'is_term_accept'));
             event(new UserRegistered($user));
 
             return redirect($this->redirectPath())->withFlashSuccess(
@@ -75,7 +72,7 @@ class RegisterController extends Controller
                     trans('exceptions.frontend.auth.confirmation.created_confirm')
             );
         } else {
-            access()->login($this->user->create($request->only('first_name', 'last_name', 'email', 'password', 'is_term_accept','designation','contact','department')));
+            access()->login($this->user->create($request->only('first_name', 'last_name', 'email', 'password', 'is_term_accept')));
             event(new UserRegistered(access()->user()));
 
             return redirect($this->redirectPath());

@@ -21,6 +21,6 @@ return [
 	"table" => "faqs",
 	],
 	"branches" => [
-	"table" => "branch",
+	"table" => "branches",
 	],
 ];

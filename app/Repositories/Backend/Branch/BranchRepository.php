@@ -30,6 +30,9 @@ class BranchRepository extends BaseRepository
         return $this->query()
             ->select([
                 config('module.branches.table').'.id',
+                config('module.branches.table').'.branch_id',
+                config('module.branches.table').'.branch_name',
+                config('module.branches.table').'.company_id',
                 config('module.branches.table').'.created_at',
                 config('module.branches.table').'.updated_at',
             ]);
