@@ -30,14 +30,10 @@ class FloorRepository extends BaseRepository
         return $this->query()
             ->select([
                 config('module.floors.table').'.id',
+                config('module.floors.table').'.branch_id',
+                config('module.floors.table').'.company_id',
                 config('module.floors.table').'.created_at',
                 config('module.floors.table').'.updated_at',
-                config('module.floors.table').'.floor_id',
-                config('module.floors.table').'.floor_no',
-                config('module.floors.table').'.branch_id',
-
-
-
             ]);
     }
 

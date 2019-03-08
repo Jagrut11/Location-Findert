@@ -201,6 +201,8 @@ return [
                     'address'       => 'Company Address',
                     'contactnumber' => 'Contact Number',
                 ],
+
+               
                 'mail' => [
                     'fromname'  => 'From Name',
                     'fromemail' => 'From Email',

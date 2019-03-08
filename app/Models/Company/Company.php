@@ -24,13 +24,15 @@ class Company extends Model
      * The database table used by the model.
      * @var string
      */
-    protected $table = 'company';
+    protected $table = 'companies';
 
     /**
      * Mass Assignable fields of model
      * @var array
      */
     protected $fillable = [
+        'company_id',
+        'company_name'
 
     ];
 
@@ -66,5 +68,6 @@ class Company extends Model
     public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);
+         $this->table = config('companies.companies_table');
     }
 }

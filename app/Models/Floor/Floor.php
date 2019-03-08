@@ -31,9 +31,6 @@ class Floor extends Model
      * @var array
      */
     protected $fillable = [
-        'floor_id'
-        'floor_no'
-        'branch_id'
 
     ];
 

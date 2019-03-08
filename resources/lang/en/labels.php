@@ -236,6 +236,31 @@ return [
 	"event" => "Event Name",
 	],
 	],
+	"companies" => [
+	"create" => "Create Company",
+	"edit" => "Edit Company",
+	"management" => "Company Management",
+	"title" => "Companies",
+	"table" => [
+	"id" => "Id",
+	"company_id" => "Company Id",
+	"company_name" => "Company Name",
+	"createdat" => "Created At",
+	],
+	],
+	"branches" => [
+	"create" => "Create Branch",
+	"edit" => "Edit Branch",
+	"management" => "Branch Management",
+	"title" => "Branches",
+	"table" => [
+	"id" => "Id",
+	"branch_id" => "Branch Id",
+	"branch_name" => "Branch Name",
+	"company_name" => "Company Name",
+	"createdat" => "Created At",
+	],
+	],
 	"floors" => [
 	"create" => "Create Floor",
 	"edit" => "Edit Floor",
@@ -244,9 +269,16 @@ return [
 	"table" => [
 	"id" => "Id",
 	"createdat" => "Created At",
-	"floor_id"  => "Floor Id",
-	"floor_no"  => "Floor No",
-	"branch_id" => "Branch Id"
+	],
+	],
+	"branchcompanies" => [
+	"create" => "Create Branchcompany",
+	"edit" => "Edit Branchcompany",
+	"management" => "Branchcompany Management",
+	"title" => "Branchcompanies",
+	"table" => [
+	"id" => "Id",
+	"createdat" => "Created At",
 	],
 	],
 	],
