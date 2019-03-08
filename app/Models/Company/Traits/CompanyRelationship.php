@@ -7,10 +7,12 @@ namespace App\Models\Company\Traits;
  */
 trait CompanyRelationship
 {
+    
              public function branches()
     {
         //return $this->belongsTo(Branch::class,'company_id');
-        return $this->belongsTo(Branch::class ,'branchcompanies_table','company_id','branch_id');
+        //return $this->belongsTo(Branch::class ,'branches_table','company_id');
+        return $this->belongsTo(config('access.branch'), config('access.branches_table'),'company_id');
     }
 
     /*

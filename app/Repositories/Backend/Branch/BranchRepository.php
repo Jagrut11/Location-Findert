@@ -37,7 +37,7 @@ class BranchRepository extends BaseRepository
     {
         $this->model = $model;
         $this->company = $company;
-        }
+    }
 
     /**
      * @param int  $status
@@ -56,6 +56,7 @@ class BranchRepository extends BaseRepository
                 config('module.branches.table').'.company_id',
                 config('module.branches.table').'.created_at',
                 config('module.branches.table').'.updated_at',
+                    //DB::raw('GROUP_CONCAT(companies.company_name) as companies'),
             ]);
     }
 
@@ -69,8 +70,10 @@ class BranchRepository extends BaseRepository
     public function create(array $input)
     {
         if (Branch::create($input)) {
-            $company = $request->get('company_name');
-            return true;
+           // $company = $request->get('company_name');
+           //  $company = Branch::with('companies')->get();
+           // return($company->company_name);
+           return true;
         }
         throw new GeneralException(trans('exceptions.backend.branches.create_error'));
     }
@@ -107,3 +110,4 @@ class BranchRepository extends BaseRepository
         throw new GeneralException(trans('exceptions.backend.branches.delete_error'));
     }
 }
+

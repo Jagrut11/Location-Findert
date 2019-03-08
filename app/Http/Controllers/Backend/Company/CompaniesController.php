@@ -26,7 +26,7 @@ class CompaniesController extends Controller
      * variable to store the repository object
      * @var CompanyRepository
      */
-    protected $repository;
+    protected $company;
 
     /**
      * contructor to initialize repository object
@@ -56,7 +56,7 @@ class CompaniesController extends Controller
     public function create(CreateCompanyRequest $request)
     {
 
-        return new CreateResponse($company);
+        return new CreateResponse('backend.companies.create');
     }
 
         // return new CreateResponse('backend.companies.create');
@@ -112,7 +112,7 @@ class CompaniesController extends Controller
     public function destroy(Company $company, DeleteCompanyRequest $request)
     {
         //Calling the delete method on repository
-        $this->repository->delete($company);
+        $this->company->delete($company);
         //returning with successfull message
         return new RedirectResponse(route('admin.companies.index'), ['flash_success' => trans('alerts.backend.companies.deleted')]);
     }

@@ -36,7 +36,11 @@ class CompanyRepository extends BaseRepository
     /**
      * @param RoleRepository $role
      */
-
+    // public function __construct(Company $model, BranchRepository $branch)
+    // {
+    //     $this->model = $model;
+    //     $this->branch = $branch;
+    // }
     public function getForDataTable()
     {
         return $this->query()

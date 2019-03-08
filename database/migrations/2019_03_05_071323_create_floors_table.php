@@ -18,6 +18,7 @@ class CreateFloorsTable extends Migration
             $table->Integer('floor_no');
             $table->integer('branch_id')->unsigned()->index('floors_branch_id_foreign');
             $table->integer('company_id')->unsigned()->index('floors_company_id_foreign');
+            $table->string('status');
             $table->timestamps();
         });
     }

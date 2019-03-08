@@ -17,6 +17,7 @@ class CreateBranchesTable extends Migration
             $table->increments('id');
             $table->string('branch_name');
              $table->integer('company_id')->unsigned()->index('branches_company_id_foreign');
+             $table->string('status');
             $table->timestamps();
         });
     }
