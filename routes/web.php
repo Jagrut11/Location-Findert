@@ -32,7 +32,7 @@ Route::get('/fixappointment', function () {
     return view('frontend.fixappointment');
 });
 
-
+//Route::get('/create', 'BranchesController@create');
 
 /* ----------------------------------------------------------------------- */
 

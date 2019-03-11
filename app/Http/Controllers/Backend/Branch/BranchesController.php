@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Backend\Branch;
-use DB;
+
 use App\Models\Branch\Branch;
 use App\Models\Company\Company;
 use Illuminate\Http\Request;
@@ -28,7 +28,8 @@ class BranchesController extends Controller
      * variable to store the repository object
      * @var BranchRepository
      */
-    protected $company;
+    protected $repository;
+    protected $branch;
 
     /**
      * contructor to initialize repository object
@@ -48,14 +49,7 @@ class BranchesController extends Controller
      */
     public function index(ManageBranchRequest $request)
     {
-        //$company= DB::table('companies')-> select('company_name')-> get();
-
-        // $request = DB::table('companies')-> select('company_name')-> get();
-        // dd($request);
         return view('backend.branches.index');
-        //->with('companies', $company)
-        //return new ViewResponse('backend.branches.index');
-        //return($companies);
     }
     /**
      * Show the form for creating a new resource.
@@ -64,9 +58,10 @@ class BranchesController extends Controller
      * @return \App\Http\Responses\Backend\Branch\CreateResponse
      */
     public function create(CreateBranchRequest $request)
-    {
-        
-        //$company = $this->company->getAll();
+    {    
+         $branch = $this->branch->getAll();
+         //dd($branch);
+         //$roles = $this->roles->getAll();
         return new CreateResponse('backend.branches.create');
     }
     /**

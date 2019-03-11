@@ -21,19 +21,7 @@ class BranchRepository extends BaseRepository
      */
     const MODEL = Branch::class;
 
-    /**
-     * @var User Model
-     */
-    protected $model;
-
-    /**
-     * @var RoleRepository
-     */
-    protected $company;
-
-    /**
-     * @param RoleRepository $role
-     */
+    
     public function __construct(Branch $model, CompanyRepository $company)
     {
         $this->model = $model;
@@ -50,15 +38,15 @@ class BranchRepository extends BaseRepository
     {
         return $this->query()
             ->leftjoin('companies','companies.id','=','branches.company_id')
-           // ->leftJoin('role_user', 'role_user.user_id', '=', 'users.id')
             ->select([
                 config('module.branches.table').'.id',
                 config('module.branches.table').'.branch_name',
-                config('module.branches.table').'.company_id',
+                //config('module.branches.table').'.company_id',
                 config('module.branches.table').'.created_at',
                 config('module.branches.table').'.updated_at',
-                //DB::raw('GROUP_CONCAT(companies.company_name) as companies'),
-            ]);
+                DB::raw('GROUP_CONCAT(companies.company_name) as companies'),
+            ])
+            ->groupBy('branches.id');
     }
 
     /**
@@ -70,10 +58,9 @@ class BranchRepository extends BaseRepository
      */
     public function create(array $input)
     {
+        //dd($input);
         if (Branch::create($input)) {
-           // $company = $request->get('company_name');
-           //  $company = Branch::with('companies')->get();
-           // return($company->company_name);
+        //$company = $request->get('assign_company');     
            return true;
         }
         throw new GeneralException(trans('exceptions.backend.branches.create_error'));

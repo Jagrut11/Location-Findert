@@ -31,7 +31,7 @@ class Company extends Model
      * @var array
      */
     protected $fillable = [
-        'company_id',
+        'id',
         'company_name'
 
     ];
@@ -68,6 +68,6 @@ class Company extends Model
     public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);
-         $this->table = config('companies.companies_table');
+         $this->table = config('modules.companies.table');
     }
 }
