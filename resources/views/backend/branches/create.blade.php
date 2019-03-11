@@ -22,6 +22,7 @@
             </div><!--box-header with-border-->
 
             <div class="box-body">
+
                  {{-- Branch Id --}}
                 <div class="form-group">
                     {{ Form::label('name', 'Branch Id', ['class' => 'col-lg-2 control-label required']) }}
@@ -44,8 +45,16 @@
                 <div class="form-group">
                     {{ Form::label('name', 'Company Id', ['class' => 'col-lg-2 control-label required']) }}
 
-                    <div class="col-lg-10">
-                        {{ Form::text('id', null, ['class' => 'form-control box-size', 'placeholder' => 'Enter Branch Name', 'required' => 'required']) }}
+                    <div class="control--radio">
+                        <select >
+                            <?php
+                            $company = DB::table('companies')->get();
+                            ?>
+                        <input type="radio" name="select company" value="Company">ehgurg<br>
+                        <input type="radio" name="select company" value="Company">ehgurtr
+                        </select>
+
+
                     </div><!--col-lg-10-->
                 </div><!--form control-->
                     </div><!--col-lg-3-->

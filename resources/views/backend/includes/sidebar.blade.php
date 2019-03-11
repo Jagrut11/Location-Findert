@@ -129,6 +129,7 @@
                 <ul class="treeview-menu {{ active_class(Active::checkUriPattern('admin/log-viewer*'), 'menu-open') }}" style="display: none; {{ active_class(Active::checkUriPattern('admin/log-viewer*'), 'display: block;') }}">
                     <li class="{{ active_class(Active::checkUriPattern('admin/log-viewer')) }}">
                         <a href="{{ route('log-viewer::dashboard') }}">
+                            
                             <span>{{ trans('menus.backend.log-viewer.dashboard') }}</span>
                         </a>
                     </li>

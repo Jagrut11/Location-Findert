@@ -110,4 +110,3 @@ class BranchRepository extends BaseRepository
         throw new GeneralException(trans('exceptions.backend.branches.delete_error'));
     }
 }
-

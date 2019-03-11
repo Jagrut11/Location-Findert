@@ -1,7 +1,6 @@
 <?php
-
+    
 namespace App\Http\Controllers\Backend\Branch;
-use DB;
 use App\Models\Branch\Branch;
 use App\Models\Company\Company;
 use Illuminate\Http\Request;
