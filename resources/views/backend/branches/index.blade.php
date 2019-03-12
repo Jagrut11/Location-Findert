@@ -59,7 +59,8 @@
                 columns: [
                     {data: 'id', name: '{{config('module.branches.table')}}.id'},
                     {data: 'branch_name', name: '{{config('module.branches.table')}}.branch_name'},
-                    {data: 'company_id', name: '{{config('module.branches.table')}}.company_id'},
+                    {data: 'companies', name: '{{config('module.companies.table')}}.company_name', sortable: false},
+                            //{data: 'company_id', name: '{{config('module.branches.table')}}.company_id'},
                     {data: 'created_at', name: '{{config('module.branches.table')}}.created_at'},
                     {data: 'actions', name: 'actions', searchable: false, sortable: false}
                 ],
@@ -81,3 +82,5 @@
         });
     </script>
 @endsection
+
+

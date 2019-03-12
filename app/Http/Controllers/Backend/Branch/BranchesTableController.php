@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Http\Controllers\Controller;
 use Yajra\DataTables\Facades\DataTables;
 use App\Repositories\Backend\Branch\BranchRepository;
+use App\Repositories\Backend\Company\CompanyRepository;
 use App\Http\Requests\Backend\Branch\ManageBranchRequest;
 
 /**
@@ -26,6 +27,7 @@ class BranchesTableController extends Controller
     public function __construct(BranchRepository $branch)
     {
         $this->branch = $branch;
+        //$this->company= $company;
     }
 
     /**
@@ -40,6 +42,9 @@ class BranchesTableController extends Controller
             ->escapeColumns(['id'])
             ->addColumn('created_at', function ($branch) {
                 return Carbon::parse($branch->created_at)->toDateString();
+            })
+            ->addColumn('company_id', function ($branch) {
+                return $branch->company_id;
             })
             ->addColumn('actions', function ($branch) {
                 return $branch->action_buttons;

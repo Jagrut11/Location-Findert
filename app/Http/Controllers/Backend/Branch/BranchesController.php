@@ -1,6 +1,7 @@
 <?php
     
 namespace App\Http\Controllers\Backend\Branch;
+use DB;
 use App\Models\Branch\Branch;
 use App\Models\Company\Company;
 use Illuminate\Http\Request;
@@ -36,7 +37,7 @@ class BranchesController extends Controller
     public function __construct(BranchRepository $branch , CompanyRepository $company)
     {
         $this->company = $company;
-        $this->branch=$branch;
+        $this->branch = $branch;
     }
 
     /**

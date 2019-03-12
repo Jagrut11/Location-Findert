@@ -10,7 +10,7 @@
 @endsection
 
 @section('content')
-    {{ Form::open(['route' => 'admin.branches.store', 'class' => 'form-horizontal', 'role' => 'form', 'method' => 'post', 'id' => 'create-branch']) }}
+    {{ Form::open(['route' => 'admin.branches.store', 'class' => 'form-horizontal', 'role' => 'form', 'method' => 'post', 'id' => 'create-branche']) }}
 
         <div class="box box-info">
             <div class="box-header with-border">
@@ -23,6 +23,7 @@
 
             <div class="box-body">
 
+
                  {{-- Branch Id --}}
                 <div class="form-group">
                     {{ Form::label('name', 'Branch Id', ['class' => 'col-lg-2 control-label required']) }}
@@ -33,6 +34,9 @@
                 </div><!--form control-->
                 
                  {{-- Branch Name --}}
+
+                {{-- Branch Name --}}
+
                 <div class="form-group">
                     {{ Form::label('name', 'Branch Name', ['class' => 'col-lg-2 control-label required']) }}
 
@@ -41,31 +45,23 @@
                     </div><!--col-lg-10-->
                 </div><!--form control-->
 
-                {{-- Company Id --}}
+                 {{-- Company Name --}}
                 <div class="form-group">
-                    {{ Form::label('name', 'Company Id', ['class' => 'col-lg-2 control-label required']) }}
-
-                    <div class="control--radio">
-                        <select >
-                            <?php
-                            $company = DB::table('companies')->get();
-                            ?>
-                        <input type="radio" name="select company" value="Company">ehgurg<br>
-                        <input type="radio" name="select company" value="Company">ehgurtr
-                        </select>
+                    {{ Form::label('name', 'Company Name', ['class' => 'col-lg-2 control-label required']) }}
+                 
 
 
+
+                    <div class="col-lg-10">
+                        {{ Form::text('company_id', null, ['class' => 'form-control box-size', 'placeholder' => 'Enter Branch Name', 'required' => 'required']) }}
                     </div><!--col-lg-10-->
                 </div><!--form control-->
-                    </div><!--col-lg-3-->
-                </div><!--form control-->
 
-
-                <div class="form-group">
+                               <div class="form-group">
                     {{-- Including Form blade file --}}
-                    @include("backend.branches.form")
+                    @include("backend.companies.form")
                     <div class="edit-form-btn">
-                        {{ link_to_route('admin.branches.index', trans('buttons.general.cancel'), [], ['class' => 'btn btn-danger btn-md']) }}
+                        {{ link_to_route('admin.companies.index', trans('buttons.general.cancel'), [], ['class' => 'btn btn-danger btn-md']) }}
                         {{ Form::submit(trans('buttons.general.crud.create'), ['class' => 'btn btn-primary btn-md']) }}
                         <div class="clearfix"></div>
                     </div><!--edit-form-btn-->

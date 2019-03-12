@@ -31,6 +31,7 @@ class Floor extends Model
      * @var array
      */
     protected $fillable = [
+        
 
     ];
 

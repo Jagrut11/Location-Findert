@@ -10,7 +10,7 @@
 @endsection
 
 @section('content')
-    {{ Form::model($floor, ['route' => ['admin.floors.update', $floor], 'class' => 'form-horizontal', 'role' => 'form', 'method' => 'PATCH', 'id' => 'edit-floor']) }}
+    {{ Form::model($floors, ['route' => ['admin.floors.update', $floors], 'class' => 'form-horizontal', 'role' => 'form', 'method' => 'PATCH', 'id' => 'edit-floor']) }}
 
         <div class="box box-info">
             <div class="box-header with-border">
@@ -20,6 +20,15 @@
                     @include('backend.floors.partials.floors-header-buttons')
                 </div><!--box-tools pull-right-->
             </div><!--box-header with-border-->
+                        <div class="box-body">
+                {{-- Branch Name --}}
+                <div class="form-group">
+                    {{ Form::label('name','floor_no', ['class' => 'col-lg-2 control-label required']) }}
+
+                    <div class="col-lg-10">
+                        {{ Form::text('floor_no', null, ['class' => 'form-control box-size', 'placeholder' => trans('validation.attributes.backend.access.users.firstName'), 'required' => 'required']) }}
+                    </div><!--col-lg-10-->
+                </div><!--form control-->
 
             <div class="box-body">
                 <div class="form-group">

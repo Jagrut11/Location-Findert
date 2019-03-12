@@ -9,10 +9,18 @@ trait BranchRelationship
 {
             public function companies()
     {
-        //return $this->belongsTo(Branch::class,'company_id');
-        //return $this->belongsTo(Company::class ,'companies_table','id');
-        return $this->belongsTo(config('access.company'), config('access.companies_table'), 'id');
+        
+         return $this->hasOne(Company::class, 'id', 'company_id');
     }
+     public function floors()
+     {
+        //return $this->belongsTo(Branch::class,'company_id');
+        //return $this->belongsTo(Branch::class ,'branches_table','company_id');
+        return $this->belongsToMany(config('access.floor'), config('access.floors_table'),'id','branch_name');
+    }
+    
+   
+
     /*
     * put you model relationships here
     * Take below example for reference

@@ -22,6 +22,8 @@
                     <thead>
                         <tr>
                             <th>{{ trans('labels.backend.floors.table.id') }}</th>
+                            <th>{{ trans('labels.backend.floors.table.floor_no') }}</th>
+                            <th>{{ trans('labels.backend.branches.table.branch_name') }}</th>
                             <th>{{ trans('labels.backend.floors.table.createdat') }}</th>
                             <th>{{ trans('labels.general.actions') }}</th>
                         </tr>
@@ -55,6 +57,8 @@
                 },
                 columns: [
                     {data: 'id', name: '{{config('module.floors.table')}}.id'},
+                    {data: 'floor_no', name: '{{config('module.floors.table')}}.floor_no'},
+                    {data: 'branches', name: '{{config('module.branches.table')}}.branch_name'},
                     {data: 'created_at', name: '{{config('module.floors.table')}}.created_at'},
                     {data: 'actions', name: 'actions', searchable: false, sortable: false}
                 ],

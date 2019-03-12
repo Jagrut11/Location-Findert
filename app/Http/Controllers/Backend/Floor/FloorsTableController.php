@@ -41,6 +41,9 @@ class FloorsTableController extends Controller
             ->addColumn('created_at', function ($floor) {
                 return Carbon::parse($floor->created_at)->toDateString();
             })
+            ->addColumn('branch_id', function ($floor) {
+                return $floor->branch_id;
+            })
             ->addColumn('actions', function ($floor) {
                 return $floor->action_buttons;
             })

@@ -7,6 +7,11 @@ namespace App\Models\Floor\Traits;
  */
 trait FloorRelationship
 {
+      public function branches()
+    {
+        
+         return $this->hasOne(Branch::class, 'id', 'branch_id');
+    }
     /*
     * put you model relationships here
     * Take below example for reference
