@@ -22,6 +22,36 @@
             </div><!--box-header with-border-->
 
             <div class="box-body">
+                 {{-- Branch Id --}}
+                <div class="form-group">
+                    {{ Form::label('name', 'Branch Id', ['class' => 'col-lg-2 control-label required']) }}
+
+                    <div class="col-lg-10">
+                        {{ Form::text('id', null, ['class' => 'form-control box-size', 'placeholder' => 'Enter Branch Id', 'required' => 'required']) }}  
+                    </div><!--col-lg-10-->
+                </div><!--form control-->
+                
+                 {{-- Branch Name --}}
+                <div class="form-group">
+                    {{ Form::label('name', 'Branch Name', ['class' => 'col-lg-2 control-label required']) }}
+
+                    <div class="col-lg-10">
+                        {{ Form::text('branch_name', null, ['class' => 'form-control box-size', 'placeholder' => 'Enter Branch Name', 'required' => 'required']) }}
+                    </div><!--col-lg-10-->
+                </div><!--form control-->
+
+                {{-- Company Id --}}
+                <div class="form-group">
+                    {{ Form::label('name', 'Company Id', ['class' => 'col-lg-2 control-label required']) }}
+
+                    <div class="col-lg-10">
+                        {{ Form::text('id', null, ['class' => 'form-control box-size', 'placeholder' => 'Enter Branch Name', 'required' => 'required']) }}
+                    </div><!--col-lg-10-->
+                </div><!--form control-->
+                    </div><!--col-lg-3-->
+                </div><!--form control-->
+
+
                 <div class="form-group">
                     {{-- Including Form blade file --}}
                     @include("backend.branches.form")

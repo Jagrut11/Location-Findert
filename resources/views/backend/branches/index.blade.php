@@ -22,18 +22,22 @@
                     <thead>
                         <tr>
                             <th>{{ trans('labels.backend.branches.table.id') }}</th>
-                            <th>{{ trans('labels.backend.branches.table.branch_id') }}</th>
                             <th>{{ trans('labels.backend.branches.table.branch_name') }}</th>
-                            <th>{{ trans('labels.backend.branches.table.company_id') }}</th>
+                            <th>{{ trans('labels.backend.companies.table.company_name') }}</th>
                             <th>{{ trans('labels.backend.branches.table.createdat') }}</th>
+                            
                             <th>{{ trans('labels.general.actions') }}</th>
                         </tr>
                     </thead>
                     <thead class="transparent-bg">
                         <tr>
+<<<<<<< HEAD
                             <th></th>
                             <th></th>
                             <th></th>
+=======
+                                
+>>>>>>> 7a378018ca8c7765577c918c787edfd52f1692ea
                         </tr>
                     </thead>
                 </table>
@@ -55,9 +59,19 @@
                 ajax: {
                     url: '{{ route("admin.branches.get") }}',
                     type: 'post'
+<<<<<<< HEAD
                 },
                 columns: [
                     {data: 'id', name: '{{config('module.branches.table')}}.id'},
+=======
+
+                },
+                
+                columns: [
+                    {data: 'id', name: '{{config('module.branches.table')}}.id'},
+                    {data: 'branch_name', name: '{{config('module.branches.table')}}.branch_name'},
+                    {data: 'company_id', name: '{{config('module.branches.table')}}.company_id'},
+>>>>>>> 7a378018ca8c7765577c918c787edfd52f1692ea
                     {data: 'created_at', name: '{{config('module.branches.table')}}.created_at'},
                     {data: 'actions', name: 'actions', searchable: false, sortable: false}
                 ],

@@ -27,6 +27,7 @@
                     @include("backend.blogcategories.form")
                     <div class="edit-form-btn">
                     {{ link_to_route('admin.blogCategories.index', trans('buttons.general.cancel'), [], ['class' => 'btn btn-danger btn-md']) }}
+
                     {{ Form::submit(trans('buttons.general.crud.update'), ['class' => 'btn btn-primary btn-md']) }}
                     <div class="clearfix"></div>
                 </div>

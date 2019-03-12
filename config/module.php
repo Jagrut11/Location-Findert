@@ -20,7 +20,16 @@ return [
 	"faqs" => [
 	"table" => "faqs",
 	],
+	"companies" => [
+	"table" => "companies",
+	],
 	"branches" => [
 	"table" => "branches",
+	],
+	"floors" => [
+	"table" => "floors",
+	],
+	"branchcompanies" => [
+	"table" => "branchcompanies",
 	],
 ];

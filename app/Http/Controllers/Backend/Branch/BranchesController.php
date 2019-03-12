@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers\Backend\Branch;
-
+use DB;
 use App\Models\Branch\Branch;
+use App\Models\Company\Company;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Responses\RedirectResponse;
@@ -10,6 +11,7 @@ use App\Http\Responses\ViewResponse;
 use App\Http\Responses\Backend\Branch\CreateResponse;
 use App\Http\Responses\Backend\Branch\EditResponse;
 use App\Repositories\Backend\Branch\BranchRepository;
+use App\Repositories\Backend\Company\CompanyRepository;
 use App\Http\Requests\Backend\Branch\ManageBranchRequest;
 use App\Http\Requests\Backend\Branch\CreateBranchRequest;
 use App\Http\Requests\Backend\Branch\StoreBranchRequest;
@@ -26,26 +28,34 @@ class BranchesController extends Controller
      * variable to store the repository object
      * @var BranchRepository
      */
-    protected $repository;
+    protected $company;
 
     /**
      * contructor to initialize repository object
      * @param BranchRepository $repository;
      */
-    public function __construct(BranchRepository $repository)
+    public function __construct(BranchRepository $branch , CompanyRepository $company)
     {
-        $this->repository = $repository;
+        $this->company = $company;
+        $this->branch=$branch;
     }
 
     /**
      * Display a listing of the resource.
      *
      * @param  App\Http\Requests\Backend\Branch\ManageBranchRequest  $request
-     * @return \App\Http\Responses\ViewResponse
+     * @return \App\Http\Responses\ViewResponse0
      */
     public function index(ManageBranchRequest $request)
     {
-        return new ViewResponse('backend.branches.index');
+        //$company= DB::table('companies')-> select('company_name')-> get();
+
+        // $request = DB::table('companies')-> select('company_name')-> get();
+        // dd($request);
+        return view('backend.branches.index');
+        //->with('companies', $company)
+        //return new ViewResponse('backend.branches.index');
+        //return($companies);
     }
     /**
      * Show the form for creating a new resource.
@@ -55,6 +65,8 @@ class BranchesController extends Controller
      */
     public function create(CreateBranchRequest $request)
     {
+        
+        //$company = $this->company->getAll();
         return new CreateResponse('backend.branches.create');
     }
     /**
@@ -68,7 +80,7 @@ class BranchesController extends Controller
         //Input received from the request
         $input = $request->except(['_token']);
         //Create the model using repository create method
-        $this->repository->create($input);
+        $this->branch->create($input);
         //return with successfull message
         return new RedirectResponse(route('admin.branches.index'), ['flash_success' => trans('alerts.backend.branches.created')]);
     }
@@ -81,7 +93,9 @@ class BranchesController extends Controller
      */
     public function edit(Branch $branch, EditBranchRequest $request)
     {
-        return new EditResponse($branch);
+        // $branch = $this->branch->getAll();
+        // $company = Company::getSelectData('company_name');
+         return new EditResponse($branch);
     }
     /**
      * Update the specified resource in storage.
@@ -95,7 +109,7 @@ class BranchesController extends Controller
         //Input received from the request
         $input = $request->except(['_token']);
         //Update the model using repository update method
-        $this->repository->update( $branch, $input );
+        $this->branch->update( $branch, $input );
         //return with successfull message
         return new RedirectResponse(route('admin.branches.index'), ['flash_success' => trans('alerts.backend.branches.updated')]);
     }
@@ -109,7 +123,7 @@ class BranchesController extends Controller
     public function destroy(Branch $branch, DeleteBranchRequest $request)
     {
         //Calling the delete method on repository
-        $this->repository->delete($branch);
+        $this->branch->delete($branch);
         //returning with successfull message
         return new RedirectResponse(route('admin.branches.index'), ['flash_success' => trans('alerts.backend.branches.deleted')]);
     }

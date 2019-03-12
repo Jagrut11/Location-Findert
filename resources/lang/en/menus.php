@@ -108,12 +108,33 @@ return [
 	"management" => "Module Management",
 	"main" => "Module Pages",
 	],
+	"companies" => [
+	"all" => "All Companies",
+	"create" => "Create Company",
+	"edit" => "Edit Company",
+	"management" => "Company Management",
+	"main" => "Companies",
+	],
 	"branches" => [
 	"all" => "All Branches",
 	"create" => "Create Branch",
 	"edit" => "Edit Branch",
 	"management" => "Branch Management",
 	"main" => "Branches",
+	],
+	"floors" => [
+	"all" => "All Floors",
+	"create" => "Create Floor",
+	"edit" => "Edit Floor",
+	"management" => "Floor Management",
+	"main" => "Floors",
+	],
+	"branchcompanies" => [
+	"all" => "All Branchcompanies",
+	"create" => "Create Branchcompany",
+	"edit" => "Edit Branchcompany",
+	"management" => "Branchcompany Management",
+	"main" => "Branchcompanies",
 	],
 	],
 	"language-picker" => [

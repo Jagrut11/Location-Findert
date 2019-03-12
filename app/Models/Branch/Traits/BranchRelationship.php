@@ -7,6 +7,12 @@ namespace App\Models\Branch\Traits;
  */
 trait BranchRelationship
 {
+            public function companies()
+    {
+        //return $this->belongsTo(Branch::class,'company_id');
+        //return $this->belongsTo(Company::class ,'companies_table','id');
+        return $this->belongsTo(config('access.company'), config('access.companies_table'), 'id');
+    }
     /*
     * put you model relationships here
     * Take below example for reference
