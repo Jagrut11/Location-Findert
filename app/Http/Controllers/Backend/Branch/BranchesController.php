@@ -1,5 +1,5 @@
 <?php
-
+    
 namespace App\Http\Controllers\Backend\Branch;
 use DB;
 use App\Models\Branch\Branch;
@@ -37,7 +37,7 @@ class BranchesController extends Controller
     public function __construct(BranchRepository $branch , CompanyRepository $company)
     {
         $this->company = $company;
-        $this->branch=$branch;
+        $this->branch = $branch;
     }
 
     /**
@@ -65,9 +65,8 @@ class BranchesController extends Controller
      */
     public function create(CreateBranchRequest $request)
     {
-        
-        //$company = $this->company->getAll();
-        return new CreateResponse('backend.branches.create');
+        $data['data'] = DB::table('companies')->get();
+        return view('backend.branches.create',$data);
     }
     /**
      * Store a newly created resource in storage.

@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Models\Company;
+namespace App\Models\Appointment;
 
 use App\Models\ModelTrait;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Company\Traits\CompanyAttribute;
-use App\Models\Company\Traits\CompanyRelationship;
+use App\Models\Appointment\Traits\AppointmentAttribute;
+use App\Models\Appointment\Traits\AppointmentRelationship;
 
-class Company extends Model
+class Appointment extends Model
 {
     use ModelTrait,
-        CompanyAttribute,
-    	CompanyRelationship {
-            // CompanyAttribute::getEditButtonAttribute insteadof ModelTrait;
+        AppointmentAttribute,
+    	AppointmentRelationship {
+            // AppointmentAttribute::getEditButtonAttribute insteadof ModelTrait;
         }
 
     /**
@@ -24,15 +24,13 @@ class Company extends Model
      * The database table used by the model.
      * @var string
      */
-    protected $table = 'companies';
+    protected $table = 'appointment';
 
     /**
      * Mass Assignable fields of model
      * @var array
      */
     protected $fillable = [
-        'id',
-        'company_name'
 
     ];
 
@@ -68,6 +66,5 @@ class Company extends Model
     public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);
-         $this->table = config('modules.companies.table');
     }
 }

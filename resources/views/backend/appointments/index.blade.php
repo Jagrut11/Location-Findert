@@ -1,37 +1,36 @@
 @extends ('backend.layouts.app')
 
-@section ('title', trans('labels.backend.branches.management'))
+@section ('title', trans('labels.backend.appointments.management'))
 
 @section('page-header')
-    <h1>{{ trans('labels.backend.branches.management') }}</h1>
+    <h1>{{ trans('labels.backend.appointments.management') }}</h1>
 @endsection
 
 @section('content')
     <div class="box box-info">
         <div class="box-header with-border">
-            <h3 class="box-title">{{ trans('labels.backend.branches.management') }}</h3>
+            <h3 class="box-title">{{ trans('labels.backend.appointments.management') }}</h3>
 
             <div class="box-tools pull-right">
-                @include('backend.branches.partials.branches-header-buttons')
+                @include('backend.appointments.partials.appointments-header-buttons')
             </div>
         </div><!--box-header with-border-->
 
         <div class="box-body">
             <div class="table-responsive data-table-wrapper">
-                <table id="branches-table" class="table table-condensed table-hover table-bordered">
+                <table id="appointments-table" class="table table-condensed table-hover table-bordered">
                     <thead>
                         <tr>
-                            <th>{{ trans('labels.backend.branches.table.id') }}</th>
-                            <th>{{ trans('labels.backend.branches.table.branch_name') }}</th>
-                            <th>{{ trans('labels.backend.companies.table.company_name') }}</th>
-                            <th>{{ trans('labels.backend.branches.table.createdat') }}</th>
-                            
+                            <th>{{ trans('labels.backend.appointments.table.id') }}</th>
+                            <th>{{ trans('labels.backend.appointments.table.createdat') }}</th>
                             <th>{{ trans('labels.general.actions') }}</th>
                         </tr>
                     </thead>
                     <thead class="transparent-bg">
                         <tr>
-                                
+                            <th></th>
+                            <th></th>
+                            <th></th>
                         </tr>
                     </thead>
                 </table>
@@ -47,21 +46,16 @@
     <script>
         //Below written line is short form of writing $(document).ready(function() { })
         $(function() {
-            var dataTable = $('#branches-table').dataTable({
+            var dataTable = $('#appointments-table').dataTable({
                 processing: true,
                 serverSide: true,
                 ajax: {
-                    url: '{{ route("admin.branches.get") }}',
+                    url: '{{ route("admin.appointments.get") }}',
                     type: 'post'
-
                 },
-                
                 columns: [
-                    {data: 'id', name: '{{config('module.branches.table')}}.id'},
-                    {data: 'branch_name', name: '{{config('module.branches.table')}}.branch_name'},
-                    {data: 'companies', name: '{{config('module.companies.table')}}.company_name', sortable: false},
-                            //{data: 'company_id', name: '{{config('module.branches.table')}}.company_id'},
-                    {data: 'created_at', name: '{{config('module.branches.table')}}.created_at'},
+                    {data: 'id', name: '{{config('module.appointments.table')}}.id'},
+                    {data: 'created_at', name: '{{config('module.appointments.table')}}.created_at'},
                     {data: 'actions', name: 'actions', searchable: false, sortable: false}
                 ],
                 order: [[0, "asc"]],
@@ -82,5 +76,3 @@
         });
     </script>
 @endsection
-
-

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFloorsTable extends Migration
+class CreateAppointmentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class CreateFloorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('floors', function (Blueprint $table) {
+        Schema::create('appointments', function (Blueprint $table) {
             $table->increments('id');
-            $table->Integer('floor_no');
-            $table->integer('branch_id')->unsigned()->index('floors_branch_id_foreign');
-            $table->integer('company_id')->unsigned()->index('floors_company_id_foreign');
-            $table->string('status');
             $table->timestamps();
         });
     }
@@ -30,6 +26,6 @@ class CreateFloorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('floors');
+        Schema::dropIfExists('appointments');
     }
 }

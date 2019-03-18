@@ -269,6 +269,7 @@ return [
 	"table" => [
 	"id" => "Id",
 	"createdat" => "Created At",
+	"floor_no" => "Floor Number",
 	],
 	],
 	"branchcompanies" => [
@@ -276,6 +277,16 @@ return [
 	"edit" => "Edit Branchcompany",
 	"management" => "Branchcompany Management",
 	"title" => "Branchcompanies",
+	"table" => [
+	"id" => "Id",
+	"createdat" => "Created At",
+	],
+	],
+	"appointments" => [
+	"create" => "Create Appointment",
+	"edit" => "Edit Appointment",
+	"management" => "Appointment Management",
+	"title" => "Appointments",
 	"table" => [
 	"id" => "Id",
 	"createdat" => "Created At",

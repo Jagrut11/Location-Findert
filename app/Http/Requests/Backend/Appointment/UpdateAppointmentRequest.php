@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Backend\Branch;
+namespace App\Http\Requests\Backend\Appointment;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateBranchRequest extends FormRequest
+class UpdateAppointmentRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class UpdateBranchRequest extends FormRequest
      */
     public function authorize()
     {
-        return access()->allow('update-branch');
+        return access()->allow('update-appointment');
     }
 
     /**
@@ -24,8 +24,6 @@ class UpdateBranchRequest extends FormRequest
     public function rules()
     {
         return [
-            'branch_name' => 'required',
-            'company_id'  =>  'required',
             //Put your rules for the request in here
             //For Example : 'title' => 'required'
             //Further, see the documentation : https://laravel.com/docs/5.4/validation#creating-form-requests
@@ -35,7 +33,6 @@ class UpdateBranchRequest extends FormRequest
     public function messages()
     {
         return [
-             'assign_company' => 'Please Select Company',
             //The Custom messages would go in here
             //For Example : 'title.required' => 'You need to fill in the title field.'
             //Further, see the documentation : https://laravel.com/docs/5.4/validation#customizing-the-error-messages

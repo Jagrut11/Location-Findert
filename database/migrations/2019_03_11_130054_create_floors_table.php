@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBranchTable extends Migration
+class CreateFloorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateBranchTable extends Migration
      */
     public function up()
     {
-        Schema::create('branch', function (Blueprint $table) {
+        Schema::create('floors', function (Blueprint $table) {
             $table->increments('id');
-            $table->Integer('branch_id')->unique();
-            $table->String('branch_name');
-            $table->Integer('company_id')->foregin();
+            $table->Integer('floor_no');
+            $table->integer('branch_id')->unsigned()->index('floors_branch_id_foreign');
+            $table->boolean('status');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateBranchTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('branch');
+        Schema::dropIfExists('floors');
     }
 }

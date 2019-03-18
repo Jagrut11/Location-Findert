@@ -67,10 +67,44 @@
                                         </div><!--panel-heading-->
 
                                         <div class="panel-body">
-                                            <div id="faqs-table_filter" class="dataTables_filter">
-                                                <form action="{{ trans('userdetails')}}"><label>Search:<input style = "width: 370%;" type="search" class="form-control input-sm" placeholder="" aria-controls="faqs-table"></label><input type="submit" name="submit"></form>
-                                            </div>
+                                            <form action="/search" method="POST" role="search">
+                                                {{ csrf_field() }}
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" name="q"
+                                                        placeholder="Search users"> <span class="input-group-btn">
+                                                        <button type="submit" class="btn btn-default">
+                                                            <span class="glyphicon glyphicon-search"></span>
+                                                        </button>
+                                                    </span>
+                                                </div>
+                                            </form>
                                         </div><!--panel-body-->
+
+                                        <div class="panel-body">
+                                            @if(isset($details))
+                                                <p> The Search results for your query <b> {{ $query }} </b> are :</p>
+                                            <h2>Searched User details</h2>
+                                            <table class="table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>First Name</th>
+                                                        <th>Last Name</th>
+                                                        <th>Email</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach($details as $user)
+                                                    <tr>
+                                                        <td>{{$user->first_name}}</td>
+                                                        <td>{{$user->last_name}}</td>
+                                                        <td>{{$user->email}}</td>
+                                                    </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
+                                            @endif
+                                        </div> <!-- showing search result -->
+
                                     </div><!--panel-->
                                 </div><!--col-xs-12-->
                             </div><!--row-->

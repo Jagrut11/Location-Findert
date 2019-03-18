@@ -1,5 +1,8 @@
 <?php
 
+//use App\User;
+use App\Models\Access\User\User;
+use Illuminate\Support\Facades\Input;
 /**
  * Global Routes
  * Routes that are used between both frontend and backend.
@@ -32,7 +35,27 @@ Route::get('/fixappointment', function () {
     return view('frontend.fixappointment');
 });
 
+Route::POST('/search',function(){
+    $q = Input::get ( 'q' );
+     // dd($q);
+    $user = User::where('first_name','LIKE','%'.$q.'%')->orWhere('email','LIKE','%'.$q.'%')->orWhere('last_name','LIKE','%'.$q.'%')->get();
+    if(count($user) > 0)
+        //dd($user);
+        return view('frontend.user.dashboard')->withDetails($user)->withQuery ( $q );
+    else return view ('frontend.user.dashboard')->withMessage('No Details found. Try to search again !');
+});
 
+Route::POST('/search1',function(){
+    $q = Input::get ( 'q' );
+     // dd($q);
+    $user = User::where('first_name','LIKE','%'.$q.'%')->orWhere('email','LIKE','%'.$q.'%')->orWhere('last_name','LIKE','%'.$q.'%')->get();
+    if(count($user) > 0)
+        //dd($user);
+        return view('frontend.fixappointment')->withDetails($user)->withQuery ( $q );
+    else return view ('frontend.fixappointment')->withMessage('No Details found. Try to search again !');
+});
+
+//Route::get('/create', 'BranchesController@create');
 
 /* ----------------------------------------------------------------------- */
 

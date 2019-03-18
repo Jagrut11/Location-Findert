@@ -22,9 +22,8 @@
                     <thead>
                         <tr>
                             <th>{{ trans('labels.backend.floors.table.id') }}</th>
-                            
                             <th>{{ trans('labels.backend.floors.table.floor_no') }}</th>
-                            <th>{{ trans('labels.backend.floors.table.branch_id') }}</th>
+                            <th>{{ trans('labels.backend.branches.table.branch_name') }}</th>
                             <th>{{ trans('labels.backend.floors.table.createdat') }}</th>
                             <th>{{ trans('labels.general.actions') }}</th>
                         </tr>
@@ -58,20 +57,9 @@
                 },
                 columns: [
                     {data: 'id', name: '{{config('module.floors.table')}}.id'},
-<<<<<<< HEAD
-                    {data: 'created_at', name: '{{config('module.floors.table')}}.created_at'},
-=======
-<<<<<<< HEAD
-                    {data: 'created_at', name: '{{config('module.floors.table')}}.created_at'},
-                    {data: 'floor_id', name: '{{config('module.floors.table')}}.floor_id'},
                     {data: 'floor_no', name: '{{config('module.floors.table')}}.floor_no'},
-                    {data: 'branch_id', name: '{{config('module.floors.table')}}.branch_id'},
-=======
-                    {data: 'floor_no', name: '{{config('module.floors.table')}}.floor_no'},
-                    {data: 'branch_id', name: '{{config('module.floors.table')}}.branch_id'},
+                    {data: 'branches', name: '{{config('module.branches.table')}}.branch_name'},
                     {data: 'created_at', name: '{{config('module.floors.table')}}.created_at'},
->>>>>>> 2ce2f2887a01e65d251e7120a5e1e1270a72181d
->>>>>>> 7a378018ca8c7765577c918c787edfd52f1692ea
                     {data: 'actions', name: 'actions', searchable: false, sortable: false}
                 ],
                 order: [[0, "asc"]],

@@ -32,4 +32,7 @@ return [
 	"branchcompanies" => [
 	"table" => "branchcompanies",
 	],
+	"appointments" => [
+	"table" => "appointment",
+	],
 ];

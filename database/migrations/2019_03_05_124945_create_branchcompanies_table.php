@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBranchesTable extends Migration
+class CreateBranchcompaniesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreateBranchesTable extends Migration
      */
     public function up()
     {
-        Schema::create('branches', function (Blueprint $table) {
+        Schema::create('branchcompanies', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('company_id')->unsigned()->index();
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ class CreateBranchesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('branches');
+        Schema::dropIfExists('branchcompanies');
     }
 }

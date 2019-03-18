@@ -8,6 +8,8 @@ use App\Models\Floor\Floor;
 use App\Exceptions\GeneralException;
 use App\Repositories\BaseRepository;
 use Illuminate\Database\Eloquent\Model;
+use App\Repositories\Backend\Branch\BranchRepository;
+use App\Repositories\Backend\Company\CompanyRepository;
 
 /**
  * Class FloorRepository.
@@ -25,16 +27,25 @@ class FloorRepository extends BaseRepository
      * the grid
      * @return mixed
      */
+        public function __construct(Floor $model,BranchRepository $branch)
+    {
+        $this->model = $model;
+        $this->branch = $branch;
+    }
     public function getForDataTable()
     {
         return $this->query()
+            ->leftjoin('branches','branches.id','=','floors.branch_id')
             ->select([
                 config('module.floors.table').'.id',
-                config('module.floors.table').'.branch_id',
-                config('module.floors.table').'.company_id',
+                config('module.floors.table').'.floor_no',
+                //config('module.floors.table').'.branch_id',
+                //config('module.floors.table').'.company_id',
                 config('module.floors.table').'.created_at',
                 config('module.floors.table').'.updated_at',
-            ]);
+                DB::raw('GROUP_CONCAT(branches.branch_name) as branches'),
+            ])
+            ->groupBy('floors.id');
     }
 
     /**
@@ -46,6 +57,7 @@ class FloorRepository extends BaseRepository
      */
     public function create(array $input)
     {
+        //dd($input);
         if (Floor::create($input)) {
             return true;
         }

@@ -74,8 +74,6 @@ class Branch extends Model
     {
         parent::__construct($attributes);
         $this->table = config('modules.branches.table');
-        //return Company::where('id',$this->company_id);
-        //return $this->belongsTo(Company::class);
-
+        
     }
 }
