@@ -65,9 +65,8 @@ class BranchesController extends Controller
      */
     public function create(CreateBranchRequest $request)
     {
-        
-        //$company = $this->company->getAll();
-        return new CreateResponse('backend.branches.create');
+        $data['data'] = DB::table('companies')->get();
+        return view('backend.branches.create',$data);
     }
     /**
      * Store a newly created resource in storage.

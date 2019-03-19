@@ -47,13 +47,19 @@
 
                  {{-- Company Name --}}
                 <div class="form-group">
-                    {{ Form::label('name', 'Company Name', ['class' => 'col-lg-2 control-label required']) }}
-                 
-
+                    {{ Form::label('name', 'Company Name', ['class' => 'col-lg-2 control-label required']) }} 
 
 
                     <div class="col-lg-10">
-                        {{ Form::text('company_id', null, ['class' => 'form-control box-size', 'placeholder' => 'Enter Branch Name', 'required' => 'required']) }}
+
+                <select class="form-control" id="Company" name="company_id">
+                    <option value=""> Select </option> 
+                    @foreach ($data as $key=>$value)
+                        <option value="<?php echo $value->id ?>">
+                            {{ $value->company_name }}
+                        </option>
+                        @endforeach 
+                </select>
                     </div><!--col-lg-10-->
                 </div><!--form control-->
 

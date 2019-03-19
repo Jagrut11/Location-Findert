@@ -269,6 +269,7 @@ return [
 	"table" => [
 	"id" => "Id",
 	"createdat" => "Created At",
+	"floor_no" => "Floor Number",
 	],
 	],
 	"branchcompanies" => [

@@ -62,7 +62,8 @@ class FloorsController extends Controller
      */
     public function create(CreateFloorRequest $request)
     {
-        return new CreateResponse('backend.floors.create');
+        $data['data'] = DB::table('branches')->get();
+        return view('backend.floors.create',$data);
     }
     /**
      * Store a newly created resource in storage.

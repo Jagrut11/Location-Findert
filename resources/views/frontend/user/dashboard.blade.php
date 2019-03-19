@@ -1,4 +1,10 @@
 @extends('frontend.layouts.app')
+@section('page-header')
+    <h1>
+        {{ app_name() }}
+        <small>Notifications</small>
+    </h1>
+@endsection
 
 @section('content')
 <!-- <video autoplay muted loop id="myVideo">
@@ -20,7 +26,7 @@
                             <ul class="media-list">
                                 <li class="media">
                                     <div class="media-left">
-                                        <img class="media-object" src="{{ $logged_in_user->picture }}" alt="Profile picture">
+                                        <img class="media-object" src="img/frontend/profile-picture/pic-1.png" alt="profile-picture">
                                     </div><!--media-left-->
 
                                     <div class="media-body">

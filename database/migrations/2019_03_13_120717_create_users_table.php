@@ -19,6 +19,9 @@ class CreateUsersTable extends Migration
             $table->string('email', 191)->unique();
             $table->string('password', 191)->nullable();
             $table->boolean('status')->default(1);
+            $table->string('designation', 191);
+            $table->integer('contact')->unsigned();
+            $table->string('department', 191);
             $table->string('confirmation_code', 191)->nullable();
             $table->boolean('confirmed')->default(0);
             $table->boolean('is_term_accept')->default(0)->comment(' 0 = not accepted,1 = accepted');

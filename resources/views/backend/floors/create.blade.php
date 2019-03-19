@@ -44,9 +44,15 @@
                     {{ Form::label('name', 'Branch Name', ['class' => 'col-lg-2 control-label required']) }}
 
                     
-                    <div class="col-lg-10">
-                       
-                        {{ Form::text('$branch_name', null, ['class' => 'form-control box-size', 'placeholder' => 'Enter Branch id', 'required' => 'required']) }}
+                    <div class="col-lg-2" >
+                         <select class="form-control" id="Branch" name="branch_id" >
+                    <option value=""> Select </option> 
+                    @foreach ($data as $key=>$value)
+                        <option value="<?php echo $value->id ?>">
+                            {{ $value->branch_name }}
+                        </option>
+                        @endforeach 
+                </select>
                     </div><!--col-lg-10-->
                 </div><!--form control-->
                     {{-- Including Form blade file --}}

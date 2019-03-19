@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Repositories\Backend\Branch\BranchRepository;
 use App\Repositories\Backend\Company\CompanyRepository;
 
+
 /**
  * Class FloorRepository.
  */
