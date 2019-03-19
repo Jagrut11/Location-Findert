@@ -1,6 +1,8 @@
 @extends('frontend.layouts.app')
 
 @section('content')
+
+
 <link href="/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.css">
@@ -37,14 +39,26 @@
                                                         <th>First Name</th>
                                                         <th>Last Name</th>
                                                         <th>Email</th>
+                                                        <th>Fix Appointment</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     @foreach($details as $user)
                                                     <tr>
-                                                        <td>{{$user->first_name}}</td>
+                                                        <td >{{$user->first_name}}</td>
                                                         <td>{{$user->last_name}}</td>
                                                         <td>{{$user->email}}</td>
+                                                        <td>
+                                                            <button style="color: dodgerblue; border: none;
+                                                              background-color: inherit;
+                                                              padding: 14px 28px;
+                                                              font-size: 16px;
+                                                              cursor: pointer;
+                                                              display: inline-block;background: #eee;">
+                                                              <a href="/search1/{{$user->id}}" onclick="showAlert">Fix <i class="fa fa-pencil-square-o"></i></a> 
+                                                            </button>
+                                                            
+                                                        </td>
                                                     </tr>
                                                     @endforeach
                                                 </tbody>
@@ -55,23 +69,41 @@
                 <div class="panel-body">
                 
 
+
 <center>
     <div>{!! Form::open() !!}
-
-
-<div class="form-group" style="width: 340px; text-align: left;">
+<?php if(isset($user))
+{
+    ?>
+<div class="form-group"  style="width: 340px; text-align: left;">
     {!! Form::label('name', 'Employee Name') !!}
-    {!! Form::text('name', 'Varun Shukla', ['class' => 'form-control']) !!}
+    {!! Form::text('name',$user->first_name, ['class' => 'form-control']) !!}
     
   </div>
-</div>
+
 
 <div class="form-group" style="width: 340px; text-align: left;">
     {!! Form::label('email', 'E-mail Address') !!}
-    {!! Form::text('email', 'abc@abc.com', ['class' => 'form-control']) !!}
+    {!! Form::text('email', $user->email, ['class' => 'form-control']) !!}
 
 </div>
+<?php }
+else
+{
+    ?>
+<div class="form-group"  style="width: 340px; text-align: left;">
+    {!! Form::label('name', 'Employee Name') !!}
+    {!! Form::text('name','', ['class' => 'form-control']) !!}
+    
+  </div>
 
+
+<div class="form-group" style="width: 340px; text-align: left;">
+    {!! Form::label('email', 'E-mail Address') !!}
+    {!! Form::text('email', '', ['class' => 'form-control']) !!}
+
+</div>
+<?php } ?>
 <div class="form-group" style="width: 340px; text-align: left;">
 {!! Form::label('date', 'Date: ' ) !!}
 <input type="date" name="trip-start" id="start" value="2018-07-22" min="2019-01-01" max="2019-12-31">

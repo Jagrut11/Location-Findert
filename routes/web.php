@@ -49,6 +49,8 @@ Route::POST('/search1',function(){
     $q = Input::get ( 'q' );
      // dd($q);
     $user = User::where('first_name','LIKE','%'.$q.'%')->orWhere('email','LIKE','%'.$q.'%')->orWhere('last_name','LIKE','%'.$q.'%')->get();
+
+   // $query = User::where('id','=','$user->id')->get();
     if(count($user) > 0)
         //dd($user);
         return view('frontend.fixappointment')->withDetails($user)->withQuery ( $q );
@@ -78,3 +80,6 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'as' => 'admin.', '
 * Routes From Module Generator
 */
 includeRouteFiles(__DIR__.'/Generator/');
+
+
+
