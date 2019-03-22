@@ -32,6 +32,8 @@ class Appointment extends Model
      */
     protected $fillable = [
 
+
+
     ];
 
     /**
@@ -47,6 +49,8 @@ class Appointment extends Model
      * @var array
      */
     protected $dates = [
+        'appointment_date'
+        'appointment_time'
         'created_at',
         'updated_at'
     ];

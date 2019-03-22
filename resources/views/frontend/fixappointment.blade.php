@@ -6,9 +6,9 @@
 <link href="/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.js"></script>
+<!--     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/locales.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.css"></script>
+ -->   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.css"></script>
     <div class="row">
 
         <div class="col-xs-12">
@@ -66,19 +66,21 @@
                                             @endif
                                         </div> <!-- showing search result -->
 
+
+
                 <div class="panel-body">
                 
 
-
 <center>
-    <div>{!! Form::open() !!}
+    <div><form action="/fixappointmentform" method="get">
 <?php if(isset($user))
 {
     ?>
 <div class="form-group"  style="width: 340px; text-align: left;">
     {!! Form::label('name', 'Employee Name') !!}
-    {!! Form::text('name',$user->first_name, ['class' => 'form-control']) !!}
+    {!! Form::text('name',$user->first_name. ' '. $user-> last_name,['class' => 'form-control']) !!}
     
+
   </div>
 
 
@@ -105,19 +107,20 @@ else
 </div>
 <?php } ?>
 <div class="form-group" style="width: 340px; text-align: left;">
-{!! Form::label('date', 'Date: ' ) !!}
-<input type="date" name="trip-start" id="start" value="2018-07-22" min="2019-01-01" max="2019-12-31">
+{!! Form::label('appointment date', 'Date: ' ) !!}
+<input type="date" name="appointment date" id="start" value="2018-07-22" min="2019-01-01" max="2019-12-31" class = "form-control">
 </div>
 
-<div class="form-group" style="width: 340px; text-align: left;">
-{!! Form::label('time', 'Time: ' ) !!}
-<input type="time" name="trip-start" id="start" value="13:00">
+<div class="form-group" style="width: 340px; text-align: left;" >
+{!! Form::label('appointment time', 'Time: ' ) !!}
+<input type="time" name="appointment time" id="start" value="14:00" class = "form-control">
 </div>
 
 <div class="form-group" style="width: 340px;">
-{!! Form::submit('Submit', ['class' => 'btn btn-info']) !!}
-
-{!! Form::close() !!} 
+<!-- {!! Form::submit('Submit', ['class' => 'btn btn-info']) !!}
+ -->
+ <input type="submit" name="submit"  >
+</form> 
 </div>
 
 </div>
