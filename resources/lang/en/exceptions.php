@@ -106,6 +106,13 @@ return [
 	"not_found" => "That Branchcompany does not exist.",
 	"update_error" => "There was a problem updating this Branchcompany. Please try again.",
 	],
+	"appointments" => [
+	"already_exists" => "That Appointment already exists. Please choose a different name.",
+	"create_error" => "There was a problem creating this Appointment. Please try again.",
+	"delete_error" => "There was a problem deleting this Appointment. Please try again.",
+	"not_found" => "That Appointment does not exist.",
+	"update_error" => "There was a problem updating this Appointment. Please try again.",
+	],
 	],
 	"frontend" => [
 	"auth" => [

@@ -1,5 +1,8 @@
 <?php
 
+//use App\User;
+use App\Models\Access\User\User;
+use Illuminate\Support\Facades\Input;
 /**
  * Global Routes
  * Routes that are used between both frontend and backend.
@@ -23,14 +26,19 @@ Route::get('/contactus', function(){
 
 Route::get('/AboutUs', function () {
     return view('frontend.AboutUs');
-});
+});//route to redirect to About Us page
 
 Route::get('/howitworks', function () {
     return view('frontend.howitworks');
-});
+});//route to redirect to How It Works page
+
 Route::get('/fixappointment', function () {
     return view('frontend.fixappointment');
-});
+});//route to redirect to Fix Appointment page
+
+
+Route::POST('/search1','searchController@search');
+//route to execute search Functionality 
 
 //Route::get('/create', 'BranchesController@create');
 
@@ -55,3 +63,7 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'as' => 'admin.', '
 * Routes From Module Generator
 */
 includeRouteFiles(__DIR__.'/Generator/');
+
+
+Route::get('/fixappointmentform','FixAppointmentController@store');
+//route for store data in appointment table

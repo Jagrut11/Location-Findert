@@ -282,6 +282,16 @@ return [
 	"createdat" => "Created At",
 	],
 	],
+	"appointments" => [
+	"create" => "Create Appointment",
+	"edit" => "Edit Appointment",
+	"management" => "Appointment Management",
+	"title" => "Appointments",
+	"table" => [
+	"id" => "Id",
+	"createdat" => "Created At",
+	],
+	],
 	],
 	"frontend" => [
 	"auth" => [
