@@ -86,8 +86,8 @@
 
 <div class="form-group" style="width: 340px; text-align: left;">
     {!! Form::label('email', 'E-mail Address') !!}
-    {!! Form::text('email', $user->email, ['class' => 'form-control']) !!}
-
+    {!! Form::text('email', $user->id, ['class' => 'form-control']) !!}
+<input type="text" name="loggedinuser" id="start" value="{{ $logged_in_user->id }}" class = "form-control" placeholder="{{ $logged_in_user->id }}">
 </div>
 <?php }
 else
@@ -103,17 +103,17 @@ else
 <div class="form-group" style="width: 340px; text-align: left;">
     {!! Form::label('email', 'E-mail Address') !!}
     {!! Form::text('email', '', ['class' => 'form-control']) !!}
-
+<input type="text" name="loggedinuser" id="start" value="{{ $logged_in_user->id }}" class = "form-control" placeholder="{{ $logged_in_user->id }}">
 </div>
 <?php } ?>
 <div class="form-group" style="width: 340px; text-align: left;">
 {!! Form::label('appointment date', 'Date: ' ) !!}
-<input type="date" name="appointment date" id="start" value="2018-07-22" min="2019-01-01" max="2019-12-31" class = "form-control">
+<input type="date" name="appointmentdate" id="start" value="2018-07-22" min="2019-01-01" max="2019-12-31" class = "form-control">
 </div>
 
 <div class="form-group" style="width: 340px; text-align: left;" >
 {!! Form::label('appointment time', 'Time: ' ) !!}
-<input type="time" name="appointment time" id="start" value="14:00" class = "form-control">
+<input type="time" name="appointmentime" id="start" value="14:00" class = "form-control">
 </div>
 
 <div class="form-group" style="width: 340px;">
@@ -139,6 +139,7 @@ else
                             <div> Pending  </div>
                             <div> Accepted </div>
                             <div> Rejected </div>
+                            {{ $logged_in_user->email }}
  					        </font>
                         </center>
                     </div>

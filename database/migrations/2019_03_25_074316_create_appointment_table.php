@@ -17,10 +17,12 @@ class CreateAppointmentTable extends Migration
             $table->increments('id');
             $table->Integer('sender_id')->unsigned()->index('appointment_sender_id_foreign');
             $table->Integer('receiver_id')->unsigned()->index('appointment_receiver_id_foreign');
-            $table->datetime('appointment_date'); // remove this // datetime default null
-            $table->Integer('appointment_status'); // tiny int
-            $table->boolean('status'); // should be small / tiny int
+            $table->date('appointment_date');
+            $table->time('appointment_time'); // remove this // datetime default null
+            $table->string('appointment_status')->default('Pending'); // tiny int
+            $table->boolean('status')->default('1'); // should be small / tiny int
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
