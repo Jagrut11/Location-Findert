@@ -30,6 +30,9 @@ class UpdateUserRequest extends Request
             'email'           => 'required|email',
             'first_name'      => 'required',
             'last_name'       => 'required',
+            'designation'     =>  'required',
+            'contact'         =>  'required',
+            'department'      =>   'required',
             'permissions'     => 'required',
             'assignees_roles' => 'required',
         ];

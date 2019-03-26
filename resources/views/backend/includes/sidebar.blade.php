@@ -112,16 +112,24 @@
                 </a>
                 </li>
             @endauth
-
+            @permission('view-faq')
+                <li class="{{ active_class(Active::checkUriPattern('admin/faqs*')) }}">
+                <a href="{{ route('admin.faqs.index')}}">
+                    <i class="fa fa-question-circle"></i>
+                    <span>{{ trans('labels.backend.faqs.title') }}</span>
+                </a>
+                </li>
+            @endauth
             <li class="{{ active_class(Active::checkUriPattern('admin/log-viewer*')) }} treeview">
                 <a href="#">
-                    <i class="fa fa-list"></i>
+                    <i class="fa fa-question-circle"></i>
                     <span>{{ trans('menus.backend.log-viewer.main') }}</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu {{ active_class(Active::checkUriPattern('admin/log-viewer*'), 'menu-open') }}" style="display: none; {{ active_class(Active::checkUriPattern('admin/log-viewer*'), 'display: block;') }}">
                     <li class="{{ active_class(Active::checkUriPattern('admin/log-viewer')) }}">
                         <a href="{{ route('log-viewer::dashboard') }}">
+                            
                             <span>{{ trans('menus.backend.log-viewer.dashboard') }}</span>
                         </a>
                     </li>

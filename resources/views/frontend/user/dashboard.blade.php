@@ -1,4 +1,10 @@
 @extends('frontend.layouts.app')
+@section('page-header')
+    <h1>
+        {{ app_name() }}
+        <small>Notifications</small>
+    </h1>
+@endsection
 
 @section('content')
 <!-- <video autoplay muted loop id="myVideo">
@@ -20,7 +26,7 @@
                             <ul class="media-list">
                                 <li class="media">
                                     <div class="media-left">
-                                        <img class="media-object" src="{{ $logged_in_user->picture }}" alt="Profile picture">
+                                        <img class="media-object" src="img/frontend/profile-picture/pic-1.png" alt="profile-picture">
                                     </div><!--media-left-->
 
                                     <div class="media-body">
@@ -63,12 +69,11 @@
                                 <div class="col-xs-12">
                                     <div class="panel panel-default" class="box">
                                         <div class="panel-heading" class="heading-color" >
-                                            <h4 >Search Employee</h4>
                                         </div><!--panel-heading-->
 
                                         <div class="panel-body">
                                             <div id="faqs-table_filter" class="dataTables_filter">
-                                                <form action="{{ trans('userdetails')}}"><label>Search:<input style = "width: 370%;" type="search" class="form-control input-sm" placeholder="" aria-controls="faqs-table"></label><input type="submit" name="submit"></form>
+                                                <form action="{{ trans('userdetails')}}"/>
                                             </div>
                                         </div><!--panel-body-->
                                     </div><!--panel-->

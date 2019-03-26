@@ -7,6 +7,27 @@ namespace App\Models\Floor\Traits;
  */
 trait FloorRelationship
 {
+      public function branches()
+    {
+        
+         return $this->hasOne(Branch::class, 'id', 'branch_id');
+    }
+
+    //   public function users()
+    //  {
+    //     //return $this->belongsTo(Branch::class,'company_id');
+    //     //return $this->belongsTo(Branch::class ,'branches_table','company_id');
+    //     return $this->belongsToMany(config('access.users'), config('access.users_table'),'id','floor_no');
+    // }
+    
+    public function seats()
+     {
+        //return $this->belongsTo(Branch::class,'company_id');
+        //return $this->belongsTo(Branch::class ,'branches_table','company_id');
+        return $this->belongsToMany(config('access.seats'), config('access.seats_table'),'id','floor_no');
+    }
+    
+
     /*
     * put you model relationships here
     * Take below example for reference

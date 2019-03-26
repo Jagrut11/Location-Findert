@@ -26,6 +26,7 @@
         "spatie/laravel-cors": "^1.2",
         "tymon/jwt-auth": "1.0.0-rc.3",
         "unisharp/laravel-filemanager": "~1.8",
+        "what3words/w3w-php-wrapper": "^2.2",
         "yajra/laravel-datatables-oracle": "~8.0"
     },
     "require-dev": {

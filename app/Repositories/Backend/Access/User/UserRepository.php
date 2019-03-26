@@ -14,6 +14,9 @@ use App\Exceptions\GeneralException;
 use App\Models\Access\User\User;
 use App\Notifications\Frontend\Auth\UserNeedsConfirmation;
 use App\Repositories\Backend\Access\Role\RoleRepository;
+use App\Repositories\Backend\Seat\SeatRepository;
+use App\Repositories\Backend\Branch\BranchRepository;
+use App\Repositories\Backend\Floor\FloorRepository;
 use App\Repositories\BaseRepository;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -38,13 +41,26 @@ class UserRepository extends BaseRepository
      */
     protected $role;
 
+     /**
+     * @var BranchRepository
+     */
+    protected $branch;
+    
+     /**
+     * @var SeatRepository
+     */
+    protected $seat;
+    
+
     /**
      * @param RoleRepository $role
      */
-    public function __construct(User $model, RoleRepository $role)
+    public function __construct(User $model, RoleRepository $role, BranchRepository $branch, SeatRepository $seat)
     {
         $this->model = $model;
         $this->role = $role;
+        $this->branch = $branch;
+        $this->seat = $seat;
     }
 
     /**
@@ -62,6 +78,9 @@ class UserRepository extends BaseRepository
         $dataTableQuery = $this->query()
             ->leftJoin('role_user', 'role_user.user_id', '=', 'users.id')
             ->leftJoin('roles', 'role_user.role_id', '=', 'roles.id')
+            ->leftjoin('branches','branches.id','=','users.branch_id')
+            ->leftjoin('seats','seats.id','=','users.seat_id')
+             ->leftJoin('floors','floors.id','=','seats.floor_id')
             ->select([
                 config('access.users_table').'.id',
                 config('access.users_table').'.first_name',
@@ -69,10 +88,18 @@ class UserRepository extends BaseRepository
                 config('access.users_table').'.email',
                 config('access.users_table').'.status',
                 config('access.users_table').'.confirmed',
+                config('access.users_table').'.latitude',
+                config('access.users_table').'.longitude',
                 config('access.users_table').'.created_at',
                 config('access.users_table').'.updated_at',
                 config('access.users_table').'.deleted_at',
                 DB::raw('GROUP_CONCAT(roles.name) as roles'),
+                DB::raw('GROUP_CONCAT(branches.branch_name) as branches'),
+
+                                    //table name,column name as alias name
+                DB::raw('GROUP_CONCAT(seats.seat_no) as seat_no'),
+                DB::raw('GROUP_CONCAT(floors.floor_no) as floor_no'),
+
             ])
             ->groupBy('users.id');
 
@@ -391,6 +418,10 @@ class UserRepository extends BaseRepository
         $user->status = isset($input['status']) ? 1 : 0;
         $user->confirmation_code = md5(uniqid(mt_rand(), true));
         $user->confirmed = isset($input['confirmed']) ? 1 : 0;
+        $user->latitude = $input['latitude'];
+        $user->longitude = $input['longitude'];
+        $user->branch_id = $input['branch_id'];
+        $user->seat_id = $input['seat_id'];
         $user->created_by = access()->user()->id;
 
         return $user;

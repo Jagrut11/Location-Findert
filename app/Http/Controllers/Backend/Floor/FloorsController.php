@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers\Backend\Floor;
-
+use DB;
+use App\Models\Branch\Branch;
+use App\Models\Company\Company;
 use App\Models\Floor\Floor;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -10,6 +12,8 @@ use App\Http\Responses\ViewResponse;
 use App\Http\Responses\Backend\Floor\CreateResponse;
 use App\Http\Responses\Backend\Floor\EditResponse;
 use App\Repositories\Backend\Floor\FloorRepository;
+use App\Repositories\Backend\Company\CompanyRepository;
+use App\Repositories\Backend\Branch\BranchRepository;
 use App\Http\Requests\Backend\Floor\ManageFloorRequest;
 use App\Http\Requests\Backend\Floor\CreateFloorRequest;
 use App\Http\Requests\Backend\Floor\StoreFloorRequest;
@@ -27,14 +31,17 @@ class FloorsController extends Controller
      * @var FloorRepository
      */
     protected $repository;
+   
+    protected $branch; 
 
     /**
      * contructor to initialize repository object
      * @param FloorRepository $repository;
      */
-    public function __construct(FloorRepository $repository)
+    public function __construct(FloorRepository $floor , BranchRepository $branch)
     {
-        $this->repository = $repository;
+        $this->floor=$floor;
+        $this->branch=$branch;
     }
 
     /**
@@ -55,7 +62,8 @@ class FloorsController extends Controller
      */
     public function create(CreateFloorRequest $request)
     {
-        return new CreateResponse('backend.floors.create');
+        $data['data'] = DB::table('branches')->get();
+        return view('backend.floors.create',$data);
     }
     /**
      * Store a newly created resource in storage.
@@ -68,7 +76,7 @@ class FloorsController extends Controller
         //Input received from the request
         $input = $request->except(['_token']);
         //Create the model using repository create method
-        $this->repository->create($input);
+        $this->floor->create($input);
         //return with successfull message
         return new RedirectResponse(route('admin.floors.index'), ['flash_success' => trans('alerts.backend.floors.created')]);
     }
@@ -95,7 +103,7 @@ class FloorsController extends Controller
         //Input received from the request
         $input = $request->except(['_token']);
         //Update the model using repository update method
-        $this->repository->update( $floor, $input );
+        $this->floor->update( $floor, $input );
         //return with successfull message
         return new RedirectResponse(route('admin.floors.index'), ['flash_success' => trans('alerts.backend.floors.updated')]);
     }
@@ -109,7 +117,7 @@ class FloorsController extends Controller
     public function destroy(Floor $floor, DeleteFloorRequest $request)
     {
         //Calling the delete method on repository
-        $this->repository->delete($floor);
+        $this->floor->delete($floor);
         //returning with successfull message
         return new RedirectResponse(route('admin.floors.index'), ['flash_success' => trans('alerts.backend.floors.deleted')]);
     }

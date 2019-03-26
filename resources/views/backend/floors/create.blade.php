@@ -22,7 +22,39 @@
             </div><!--box-header with-border-->
 
             <div class="box-body">
+                {{-- Floor Id --}}
                 <div class="form-group">
+                    {{ Form::label('name', 'Floor Id', ['class' => 'col-lg-2 control-label required']) }}
+
+                    <div class="col-lg-10">
+                        {{ Form::text('id', null, ['class' => 'form-control box-size', 'placeholder' => 'Enter Floor Id', 'required' => 'required']) }}  
+                    </div><!--col-lg-10-->
+                </div><!--form control-->
+                {{-- floor number --}}
+                <div class="form-group">
+                    {{ Form::label('name', 'Floor No', ['class' => 'col-lg-2 control-label required']) }}
+
+                    <div class="col-lg-10">
+                        {{ Form::text('floor_no', null, ['class' => 'form-control box-size', 'placeholder' => 'Enter Floor No', 'required' => 'required']) }}  
+                    </div><!--col-lg-10-->
+                </div><!--form control-->
+                <div class="form-group">
+                {{-- Branch Name --}}
+                <div class="form-group">
+                    {{ Form::label('name', 'Branch Name', ['class' => 'col-lg-2 control-label required']) }}
+
+                    
+                    <div class="col-lg-2" >
+                         <select class="form-control" id="Branch" name="branch_id" >
+                    <option value=""> Select </option> 
+                    @foreach ($data as $key=>$value)
+                        <option value="<?php echo $value->id ?>">
+                            {{ $value->branch_name }}
+                        </option>
+                        @endforeach 
+                </select>
+                    </div><!--col-lg-10-->
+                </div><!--form control-->
                     {{-- Including Form blade file --}}
                     @include("backend.floors.form")
                     <div class="edit-form-btn">

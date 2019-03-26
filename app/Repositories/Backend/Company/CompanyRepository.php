@@ -8,6 +8,7 @@ use App\Models\Company\Company;
 use App\Exceptions\GeneralException;
 use App\Repositories\BaseRepository;
 use Illuminate\Database\Eloquent\Model;
+use App\Repositories\Backend\Branch\BranchRepository;
 
 /**
  * Class CompanyRepository.
@@ -25,11 +26,27 @@ class CompanyRepository extends BaseRepository
      * the grid
      * @return mixed
      */
+     protected $model;
+
+    /**
+     * @var RoleRepository
+     */
+    protected $branch;
+
+    /**
+     * @param RoleRepository $role
+     */
+    // public function __construct(Company $model, BranchRepository $branch)
+    // {
+    //     $this->model = $model;
+    //     $this->branch = $branch;
+    // }
     public function getForDataTable()
     {
         return $this->query()
             ->select([
                 config('module.companies.table').'.id',
+                config('module.companies.table').'.company_name',
                 config('module.companies.table').'.created_at',
                 config('module.companies.table').'.updated_at',
             ]);
