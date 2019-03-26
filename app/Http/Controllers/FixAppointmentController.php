@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+//namespace App\Notifications;
 use DB;
 use App\Models\Appointment\Appointment;
 use App\Models\Access\User\User;
@@ -10,14 +11,21 @@ use Illuminate\Support\Facades\Auth;
 use Validator;
 use App\Repositories\Frontend\Access\User\UserRepository;
 
+
+use Illuminate\Bus\Queueable;
+use Illuminate\Notifications\Notification;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Notifications\Messages\MailMessage;
+
 class FixAppointmentController extends Controller
 {
     //
     public function save_data()
 	{     
 	 $user = FixAppointmentController::create();
+     $user->notify(new App\Notifications\EmailNotification);
 	 return redirect()->route('frontend.fixappointment');
-		dd($user);
+		
 	}
 	 public function store(Request $request)
     {
@@ -49,7 +57,8 @@ class FixAppointmentController extends Controller
 
         //dd($fix_appointment, $time);
         $fix_appointment -> save();
-                
+        
+             //Notification::send($users, new App\Notifications\EmailNotification);   
 
         return view('frontend.fixappointment');
         
