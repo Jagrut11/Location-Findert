@@ -31,6 +31,7 @@ class Appointment extends Model
      * @var array
      */
     protected $fillable = [
+        'sender_id','receiver_id','appointment_date','appointment_status','status'
 
 
 
@@ -49,8 +50,7 @@ class Appointment extends Model
      * @var array
      */
     protected $dates = [
-        'appointment_date'
-        'appointment_time'
+        'appointment_date',
         'created_at',
         'updated_at'
     ];
