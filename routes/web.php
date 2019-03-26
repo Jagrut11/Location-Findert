@@ -33,14 +33,11 @@ Route::get('/fixappointment', function () {
     return view('frontend.fixappointment');
 });
 
-<<<<<<< HEAD
 Route::post('/search','SearchController@search');
 
 Route::get('/locate','SearchController@locate');
 
 
-=======
->>>>>>> 2a276e59120dada48f8f80afa737a5a4afe06363
 //Route::get('/create', 'BranchesController@create');
 
 /* ----------------------------------------------------------------------- */

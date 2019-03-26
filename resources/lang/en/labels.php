@@ -282,7 +282,6 @@ return [
 	"createdat" => "Created At",
 	],
 	],
-<<<<<<< HEAD
 	"seats" => [
 	"create" => "Create Seat",
 	"edit" => "Edit Seat",
@@ -293,8 +292,6 @@ return [
 	"createdat" => "Created At",
 	],
 	],
-=======
->>>>>>> 2a276e59120dada48f8f80afa737a5a4afe06363
 	],
 	"frontend" => [
 	"auth" => [

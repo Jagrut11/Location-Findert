@@ -74,13 +74,10 @@ return [
 	"deleted" => "The Branchcompany was successfully deleted.",
 	"updated" => "The Branchcompany was successfully updated.",
 	],
-<<<<<<< HEAD
 	"seats" => [
 	"created" => "The Seat was successfully created.",
 	"deleted" => "The Seat was successfully deleted.",
 	"updated" => "The Seat was successfully updated.",
 	],
-=======
->>>>>>> 2a276e59120dada48f8f80afa737a5a4afe06363
 	],
 ];

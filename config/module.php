@@ -32,10 +32,7 @@ return [
 	"branchcompanies" => [
 	"table" => "branchcompanies",
 	],
-<<<<<<< HEAD
 	"seats" => [
 	"table" => "seats",
 	],
-=======
->>>>>>> 2a276e59120dada48f8f80afa737a5a4afe06363
 ];
