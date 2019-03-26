@@ -136,6 +136,7 @@ return [
 	"management" => "Branchcompany Management",
 	"main" => "Branchcompanies",
 	],
+<<<<<<< HEAD
 	"seats" => [
 	"all" => "All Seats",
 	"create" => "Create Seat",
@@ -143,6 +144,8 @@ return [
 	"management" => "Seat Management",
 	"main" => "Seats",
 	],
+=======
+>>>>>>> 2a276e59120dada48f8f80afa737a5a4afe06363
 	],
 	"language-picker" => [
 	"language" => "Language",

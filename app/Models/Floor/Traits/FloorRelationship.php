@@ -12,6 +12,7 @@ trait FloorRelationship
         
          return $this->hasOne(Branch::class, 'id', 'branch_id');
     }
+<<<<<<< HEAD
 
     //   public function users()
     //  {
@@ -28,6 +29,8 @@ trait FloorRelationship
     }
     
 
+=======
+>>>>>>> 2a276e59120dada48f8f80afa737a5a4afe06363
     /*
     * put you model relationships here
     * Take below example for reference

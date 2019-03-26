@@ -106,6 +106,7 @@ return [
 	"not_found" => "That Branchcompany does not exist.",
 	"update_error" => "There was a problem updating this Branchcompany. Please try again.",
 	],
+<<<<<<< HEAD
 	"seats" => [
 	"already_exists" => "That Seat already exists. Please choose a different name.",
 	"create_error" => "There was a problem creating this Seat. Please try again.",
@@ -113,6 +114,8 @@ return [
 	"not_found" => "That Seat does not exist.",
 	"update_error" => "There was a problem updating this Seat. Please try again.",
 	],
+=======
+>>>>>>> 2a276e59120dada48f8f80afa737a5a4afe06363
 	],
 	"frontend" => [
 	"auth" => [

@@ -16,7 +16,11 @@ class AddForeignkeysToFloors extends Migration
         Schema::table('floors', function (Blueprint $table) {
             //
             $table->foreign('branch_id')->references('id')->on('branches')->onUpdate('RESTRICT')->onDelete('CASCADE');
+<<<<<<< HEAD
                          
+=======
+                         $table->foreign('company_id')->references('id')->on('company')->onUpdate('RESTRICT')->onDelete('CASCADE');
+>>>>>>> 2a276e59120dada48f8f80afa737a5a4afe06363
 
         });
     }

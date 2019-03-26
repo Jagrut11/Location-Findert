@@ -18,6 +18,7 @@ trait BranchRelationship
         //return $this->belongsTo(Branch::class ,'branches_table','company_id');
         return $this->belongsToMany(config('access.floor'), config('access.floors_table'),'id','branch_name');
     }
+<<<<<<< HEAD
 
     public function users()
      {
@@ -25,6 +26,8 @@ trait BranchRelationship
         //return $this->belongsTo(Branch::class ,'branches_table','company_id');
         return $this->belongsToMany(config('access.users'), config('access.users_table'),'id','branch_name');
     }
+=======
+>>>>>>> 2a276e59120dada48f8f80afa737a5a4afe06363
     
    
 
