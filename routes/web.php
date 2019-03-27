@@ -36,9 +36,16 @@ Route::get('/fixappointment', function () {
     return view('frontend.fixappointment');
 });//route to redirect to Fix Appointment page
 
+Route::get('/appointmentlogs', function () {
+    return view('frontend.appointmentlogs');
+});//route to redirect to Fix Appointment page
+
 
 Route::POST('/search1','searchController@search');
 //route to execute search Functionality 
+
+Route::POST('/showlog','ShowAppointmentLogsController@showlogs');
+//route to show Appointment logs to user 
 
 //Route::get('/create', 'BranchesController@create');
 
