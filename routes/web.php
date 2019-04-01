@@ -20,6 +20,7 @@ Route::get('lang/{lang}', 'LanguageController@swap');
 Route::group(['namespace' => 'Frontend', 'as' => 'frontend.'], function () {
     includeRouteFiles(__DIR__.'/Frontend/');
 });
+
 Route::get('/contactus', function(){
     return view('frontend.contactus');
 });
@@ -39,6 +40,11 @@ Route::get('/fixappointment', function () {
 
 Route::POST('/search1','searchController@search');
 //route to execute search Functionality 
+
+Route::post('/search','SearchController@search');
+
+Route::get('/locate','SearchController@locate');
+
 
 //Route::get('/create', 'BranchesController@create');
 

@@ -18,6 +18,13 @@ trait BranchRelationship
         //return $this->belongsTo(Branch::class ,'branches_table','company_id');
         return $this->belongsToMany(config('access.floor'), config('access.floors_table'),'id','branch_name');
     }
+
+    public function users()
+     {
+        //return $this->belongsTo(Branch::class,'company_id');
+        //return $this->belongsTo(Branch::class ,'branches_table','company_id');
+        return $this->belongsToMany(config('access.users'), config('access.users_table'),'id','branch_name');
+    }
     
    
 

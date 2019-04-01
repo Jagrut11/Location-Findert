@@ -29,9 +29,15 @@
                             <th>{{ trans('labels.backend.access.users.table.email') }}</th>
                             <th>{{ trans('labels.backend.access.users.table.confirmed') }}</th>
                             <th>{{ trans('labels.backend.access.users.table.roles') }}</th>
+                            <th>Latitude</th>
+                              <th>Longitude</th>
+                              <th>Branch Name</th>
+                               <th>Seat No</th>
+                               <th>Floor No</th>
                             <th>{{ trans('labels.backend.access.users.table.created') }}</th>
-                            <th>{{ trans('labels.backend.access.users.table.last_updated') }}</th>
+                            <th>{{ trans('labels.backend.access.users.table.last_updated') }}</th>  
                             <th>{{ trans('labels.general.actions') }}</th>
+
                         </tr>
                     </thead>
                     <thead class="transparent-bg">
@@ -51,6 +57,28 @@
                             <th></th>
                             <th>
                             {!! Form::text('roles', null, ["class" => "search-input-text form-control", "data-column" => 4, "placeholder" => trans('labels.backend.access.users.table.roles')]) !!}
+                                <a class="reset-data" href="javascript:void(0)"><i class="fa fa-times"></i></a>
+                            </th>
+                            
+                            
+                             <th>
+                            {!! Form::text('latitude', null, ["class" => "search-input-text form-control", "data-column" => 4, "placeholder" => 'Latitude']) !!}
+                                <a class="reset-data" href="javascript:void(0)"><i class="fa fa-times"></i></a>
+                            </th>
+                             <th>
+                            {!! Form::text('longitude', null, ["class" => "search-input-text form-control", "data-column" => 4, "placeholder" => 'Longitude']) !!}
+                                <a class="reset-data" href="javascript:void(0)"><i class="fa fa-times"></i></a>
+                            </th>
+                            <th>
+                            {!! Form::text('branch_name', null, ["class" => "search-input-text form-control", "data-column" => 4, "placeholder" => 'Branch Name']) !!}
+                                <a class="reset-data" href="javascript:void(0)"><i class="fa fa-times"></i></a>
+                            </th>
+                             <th>
+                            {!! Form::text('seat_id', null, ["class" => "search-input-text form-control", "data-column" => 4, "placeholder" => 'Seat No']) !!}
+                                <a class="reset-data" href="javascript:void(0)"><i class="fa fa-times"></i></a>
+                            </th>
+                             <th>
+                            {!! Form::text('floor_id', null, ["class" => "search-input-text form-control", "data-column" => 4, "placeholder" => 'Floor No']) !!}
                                 <a class="reset-data" href="javascript:void(0)"><i class="fa fa-times"></i></a>
                             </th>
                             <th></th>
@@ -104,6 +132,11 @@
                     {data: 'email', name: '{{config('access.users_table')}}.email'},
                     {data: 'confirmed', name: '{{config('access.users_table')}}.confirmed'},
                     {data: 'roles', name: '{{config('access.roles_table')}}.name', sortable: false},
+                    {data: 'latitude', name: '{{config('access.users_table')}}.latitude'},
+                    {data: 'longitude', name: '{{config('access.users_table')}}.longitude'},
+                    {data: 'branches', name: '{{config('access.branches_table')}}.branch_name'},
+                    {data: 'seat_no', name: '{{config('access.seats_table')}}.seat_no'},
+                    {data: 'floor_no', name: '{{config('access.floors_table')}}.floor_no'},
                     {data: 'created_at', name: '{{config('access.users_table')}}.created_at'},
                     {data: 'updated_at', name: '{{config('access.users_table')}}.updated_at'},
                     {data: 'actions', name: 'actions', searchable: false, sortable: false}

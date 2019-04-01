@@ -79,5 +79,10 @@ return [
 	"deleted" => "The Appointment was successfully deleted.",
 	"updated" => "The Appointment was successfully updated.",
 	],
+	"seats" => [
+	"created" => "The Seat was successfully created.",
+	"deleted" => "The Seat was successfully deleted.",
+	"updated" => "The Seat was successfully updated.",
+	],
 	],
 ];

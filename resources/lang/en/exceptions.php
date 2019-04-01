@@ -113,6 +113,13 @@ return [
 	"not_found" => "That Appointment does not exist.",
 	"update_error" => "There was a problem updating this Appointment. Please try again.",
 	],
+	"seats" => [
+	"already_exists" => "That Seat already exists. Please choose a different name.",
+	"create_error" => "There was a problem creating this Seat. Please try again.",
+	"delete_error" => "There was a problem deleting this Seat. Please try again.",
+	"not_found" => "That Seat does not exist.",
+	"update_error" => "There was a problem updating this Seat. Please try again.",
+	],
 	],
 	"frontend" => [
 	"auth" => [

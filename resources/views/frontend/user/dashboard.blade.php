@@ -69,11 +69,13 @@
                                 <div class="col-xs-12">
                                     <div class="panel panel-default" class="box">
                                         <div class="panel-heading" class="heading-color" >
-                                            <h4 >Search Employee</h4>
                                         </div><!--panel-heading-->
 
-
-
+                                        <div class="panel-body">
+                                            <div id="faqs-table_filter" class="dataTables_filter">
+                                                <form action="{{ trans('userdetails')}}"/>
+                                            </div>
+                                        </div><!--panel-body-->
                                     </div><!--panel-->
                                 </div><!--col-xs-12-->
                             </div><!--row-->

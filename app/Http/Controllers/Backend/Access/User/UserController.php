@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend\Access\User;
 
+use DB;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\Access\User\CreateUserRequest;
 use App\Http\Requests\Backend\Access\User\DeleteUserRequest;
@@ -19,6 +20,9 @@ use App\Models\Access\Permission\Permission;
 use App\Models\Access\User\User;
 use App\Repositories\Backend\Access\Role\RoleRepository;
 use App\Repositories\Backend\Access\User\UserRepository;
+use App\Repositories\Backend\Seat\SeatRepository;
+use App\Repositories\Backend\Floor\FloorRepository;
+use App\Repositories\Backend\Branch\BranchRepository;
 
 /**
  * Class UserController.
@@ -36,13 +40,27 @@ class UserController extends Controller
     protected $roles;
 
     /**
+     * @var \App\Repositories\Backend\Seat\RoleRepository
+     */
+    protected $seats;
+
+    /**
+     * @var \App\Repositories\Backend\Branch\BranchRepository
+     */
+    protected $branch;
+    protected $floor;
+
+    /**
      * @param \App\Repositories\Backend\Access\User\UserRepository $users
      * @param \App\Repositories\Backend\Access\Role\RoleRepository $roles
      */
-    public function __construct(UserRepository $users, RoleRepository $roles)
+    public function __construct(UserRepository $users, RoleRepository $roles, BranchRepository $branch,  SeatRepository $seats)
     {
         $this->users = $users;
         $this->roles = $roles;
+        $this->branch = $branch;
+        $this->seats = $seats;
+
     }
 
     /**
@@ -63,8 +81,12 @@ class UserController extends Controller
     public function create(CreateUserRequest $request)
     {
         $roles = $this->roles->getAll();
+        $branch = $this->branch->getAll();
+        $seats = $this->seats->getAll();
+        $floor['floor'] = DB::table('floors')->get();
 
-        return new CreateResponse($roles);
+        return view('backend.access.users.create',$floor,array('roles'=> $roles,'branch'=>$branch,'seats'=>$seats));
+        //return new CreateResponse($roles);
     }
 
     /**

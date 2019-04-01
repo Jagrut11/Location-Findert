@@ -287,6 +287,12 @@ return [
 	"edit" => "Edit Appointment",
 	"management" => "Appointment Management",
 	"title" => "Appointments",
+	],
+	"seats" => [
+	"create" => "Create Seat",
+	"edit" => "Edit Seat",
+	"management" => "Seat Management",
+	"title" => "Seats",
 	"table" => [
 	"id" => "Id",
 	"createdat" => "Created At",

@@ -67,6 +67,87 @@
                     </div><!--col-lg-10-->
                 </div><!--form control-->
 
+                {{-- Latitude --}}
+
+                <div class="form-group">
+                    {{ Form::label('name', 'Latitude', ['class' => 'col-lg-2 control-label required']) }}
+
+                    <div class="col-lg-10">
+                        {{ Form::text('latitude', null, ['class' => 'form-control box-size', 'placeholder' => 'Latitude', 'required' => 'required']) }}
+                    </div><!--col-lg-10-->
+                </div><!--form control-->
+
+                {{-- Longitude --}}
+
+                <div class="form-group">
+                    {{ Form::label('name', 'Longitude', ['class' => 'col-lg-2 control-label required']) }}
+
+                    <div class="col-lg-10">
+                        {{ Form::text('longitude', null, ['class' => 'form-control box-size', 'placeholder' => 'Longitude', 'required' => 'required']) }}
+                    </div><!--col-lg-10-->
+                </div><!--form control-->
+
+
+                {{-- Branch Name --}}
+                <div class="form-group">
+                    {{ Form::label('name', 'Branch Name', ['class' => 'col-lg-2 control-label required']) }} 
+
+
+                    <div class="col-lg-10">
+
+                <select class="form-control" id="Company" name="branch_id">
+                    <option value=""> Branch Name </option> 
+                    @foreach ($branch as $key=>$value)
+                        <option value="<?php echo $value->id ?>">
+                            {{ $value->branch_name }}
+                        </option>
+                        @endforeach 
+                </select>
+                    </div><!--col-lg-10-->
+                </div><!--form control-->
+
+                   {{-- Floor No --}}
+                <div class="form-group">
+                    {{ Form::label('name', 'Floor No', ['class' => 'col-lg-2 control-label required']) }} 
+
+
+                    <div class="col-lg-10">
+
+                <select class="form-control" id="Company" name="branch_id">
+                    <option value=""> Floor No </option> 
+                    @foreach ($floor as $key=>$value)
+                        <option value="<?php echo $value->id ?>">
+                            {{ $value->floor_no }}
+                        </option>
+                        @endforeach 
+                </select>
+                    </div><!--col-lg-10-->
+                </div><!--form control-->
+
+
+                    {{-- Seat No --}}
+                <div class="form-group">
+                    {{ Form::label('name', 'Seat No', ['class' => 'col-lg-2 control-label required']) }} 
+
+
+                    <div class="col-lg-10">
+
+                <select class="form-control" id="Seat" name="seat_id">
+                    <option value=""> Seat No </option> 
+                    @foreach ($seats as $key=>$value)
+                        <option value="<?php echo $value->id ?>">
+                            {{ $value->seat_no }}
+                        </option>
+                        @endforeach 
+                </select>
+                    </div><!--col-lg-10-->
+                </div><!--form control-->
+
+
+
+
+
+
                 {{-- Status --}}
                 <div class="form-group">
                     {{ Form::label('status', trans('validation.attributes.backend.access.users.active'), ['class' => 'col-lg-2 control-label']) }}

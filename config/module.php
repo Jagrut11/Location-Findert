@@ -35,4 +35,7 @@ return [
 	"appointments" => [
 	"table" => "appointment",
 	],
+	"seats" => [
+	"table" => "seats",
+	],
 ];

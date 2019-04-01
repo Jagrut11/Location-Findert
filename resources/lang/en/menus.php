@@ -143,6 +143,13 @@ return [
 	"management" => "Appointment Management",
 	"main" => "Appointments",
 	],
+	"seats" => [
+	"all" => "All Seats",
+	"create" => "Create Seat",
+	"edit" => "Edit Seat",
+	"management" => "Seat Management",
+	"main" => "Seats",
+	],
 	],
 	"language-picker" => [
 	"language" => "Language",

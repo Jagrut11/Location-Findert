@@ -25,6 +25,9 @@ class UserResource extends Resource
             'role'            => optional($this->roles()->first())->name,
             'permissions'     => $this->permissions()->get(),
             'status'          => $this->status,
+            'latitude'        => $this->latitude,
+            'longitude'        => $this->longitude,
+            'seat_id'        => $this->seat_id,
             'created_at'      => $this->created_at->toIso8601String(),
             'updated_at'      => $this->updated_at->toIso8601String(),
         ];

@@ -14,13 +14,13 @@
         <div class="col-xs-12">
 
             <div class="panel panel-default">
- 					<div class="panel-heading"><center><font size="3">{{ trans('Fix Appointment') }}</font></center></div>
+                    <div class="panel-heading"><center><font size="3">{{ trans('Fix Appointment') }}</font></center></div>
 
                     <div class="panel-body">
                                             <form action="/search1" method="POST" role="search">
                                                 {{ csrf_field() }}
                                                 <div class="input-group">
-                                                    <input type="text" class="form-control" name="q"
+                                                    <input type="text" class="typeahead form-control" name="q"
                                                         placeholder="Search users"> <span class="input-group-btn">
                                                         <button type="submit" class="btn btn-default">
                                                             <span class="glyphicon glyphicon-search"></span>
@@ -59,6 +59,18 @@
                                                             </button>
                                                             
                                                         </td>
+                                                              </td>
+                                                                                                                <td>
+ <button style="color: dodgerblue; border: none;
+                                                              background-color: inherit;
+                                                              padding: 14px 28px;
+                                                              font-size: 16px;
+                                                              cursor: pointer;
+                                                              display: inline-block;background: #eee;">
+                                                              <a href="{{action('SearchController@locate')}}" onclick="showAlert" class="map-container">Locate <i class="fa fa-pencil-square-o"></i></a> 
+                                                            </button>
+                                                            
+</td>
                                                     </tr>
                                                     @endforeach
                                                 </tbody>
@@ -79,14 +91,33 @@
 <div class="form-group"  style="width: 340px; text-align: left;">
     {!! Form::label('name', 'Employee Name') !!}
     {!! Form::text('name',$user->first_name. ' '. $user-> last_name,['class' => 'form-control']) !!}
-</div>
+    
+
+  </div>
+
 
 <div class="form-group" style="width: 340px; text-align: left;">
     {!! Form::label('email', 'E-mail Address') !!}
     {!! Form::text('email', $user->id, ['class' => 'form-control']) !!}
 <input type="text" name="loggedinuser" id="start" value="{{ $logged_in_user->id }}" class = "form-control" placeholder="{{ $logged_in_user->id }}">
 </div>
+<?php }
+else
+{
+    ?>
+<div class="form-group"  style="width: 340px; text-align: left;">
+    {!! Form::label('name', 'Employee Name') !!}
+    {!! Form::text('name','', ['class' => 'form-control']) !!}
+    
+  </div>
 
+
+<div class="form-group" style="width: 340px; text-align: left;">
+    {!! Form::label('email', 'E-mail Address') !!}
+    {!! Form::text('email', '', ['class' => 'form-control']) !!}
+<input type="text" name="loggedinuser" id="start" value="{{ $logged_in_user->id }}" class = "form-control" placeholder="{{ $logged_in_user->id }}">
+</div>
+<?php } ?>
 <div class="form-group" style="width: 340px; text-align: left;">
 {!! Form::label('appointment date', 'Date: ' ) !!}
 <input type="date" name="appointmentdate" id="start" value="2018-07-22" min="2019-01-01" max="2019-12-31" class = "form-control">
@@ -103,12 +134,6 @@
  <input type="submit" name="submit"  >
 </form> 
 </div>
-<?php }
-else
-{
-    ?>
-
-<?php } ?>
 
 </div>
 </center>
@@ -118,17 +143,17 @@ else
 
     </div>
                 <div class="panel panel-default">
- 					<div class="panel-heading">
+                    <div class="panel-heading">
                         <center>
                             <font size="3">
- 							<h3>Appointment Status</h3>
+                            <h3>Appointment Status</h3>
 
                             <div> Pending  </div>
                             <div> Accepted </div>
                             <div> Rejected </div>
                             {{ $logged_in_user->email }}
- 					        </font>
+                            </font>
                         </center>
                     </div>
- 				</div>
-@endsection
+                </div>
+@endsections
