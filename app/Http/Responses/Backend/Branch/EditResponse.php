@@ -9,14 +9,16 @@ class EditResponse implements Responsable
     /**
      * @var App\Models\Branch\Branch
      */
-    protected $branches;
+    protected $branch;
+
+
 
     /**
      * @param App\Models\Branch\Branch $branches
      */
-    public function __construct($branches)
+    public function __construct($branch)
     {
-        $this->branches = $branches;
+        $this->branch = $branch;
     }
 
     /**
@@ -29,7 +31,7 @@ class EditResponse implements Responsable
     public function toResponse($request)
     {
         return view('backend.branches.edit')->with([
-            'branches' => $this->branches
+            'branch' => $this->branch
         ]);
     }
 }

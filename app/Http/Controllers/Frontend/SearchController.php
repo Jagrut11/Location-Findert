@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Access\User\User;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
-
+use DB;
 //use What3words\Geocoder\Geocoder;
 
  use What3words\Geocoder\Geocoder;
@@ -33,18 +33,15 @@ class SearchController extends Controller
 
 	public function locate()
 	{
+		$users = DB::table('users')->select('latitude','longitude')->get();
+		//dd($users);
 
-		 //  $api = new Geocoder("KS18UC0Z");
-		 //  $result = $api->convertTo3wa(51.432393,-0.348023);
-		 //  print_r($result);
-		
-		 // $result1 = $api->gridSection(39.903795, 116.384550, 39.902718, 116.383122);
-		 // print_r($result1);
-		 // $result2 = $api->autosuggest("fun.with.code", [AutoSuggestOption::focus(51.4243877,-0.34745), AutoSuggestOption::numberResults(6)]);
-		 // print_r($result2);
-		  //print_r($api->getError());
-	        
-	 return view('frontend.locate');
+		$api= new Geocoder("79NK10MQ");
+		$result= $api->convertTo3wa(23.028264,72.505427);
+		$words = $result["words"];
+		print"The words for (23.028264,72.505427) are " . $words . "\n";
+		print_r($api->getError());	        
+	 	return view('frontend.locate');
 	}
 }
  

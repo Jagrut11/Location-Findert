@@ -31,16 +31,17 @@
                                             </form>
                                         </div><!--panel-body--> <!-- showing search form -->
                     <div class="panel-body">
-                                            @if(isset($details))
-                                                <p> The Search results for your query <b> {{ $query }} </b> are :</p>
-                                            <h2>Searched User details</h2>
-                                            <table class="table table-striped">
-                                                <thead>
-                                                    <tr>
-                                                        <th>First Name</th>
-                                                        <th>Last Name</th>
-                                                        <th>Email</th>
-                                                        <th>Fix Appointment</th>
+                @if(isset($details))
+                    <p> The Search results for your query <b> {{ $query }} </b> are :</p>
+                    <h2>Searched User details</h2>
+                     <table class="table table-striped">
+                    <thead>
+                        <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>              
+                         <th>Email</th>
+                        <th>Fix Appointment</th>
+                        <th>Locate</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -60,7 +61,8 @@
                                                             </button>
                                                             
                                                         </td>
-                                                                                                                <td>
+                                                        <td>
+                                                                        
                                                             <button style="color: dodgerblue; border: none;
                                                               background-color: inherit;
                                                               padding: 14px 28px;
@@ -76,7 +78,7 @@
                                                 </tbody>
                                             </table>
                                             @endif
-                                        </div> <!-- showing search result -->
+                                        </div> <!-- showing search result  -->
 
 
 
@@ -129,8 +131,8 @@ else
 </div>
 
 <div class="form-group" style="width: 340px;">
-<!-- {!! Form::submit('Submit', ['class' => 'btn btn-info']) !!}
- -->
+ <!-- {!! Form::submit('Submit', ['class' => 'btn btn-info']) !!} -->
+
  <input type="submit" name="submit"  >
 </form> 
 </div>
@@ -157,3 +159,4 @@ else
                     </div>
  				</div>
 @endsection
+<!-- https://map.what3words.com/daring.lion.race -->

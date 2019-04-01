@@ -21,15 +21,7 @@
                 </div><!--box-tools pull-right-->
             </div><!--box-header with-border-->
 
-            <div class="box-body">
-                {{-- Company Id --}}
-                <div class="form-group">
-                    {{ Form::label('name', 'Company Id', ['class' => 'col-lg-2 control-label required']) }}
-
-                    <div class="col-lg-10">
-                        {{ Form::text('id', null, ['class' => 'form-control box-size', 'placeholder' => 'Enter Company Id', 'required' => 'required']) }}
-                    </div><!--col-lg-10-->
-                </div><!--form control-->
+           
 
                 {{-- Company Name --}}
                 <div class="form-group">
