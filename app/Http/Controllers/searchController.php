@@ -29,8 +29,13 @@ class searchController extends Controller
 	{
 		//$user = DB::table('users')->select('latitude','longitude')->get();
 //dd($user);
+		   $data = DB::table('users')->select('latitude','longitude')->get();
+		   //dd($lat);
+		   
+		   $long = DB::table('users')->select('longitude')->get();
 		   $api = new Geocoder("KS18UC0Z");
-		   $result = $api->convertTo3wa(23.028264,72.505927);
+		  $result = $api->convertTo3wa($lat);
+		   
 		    //print_r($result);
 		   //$result1 = $api->convertToCoordinates("index.home.raft");
 			//print_r($result1);
@@ -42,12 +47,12 @@ class searchController extends Controller
 		   //$result2 = $api->autosuggest("fun.with.code", [AutoSuggestOption::focus(51.4243877,-0.34745), AutoSuggestOption::numberResults(6)]);
 		  //print_r($result2);
 		   $words = $result["words"];
-		   print "The words for (23.028264,72.505427) are " . $words . "\n";
+		   print "The words for this co-ordinates are " . $words . "\n";
 
 		   print_r($api->getError());
 
 	        
-	 return view('frontend.locate');	
+	 return view('frontend.locate',array('words' => $words));	
 	}
 }
  
