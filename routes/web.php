@@ -35,8 +35,9 @@ Route::get('/fixappointment', function () {
 
 Route::post('/search','SearchController@search');
 
-Route::get('/locate','SearchController@locate');
+Route::get('/locate/{id}','SearchController@locate');
 
+//Route::get('locate/{lat}/{lng}', 'SearchController@locate');
 
 //Route::get('/create', 'BranchesController@create');
 

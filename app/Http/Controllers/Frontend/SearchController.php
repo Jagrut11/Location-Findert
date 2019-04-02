@@ -6,17 +6,12 @@ use App\Models\Access\User\User;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use DB;
-//use What3words\Geocoder\Geocoder;
-
- use What3words\Geocoder\Geocoder;
+use What3words\Geocoder\Geocoder;
  use What3words\Geocoder\AutoSuggestOption;
-// namespace What3words\Geocoder\Test;
-// use What3words\Tests\GeocoderTest;
 
 
 class SearchController extends Controller
 {
-    //
     public function search()
 	{     
 	
@@ -27,21 +22,35 @@ class SearchController extends Controller
 	    if(count($user) > 0)
 	        
 	        return view('frontend.fixappointment')->withDetails($user)->withQuery ( $q );
-	    else return view ('frontend.fixappointment')->withMessage('No Details found. Try to search again !');
+	    else return view ('frontend.fixappointment')->withMessage('No Details found. Try to search again !')
+;	}
 
-	}
-
-	public function locate()
+	public function locate($id)
 	{
-		$users = DB::table('users')->select('latitude','longitude')->get();
-		//dd($users);
+		// echo $id;
+		// exit();
+		  $user = DB::table('users')
+		  ->join('branches','branches.id','=','users.branch_id')
+		  ->join('seats','seats.id','=','users.seat_id')
+          ->join('floors','floors.id','=','seats.floor_id')
+		  ->select('users.*', 'branches.branch_name','floors.floor_no','seats.seat_no')
+		  ->where('users.id',$id)
+		  ->get();
+    //         
+		  foreach($user as $usersDetail){
+		   $lat=($usersDetail->latitude);
+		   $lng=($usersDetail->longitude);
+		    // print_r($lat);
+		    //  print_r($lng);
+		  }
+		 
 
 		$api= new Geocoder("79NK10MQ");
-		$result= $api->convertTo3wa(23.028264,72.505427);
+		$result= $api->convertTo3wa($lat,$lng);
 		$words = $result["words"];
-		print"The words for (23.028264,72.505427) are " . $words . "\n";
+		print"The words for ($lat,$lng) are " . $words . "\n";
 		print_r($api->getError());	        
-	 	return view('frontend.locate');
+	 	return view('frontend.locate',array('words'=> $words,'user'=>$user));
 	}
 }
  
