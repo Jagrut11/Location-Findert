@@ -71,7 +71,7 @@
                                                               display: inline-block;background: #eee;">
  <!--                <a href="{{action('SearchController@locate',$user->latitude)}}" onclick="showAlert" class="map-container">Locate <i class="fa fa-pencil-square-o"></i></a> --> 
 
- <a href="/locate/{{$user->id}}" onclick="showAlert" class="map-container">Locate <i class="fa fa-pencil-square-o"></i></a>
+ <a href="/locate/{{$user->id}}" onclick="showAlert" class="map-container">Details<i class="fa fa-pencil-square-o"></i></a>
                                                             </button>                                      
                                                             
                                                         </td>

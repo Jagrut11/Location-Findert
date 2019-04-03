@@ -1,50 +1,59 @@
-<!DOCTYPE html>
-<html>
-  <head>
+@extends('frontend.layouts.app')
+
+@section('content')
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="/js/what3words.js"></script>
-    <title>What3words Demo</title>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
     <style>
-      html, body {
-              text-align: center;
-              width: 800px;
-              height: 500px;
-              margin: 0 auto;
-              }
-      #map {
-              margin: auto;
-              width: 100%;
-              height:100%;
-              padding: 10px;
-              }
-      
-      #pac-input {
-              text-align: center;
-              } 
-    </style>
-  </head>
+      .button {
   
-  <body>
-    <div>
-       @foreach($user as $users)
-        <p>First Name:{{$users->first_name}}</p>
-        <p>Last Name:{{$users->last_name}}</p>
-        <p>Branch Name:{{$users->branch_name}}</p>
-         <p>Floor No:{{$users->floor_no}}</p>
-          <p>Seat No:{{$users->seat_no}}</p>
+}
 
-          
+      
+    </style>
+
+    <div class="panel panel-default">
+          <div class="panel-heading"><center><font size="3">Details</font></center></div>
+
+     <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+                        <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>              
+                        <th>Branch Name</th>
+                        <th>Floor No</th>
+                        <th>Seat No</th>
+                      </tr>
+        </thead>
+
+            <tbody>
+             @foreach($user as $users)
+              <tr>
+          <td>{{$users->first_name}}</td>
+          <td>{{$users->last_name}}</td>
+          <td>{{$users->branch_name}}</td>
+          <td>{{$users->floor_no}}</td>
+          <td>{{$users->seat_no}}</td>
+        </tr>
          @endforeach
-    </div>
-                 
-                           
-   <button>
-     <a href="https://map.what3words.com/{{$words}}">Click Here</a>
-   </button> 
-    <!-- AIzaSyAtUZHevSsuCITMsYD2etL5b-FSdmcfBjA -->
+      </table>      
+    </div> 
+    <center>
+    <button style="background-color: #e7e7e7;
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: blink;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer";>
+     <a href="https://map.what3words.com/{{$words}}">Locate</a>
+     </button>
+     </center><br>
+      <!-- AIzaSyAtUZHevSsuCITMsYD2etL5b-FSdmcfBjA -->
     <!-- 79NK10MQ -->
-  </body>
-</html>
-<!-- 79NK10MQ --> 
+@endsection
