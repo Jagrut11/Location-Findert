@@ -20,6 +20,7 @@ Route::get('lang/{lang}', 'LanguageController@swap');
 Route::group(['namespace' => 'Frontend', 'as' => 'frontend.'], function () {
     includeRouteFiles(__DIR__.'/Frontend/');
 });
+
 Route::get('/contactus', function(){
     return view('frontend.contactus');
 });
@@ -36,16 +37,15 @@ Route::get('/fixappointment', function () {
     return view('frontend.fixappointment');
 });//route to redirect to Fix Appointment page
 
-Route::get('/appointmentlogs', function () {
-    return view('frontend.appointmentlogs');
-});//route to redirect to Fix Appointment page
-
 
 Route::POST('/search1','searchController@search');
 //route to execute search Functionality 
 
-Route::POST('/showlog','ShowAppointmentLogsController@showlogs');
-//route to show Appointment logs to user 
+Route::post('/search','SearchController@search');
+
+Route::get('/locate','SearchController@locate');
+
+Route::get('/logs','ShowAppointmentLogsController@showlogs');
 
 //Route::get('/create', 'BranchesController@create');
 

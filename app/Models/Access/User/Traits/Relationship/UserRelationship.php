@@ -20,6 +20,24 @@ trait UserRelationship
         return $this->belongsToMany(config('access.role'), config('access.role_user_table'), 'user_id', 'role_id');
     }
 
+    public function branches()
+    {
+        
+         return $this->hasOne(Branch::class, 'id', 'branch_id');
+    }
+
+    public function seats()
+    {
+        
+         return $this->hasOne(Seat::class, 'id', 'seat_id');
+    }
+
+      public function floors()
+    {
+        
+         return $this->hasOne(Floor::class, 'id', 'floor_id');
+    }
+
     /**
      * Many-to-Many relations with Permission.
      * ONLY GETS PERMISSIONS ARE NOT ASSOCIATED WITH A ROLE.

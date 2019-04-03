@@ -1,4 +1,10 @@
 @extends('frontend.layouts.app')
+@section('page-header')
+    <h1>
+        {{ app_name() }}
+        <small>Notifications</small>
+    </h1>
+@endsection
 
 @section('content')
 <!-- <video autoplay muted loop id="myVideo">
@@ -20,7 +26,7 @@
                             <ul class="media-list">
                                 <li class="media">
                                     <div class="media-left">
-                                        <img class="media-object" src="{{ $logged_in_user->picture }}" alt="Profile picture">
+                                        <img class="media-object" src="img/frontend/profile-picture/pic-1.png" alt="profile-picture">
                                     </div><!--media-left-->
 
                                     <div class="media-body">
@@ -51,8 +57,34 @@
 
                                 </div><!--panel-body-->
                                 <div class="panel-body">
-                                  <a href=""> sdjgdsyfdbf</a>
+                                  <center><a href="/logs" name="notify" >Show Fixed Allointments</a></center> 
                                 </div><!--panel-body-->
+
+                                @if(isset($appointment))   
+                                <div class="panel-body">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Receiver</th>
+                                                <th>Date</th>
+                                                <th>Time</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($appointment as $applogs)
+                                            <tr>
+                                                <td>{{$applogs->first_name}} {{$applogs->last_name}}</td>
+                                                <td>{{$applogs->appointment_date}}</td>
+                                                <td>{{$applogs->appointment_time}}</td>
+                                                <td>{{$applogs->appointment_status}}</td>
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                                @endif
+
                             </div><!--panel-->
 
                             
@@ -63,11 +95,13 @@
                                 <div class="col-xs-12">
                                     <div class="panel panel-default" class="box">
                                         <div class="panel-heading" class="heading-color" >
-                                            <h4 >Search Employee</h4>
                                         </div><!--panel-heading-->
 
-
-
+                                        <div class="panel-body">
+                                            <div id="faqs-table_filter" class="dataTables_filter">
+                                                <form action="{{ trans('userdetails')}}"/>
+                                            </div>
+                                        </div><!--panel-body-->
                                     </div><!--panel-->
                                 </div><!--col-xs-12-->
                             </div><!--row-->

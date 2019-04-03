@@ -21,13 +21,13 @@ class FixAppointmentController extends Controller
 {
     //
     public function save_data()
-	{     
-	 $user = FixAppointmentController::create();
+    {     
+    $user = FixAppointmentController::create();
      $user->notify(new App\Notifications\EmailNotification);
-	 return redirect()->route('frontend.fixappointment');
-		
-	}
-	 public function store(Request $request)
+    return redirect()->route('frontend.fixappointment');
+        
+    }
+    public function store(Request $request)
     {
         $validation = Validator::make($request->all(), [
             'first_name'            => 'required',
@@ -38,7 +38,7 @@ class FixAppointmentController extends Controller
             'is_term_accept'        => 'required',
         ]);
         
-    	//$Appointment = $request->except(['_token']);
+        //$Appointment = $request->except(['_token']);
 
         // $q= $request->get('email');
         //$time=  $request->get('appointmentime');
