@@ -10,7 +10,7 @@
 @endsection
 
 @section('content')
-    {{ Form::model($branches, ['route' => ['admin.branches.update', $branches], 'class' => 'form-horizontal', 'role' => 'form', 'method' => 'PATCH', 'id' => 'edit-branch']) }}
+    {{ Form::model($branch, ['route' => ['admin.branches.update', $branch], 'class' => 'form-horizontal', 'role' => 'form', 'method' => 'PATCH', 'id' => 'edit-branch']) }}
 
         <div class="box box-info">
             <div class="box-header with-border">
@@ -21,16 +21,18 @@
                 </div><!--box-tools pull-right-->
             </div><!--box-header with-border-->
 
-            <div class="box-body">
-                {{-- Branch Name --}}
+             {{-- Branch Name --}}
                 <div class="form-group">
-                    {{ Form::label('name','branch_name', ['class' => 'col-lg-2 control-label required']) }}
+                    {{ Form::label('name', 'Branch Name', ['class' => 'col-lg-2 control-label required']) }} 
 
-                    <div class="col-lg-10">
-                        {{ Form::text('branch_name', null, ['class' => 'form-control box-size', 'placeholder' => trans('validation.attributes.backend.access.users.firstName'), 'required' => 'required']) }}
+                     <div class="col-lg-10">
+                        {{ Form::text('branch_name', null, ['class' => 'form-control box-size', 'placeholder' => 'Enter Branch Name', 'required' => 'required']) }}
                     </div><!--col-lg-10-->
-                </div><!--form control-->
+                    </div><!--form control-->
 
+                   
+
+                 
                 <div class="form-group">
                     {{-- Including Form blade file --}}
                     @include("backend.branches.form")

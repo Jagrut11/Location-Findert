@@ -48,14 +48,7 @@ class BranchesController extends Controller
      */
     public function index(ManageBranchRequest $request)
     {
-        //$company= DB::table('companies')-> select('company_name')-> get();
-
-        // $request = DB::table('companies')-> select('company_name')-> get();
-        // dd($request);
         return view('backend.branches.index');
-        //->with('companies', $company)
-        //return new ViewResponse('backend.branches.index');
-        //return($companies);
     }
     /**
      * Show the form for creating a new resource.
@@ -65,8 +58,8 @@ class BranchesController extends Controller
      */
     public function create(CreateBranchRequest $request)
     {
-        $data['data'] = DB::table('companies')->get();
-        return view('backend.branches.create',$data);
+        $company=$this->company->getAll();
+        return view('backend.branches.create',array('company'=>$company));
     }
     /**
      * Store a newly created resource in storage.
@@ -92,8 +85,6 @@ class BranchesController extends Controller
      */
     public function edit(Branch $branch, EditBranchRequest $request)
     {
-        // $branch = $this->branch->getAll();
-        // $company = Company::getSelectData('company_name');
          return new EditResponse($branch);
     }
     /**

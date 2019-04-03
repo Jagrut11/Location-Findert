@@ -44,7 +44,7 @@
 
                 <select class="form-control" id="Company" name="company_id">
                     <option value=""> Select </option> 
-                    @foreach ($data as $key=>$value)
+                    @foreach ($company as $key=>$value)
                         <option value="<?php echo $value->id ?>">
                             {{ $value->company_name }}
                         </option>

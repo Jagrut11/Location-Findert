@@ -22,14 +22,7 @@
             </div><!--box-header with-border-->
 
             <div class="box-body">
-                {{-- Floor Id --}}
-                <div class="form-group">
-                    {{ Form::label('name', 'Floor Id', ['class' => 'col-lg-2 control-label required']) }}
-
-                    <div class="col-lg-10">
-                        {{ Form::text('id', null, ['class' => 'form-control box-size', 'placeholder' => 'Enter Floor Id', 'required' => 'required']) }}  
-                    </div><!--col-lg-10-->
-                </div><!--form control-->
+              
                 {{-- floor number --}}
                 <div class="form-group">
                     {{ Form::label('name', 'Floor No', ['class' => 'col-lg-2 control-label required']) }}

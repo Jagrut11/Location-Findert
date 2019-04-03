@@ -27,22 +27,24 @@
   </head>
   
   <body>
+    <div>
+       @foreach($user as $users)
+        <p>First Name:{{$users->first_name}}</p>
+        <p>Last Name:{{$users->last_name}}</p>
+        <p>Branch Name:{{$users->branch_name}}</p>
+         <p>Floor No:{{$users->floor_no}}</p>
+          <p>Seat No:{{$users->seat_no}}</p>
 
-    <!-- <input id="pac-input" class="controls" type="text" placeholder="Enter Address">
-    
-    <div id="map"></div>
-    
-    <div id="current" class="text-center">Move The marker around</div>
-    
-    <input id="three-word" type="hidden" name="attributes[What 3 words]">
-    
-    <img width="150px" margin="auto" src="what3words_logo_final.png"/>
-
-    
-    <script src='/js/what3words-map-marker.js'></script>
-    
-     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtUZHevSsuCITMsYD2etL5b-FSdmcfBjA&libraries=places&callback=initMap" async defer></script>  -->
-     <button><a href="https://map.what3words.com/{{$words}} "> enter here</a></button>
-
+          
+         @endforeach
+    </div>
+                 
+                           
+   <button>
+     <a href="https://map.what3words.com/{{$words}}">Click Here</a>
+   </button> 
+    <!-- AIzaSyAtUZHevSsuCITMsYD2etL5b-FSdmcfBjA -->
+    <!-- 79NK10MQ -->
   </body>
 </html>
+<!-- 79NK10MQ --> 

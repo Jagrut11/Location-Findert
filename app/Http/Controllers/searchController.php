@@ -5,13 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Access\User\User;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
+use DB;
 use What3words\Geocoder\Geocoder;
  use What3words\Geocoder\AutoSuggestOption;
- use DB;
 
-class searchController extends Controller
+
+class SearchController extends Controller
 {
-    //
     public function search()
 	{     
 	
@@ -22,37 +22,32 @@ class searchController extends Controller
 	    if(count($user) > 0)
 	        
 	        return view('frontend.fixappointment')->withDetails($user)->withQuery ( $q );
-	    else return view ('frontend.fixappointment')->withMessage('No Details found. Try to search again !');
+	    else return view ('frontend.fixappointment')->withMessage('No Details found. Try to search again !')
+;	}
 
-	}
-	public function locate()
+	public function locate($id)
 	{
-		//$user = DB::table('users')->select('latitude','longitude')->get();
-//dd($user);
-		   $data = DB::table('users')->select('latitude','longitude')->get();
-		   //dd($lat);
-		   
-		   $long = DB::table('users')->select('longitude')->get();
-		   $api = new Geocoder("KS18UC0Z");
-		  $result = $api->convertTo3wa($lat);
-		   
-		    //print_r($result);
-		   //$result1 = $api->convertToCoordinates("index.home.raft");
-			//print_r($result1);
-		//$result = $api->gridSection(23.028264, 72.505427, 23.029341, 72.506855);
-//print_r($result);
-
-		   //$result2 = $api->gridSection(23.028264, 72.505427, 23.029341, 72.506855);
-		   //print_r($result2);
-		   //$result2 = $api->autosuggest("fun.with.code", [AutoSuggestOption::focus(51.4243877,-0.34745), AutoSuggestOption::numberResults(6)]);
-		  //print_r($result2);
-		   $words = $result["words"];
-		   print "The words for this co-ordinates are " . $words . "\n";
-
-		   print_r($api->getError());
-
-	        
-	 return view('frontend.locate',array('words' => $words));	
+		// echo $id;
+		// exit();
+		  $user = DB::table('users')
+		   ->join('branches','branches.id','=','users.branch_id')
+		   ->join('seats','seats.id','=','users.seat_id')
+    	   ->join('floors','floors.id','=','seats.floor_id')
+		   ->select('users.*', 'branches.branch_name','floors.floor_no','seats.seat_no')
+		   ->where('users.id',$id)
+		   ->get();
+              
+		  foreach($user as $usersDetail){
+		   $lat=($usersDetail->latitude);
+		   $lng=($usersDetail->longitude);
+		    // print_r($lat);
+		    //  print_r($lng);
+		  }
+		$api= new Geocoder("79NK10MQ");
+		$result= $api->convertTo3wa($lat,$lng);
+		$words = $result["words"];
+		print"The words for ($lat,$lng) are " . $words . "\n";
+		print_r($api->getError());	        
+	 	return view('frontend.locate',array('words'=> $words,'user'=>$user));
 	}
 }
- 

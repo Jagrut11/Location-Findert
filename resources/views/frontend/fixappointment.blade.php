@@ -30,16 +30,17 @@
                                             </form>
                                         </div><!--panel-body--> <!-- showing search form -->
                     <div class="panel-body">
-                                            @if(isset($details))
-                                                <p> The Search results for your query <b> {{ $query }} </b> are :</p>
-                                            <h2>Searched User details</h2>
-                                            <table class="table table-striped">
-                                                <thead>
-                                                    <tr>
-                                                        <th>First Name</th>
-                                                        <th>Last Name</th>
-                                                        <th>Email</th>
-                                                        <th>Fix Appointment</th>
+                @if(isset($details))
+                    <p> The Search results for your query <b> {{ $query }} </b> are :</p>
+                    <h2>Searched User details</h2>
+                     <table class="table table-striped">
+                    <thead>
+                        <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>              
+                         <th>Email</th>
+                        <th>Fix Appointment</th>
+                        <th>Locate</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -62,13 +63,19 @@
                                                               </td>
                                                                                                                 <td>
  <button style="color: dodgerblue; border: none;
+
+            <td>
+                                                                        
+                                                            <button style="color: dodgerblue; border: none;
                                                               background-color: inherit;
                                                               padding: 14px 28px;
                                                               font-size: 16px;
                                                               cursor: pointer;
-                                                              display: inline-block;background: #eee;">
-                                                              <a href="{{action('SearchController@locate')}}" onclick="showAlert" class="map-container">Locate <i class="fa fa-pencil-square-o"></i></a> 
-                                                            </button>
+                                                              display: inline-block;background: #eee;>
+ <!--                <a href="{{action('SearchController@locate',$user->latitude)}}" onclick="showAlert" class="map-container">Locate <i class="fa fa-pencil-square-o"></i></a> --> 
+
+ <a href="/locate/{{$user->id}}" onclick="showAlert" class="map-container">Locate <i class="fa fa-pencil-square-o"></i></a>
+                                                            </button>                                      
                                                             
 </td>
                                                     </tr>
@@ -76,7 +83,7 @@
                                                 </tbody>
                                             </table>
                                             @endif
-                                        </div> <!-- showing search result -->
+                                        </div> <!-- showing search result  -->
 
 
 
@@ -129,8 +136,8 @@ else
 </div>
 
 <div class="form-group" style="width: 340px;">
-<!-- {!! Form::submit('Submit', ['class' => 'btn btn-info']) !!}
- -->
+ <!-- {!! Form::submit('Submit', ['class' => 'btn btn-info']) !!} -->
+
  <input type="submit" name="submit"  >
 </form> 
 </div>
@@ -155,5 +162,8 @@ else
                             </font>
                         </center>
                     </div>
+
                 </div>
-@endsections
+ 				</div>
+@endsection
+
