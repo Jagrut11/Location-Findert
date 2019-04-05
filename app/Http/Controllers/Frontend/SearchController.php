@@ -12,7 +12,7 @@ use What3words\Geocoder\Geocoder;
 
 class SearchController extends Controller
 {
-    public function search()
+	public function search()
 	{     
 	
 	    $q = Input::get ( 'q' );
@@ -24,8 +24,29 @@ class SearchController extends Controller
 	        return view('frontend.fixappointment')->withDetails($user)->withQuery ( $q );
 	    else return view ('frontend.fixappointment')->withMessage('No Details found. Try to search again !')
 ;	}
+	 function fetch(Request $request)
+    {
+     if($request->get('query'))
+     {
+      $query = $request->get('query');
+      $data = DB::table('users')
+        ->where('first_name', 'LIKE', "%{$query}%")
+        ->get();
+      $output = '<ul class="dropdown-menu" style="display:block; position:relative">';
+      foreach($data as $row)
+      {
+       $output .= '
+       <li><a href="#">'.$row->first_name.'</a></li>
+       ';
+      }
+      $output .= '</ul>';
+      echo $output;
+        return view('frontend.fixappointment')->withDetails($data)->withQuery($query)->with($output);
 
-	public function locate($id)
+     }
+     //return view('frontend.fixappointment')->withDetails($data)->withQuery ( $query );
+    }
+ 	 function locate($id)
 	{
 		// echo $id;
 		// exit();
@@ -48,9 +69,11 @@ class SearchController extends Controller
 		$api= new Geocoder("79NK10MQ");
 		$result= $api->convertTo3wa($lat,$lng);
 		$words = $result["words"];
-		//print"The words for ($lat,$lng) are " . $words . "\n";
+		print"The words for ($lat,$lng) are " . $words . "\n";
 		print_r($api->getError());	        
 	 	return view('frontend.locate',array('words'=> $words,'user'=>$user));
 	}
-}
- 
+
+	   
+
+ }

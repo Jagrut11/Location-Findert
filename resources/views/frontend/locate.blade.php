@@ -2,18 +2,17 @@
 
 @section('content')
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <script src="/js/what3words.js"></script>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
+<!-- 
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">  -->
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
+ <!--  <script src="/js/what3words.js"></script>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
-    <style>
-      .button {
-  
-}
-
-      
-    </style>
-
+    -->
     <div class="panel panel-default">
           <div class="panel-heading"><center><font size="3">Details</font></center></div>
 
@@ -28,7 +27,6 @@
                         <th>Seat No</th>
                       </tr>
         </thead>
-
             <tbody>
              @foreach($user as $users)
               <tr>

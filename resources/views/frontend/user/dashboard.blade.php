@@ -57,8 +57,34 @@
 
                                 </div><!--panel-body-->
                                 <div class="panel-body">
-                                  <a href=""> sdjgdsyfdbf</a>
+                                  <center><a href="/logs" name="notify" >Show Fixed Allointments</a></center> 
                                 </div><!--panel-body-->
+
+                                @if(isset($appointment))   
+                                <div class="panel-body">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Receiver</th>
+                                                <th>Date</th>
+                                                <th>Time</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($appointment as $applogs)
+                                            <tr>
+                                                <td>{{$applogs->first_name}} {{$applogs->last_name}}</td>
+                                                <td>{{$applogs->appointment_date}}</td>
+                                                <td>{{$applogs->appointment_time}}</td>
+                                                <td>{{$applogs->appointment_status}}</td>
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                                @endif
+
                             </div><!--panel-->
 
                             

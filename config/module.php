@@ -32,6 +32,9 @@ return [
 	"branchcompanies" => [
 	"table" => "branchcompanies",
 	],
+	"appointments" => [
+	"table" => "appointment",
+	],
 	"seats" => [
 	"table" => "seats",
 	],

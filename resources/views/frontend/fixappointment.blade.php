@@ -5,24 +5,23 @@
 
 <link href="/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
 
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.css">
-<!--     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/locales.js"></script>
- -->   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.css"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.css"></script>
     <div class="row">
 
         <div class="col-xs-12">
 
             <div class="panel panel-default">
- 					<div class="panel-heading"><center><font size="3">{{ trans('Fix Appointment') }}</font></center></div>
+                    <div class="panel-heading"><center><font size="3">{{ trans('Fix Appointment') }}</font></center></div>
 
                     <div class="panel-body">
-                                            <form action="/search" method="POST" role="search">
+                                            <form action="/search1" method="POST" role="search">
                                                 {{ csrf_field() }}
                                                 <div class="input-group">
-                                                    <input type="text" class="form-control" name="q"
-                                                        placeholder="Search users"> <span class="input-group-btn">
+                                                    <input type="text" class="typeahead form-control" name="q"
+                                                        placeholder="Search users" id="query"> <span class="input-group-btn">
                                                         <button type="submit" class="btn btn-default">
                                                             <span class="glyphicon glyphicon-search"></span>
                                                         </button>
@@ -57,7 +56,7 @@
                                                               font-size: 16px;
                                                               cursor: pointer;
                                                               display: inline-block;background: #eee;">
-                                                              <a href="/search/{{$user->id}}" onclick="showAlert">Fix <i class="fa fa-pencil-square-o"></i></a> 
+                                                              <a href="/search1/{{$user->id}}" onclick="showAlert">Fix <i class="fa fa-pencil-square-o"></i></a> 
                                                             </button>
                                                             
                                                         </td>
@@ -71,10 +70,10 @@
                                                               display: inline-block;background: #eee;">
  <!--                <a href="{{action('SearchController@locate',$user->latitude)}}" onclick="showAlert" class="map-container">Locate <i class="fa fa-pencil-square-o"></i></a> --> 
 
- <a href="/locate/{{$user->id}}" onclick="showAlert" class="map-container">Details<i class="fa fa-pencil-square-o"></i></a>
+ <a href="/locate/{{$user->id}}" onclick="showAlert" class="map-container">Locate <i class="fa fa-pencil-square-o"></i></a>
                                                             </button>                                      
                                                             
-                                                        </td>
+</td>
                                                     </tr>
                                                     @endforeach
                                                 </tbody>
@@ -84,81 +83,124 @@
 
 
 
-                <div class="panel-body">
-                
+               <div class="panel-body">
+        <center>
+        <div>
+          <form action="/fixappointmentform" method="get">
+          <?php if(isset($user))
+                {
+          ?>
+          <div class="form-group"  style="width: 340px; text-align: left;">
+            {!! Form::label('name', 'Employee Name') !!}
+            {!! Form::text('name',$user->first_name. ' '. $user-> last_name,['class' => 'form-control']) !!}
+          </div>
 
-<center>
-    <div><form action="/fixappointmentform" method="get">
-<?php if(isset($user))
-{
-    ?>
-<div class="form-group"  style="width: 340px; text-align: left;">
-    {!! Form::label('name', 'Employee Name') !!}
-    {!! Form::text('name',$user->first_name. ' '. $user-> last_name,['class' => 'form-control']) !!}
-    
+          <div class="form-group" style="width: 340px; text-align: left;">
+            {!! Form::label('email', 'E-mail Address') !!}
+            {!! Form::text('email', $user->email, ['class' => 'form-control']) !!}
+          </div>
 
-  </div>
+          <div class="form-group" style="width: 340px; text-align: left;">
+            {!! Form::label('appointment date', 'Date: ' ) !!}
+            <input type="date" name="appointmentdate" id="start" value="2018-07-22" min="2019-01-01" max="2019-12-31" class = "form-control">
+          </div>
 
+          <div class="form-group" style="width: 340px; text-align: left;" >
+            {!! Form::label('appointment time', 'Time: ' ) !!}
+            <input type="time" name="appointmentime" id="start" value="19:00:00" class = "form-control">
+          </div>
 
-<div class="form-group" style="width: 340px; text-align: left;">
-    {!! Form::label('email', 'E-mail Address') !!}
-    {!! Form::text('email', $user->email, ['class' => 'form-control']) !!}
+          <div class="form-group" style="width: 340px;">
+<!-- {!! Form::submit('Submit', ['class' => 'btn btn-info']) !!}
+ -->        
+            <input type="submit" name="submit"  >
+          <div class="form-group" style="width: 340px; text-align: left; visibility: hidden;">
+            {!! Form::text('email', $user->id, ['class' => 'form-control']) !!}
+            <input type="text" name="loggedinuser" id="start" value="{{ $logged_in_user->id }}" class = "form-control" placeholder="{{ $logged_in_user->id }}">
+          </div>
+          
+          <?php }
+                else
+                {
+          ?>
+          <div class="form-group"  style="width: 340px; text-align: left;">
+            {!! Form::label('name', 'Employee Name') !!}
+            {!! Form::text('name','', ['class' => 'form-control']) !!}
+          </div>
 
-</div>
-<?php }
-else
-{
-    ?>
-<div class="form-group"  style="width: 340px; text-align: left;">
-    {!! Form::label('name', 'Employee Name') !!}
-    {!! Form::text('name','', ['class' => 'form-control']) !!}
-    
-  </div>
+          <div class="form-group" style="width: 340px; text-align: left;">
+            {!! Form::label('email', 'E-mail Address') !!}
+            {!! Form::text('email', '', ['class' => 'form-control']) !!}
+            
+          </div>
+          
 
+          <div class="form-group" style="width: 340px; text-align: left;">
+            {!! Form::label('appointment date', 'Date: ' ) !!}
+            <input type="date" name="appointmentdate" id="start" value="2018-07-22" min="2019-01-01" max="2019-12-31" class = "form-control">
+          </div>
 
-<div class="form-group" style="width: 340px; text-align: left;">
-    {!! Form::label('email', 'E-mail Address') !!}
-    {!! Form::text('email', '', ['class' => 'form-control']) !!}
+          <div class="form-group" style="width: 340px; text-align: left;" >
+            {!! Form::label('appointment time', 'Time: ' ) !!}
+            <input type="time" name="appointmentime" id="start" value="19:00:00" class = "form-control">
+          </div>
 
-</div>
-<?php } ?>
-<div class="form-group" style="width: 340px; text-align: left;">
-{!! Form::label('appointment date', 'Date: ' ) !!}
-<input type="date" name="appointment date" id="start" value="2018-07-22" min="2019-01-01" max="2019-12-31" class = "form-control">
-</div>
-
-<div class="form-group" style="width: 340px; text-align: left;" >
-{!! Form::label('appointment time', 'Time: ' ) !!}
-<input type="time" name="appointment time" id="start" value="14:00" class = "form-control">
-</div>
-
-<div class="form-group" style="width: 340px;">
- <!-- {!! Form::submit('Submit', ['class' => 'btn btn-info']) !!} -->
-
- <input type="submit" name="submit"  >
-</form> 
-</div>
-
-</div>
-</center>
-</div>
+          <div class="form-group" style="width: 340px;">
+<!-- {!! Form::submit('Submit', ['class' => 'btn btn-info']) !!}
+ -->        
+            <input type="submit" name="submit"  >
+          </div>
+        <?php } ?>
+          </form> 
+        </div>
+        </center>
+        </div>
             </div>
         </div>
 
     </div>
                 <div class="panel panel-default">
- 					<div class="panel-heading">
+                    <div class="panel-heading">
                         <center>
                             <font size="3">
- 							<h3>Appointment Status</h3>
+                            <h3>Appointment Status</h3>
 
                             <div> Pending  </div>
                             <div> Accepted </div>
                             <div> Rejected </div>
-                            
- 					        </font>
+                            {{ $logged_in_user->email }}
+                            </font>
                         </center>
                     </div>
- 				</div>
+        </div>
+@endsection
+@section('after-scripts')
+  <script>
+$(document).ready(function(){
+
+ $('#q').keyup(function(){ 
+        var query = $(this).val();
+        if(query != '')
+        {
+         var _token = $('input[name="_token"]').val();
+         $.ajax({
+          url:"{{ route('fixappointment.search') }}",
+          method:"POST",
+          data:{query:query, _token:_token},
+          success:function(data){
+           $('#query').fadeIn();  
+                    $('#query').html(data);
+          }
+         });
+        }
+    });
+
+    $(document).on('click', 'li', function(){  
+        $('#q').val($(this).text());  
+        $('#query').fadeOut();  
+    });  
+
+});
+</script>
 @endsection
 <!-- https://map.what3words.com/daring.lion.race -->

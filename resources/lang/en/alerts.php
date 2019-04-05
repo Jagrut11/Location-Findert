@@ -74,6 +74,11 @@ return [
 	"deleted" => "The Branchcompany was successfully deleted.",
 	"updated" => "The Branchcompany was successfully updated.",
 	],
+	"appointments" => [
+	"created" => "The Appointment was successfully created.",
+	"deleted" => "The Appointment was successfully deleted.",
+	"updated" => "The Appointment was successfully updated.",
+	],
 	"seats" => [
 	"created" => "The Seat was successfully created.",
 	"deleted" => "The Seat was successfully deleted.",

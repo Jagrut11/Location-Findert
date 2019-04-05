@@ -136,6 +136,13 @@ return [
 	"management" => "Branchcompany Management",
 	"main" => "Branchcompanies",
 	],
+	"appointments" => [
+	"all" => "All Appointments",
+	"create" => "Create Appointment",
+	"edit" => "Edit Appointment",
+	"management" => "Appointment Management",
+	"main" => "Appointments",
+	],
 	"seats" => [
 	"all" => "All Seats",
 	"create" => "Create Seat",
