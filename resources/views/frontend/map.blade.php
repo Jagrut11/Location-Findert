@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">

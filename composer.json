@@ -8,6 +8,7 @@
         "adminpanel",
         "rest-api"
     ],
+   
     "license": "MIT",
     "type": "project",
     "require": {
@@ -28,7 +29,9 @@
         "unisharp/laravel-filemanager": "~1.8",
         "what3words/w3w-php-wrapper": "^2.2",
         "yajra/laravel-datatables-oracle": "~8.0"
+        "what3words/w3w-php-wrapper": "3.*"
     },
+
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.0",
         "bvipul/generator": "^5.6",
@@ -83,4 +86,6 @@
         "sort-packages": true,
         "optimize-autoloader": true
     }
+
 }
+

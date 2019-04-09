@@ -43,12 +43,21 @@ Route::POST('/search1','searchController@search');
 
 Route::post('/search','SearchController@search');
 
-Route::get('/locate','SearchController@locate');
+Route::get('/locate/{id}','SearchController@locate');
+
+//Route::get('locate/{lat}/{lng}', 'SearchController@locate');
 
 Route::get('/logs','ShowAppointmentLogsController@showlogs');
 
 //Route::get('/create', 'BranchesController@create');
 
+// Route::get('/getlatlong', function () {
+//     return view('backend.access.getlatlong');
+// });
+
+Route::get('/getlatlong', 'Backend\Access\User\UserController@convert');
+
+Route::get('/accept/{id}/{idd}','FixAppointmentController@update');
 /* ----------------------------------------------------------------------- */
 
 /*

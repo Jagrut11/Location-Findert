@@ -2,19 +2,13 @@
 
 @section('content')
 
-<!-- autocomplete --><link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script><!-- autocomplete -->  
-
-
 
 <link href="/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
 
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.css">
-<!--     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/locales.js"></script>
- -->   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.css"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.css"></script>
     <div class="row">
 
         <div class="col-xs-12">
@@ -23,31 +17,30 @@
                     <div class="panel-heading"><center><font size="3">{{ trans('Fix Appointment') }}</font></center></div>
 
                     <div class="panel-body">
-                                            <form action="/search" method="POST" role="search">
+                                            <form action="/search1" method="POST" role="search">
                                                 {{ csrf_field() }}
                                                 <div class="input-group">
-                                                    <input type="text" class="form-control"  name="q"
+                                                    <input type="text" class="typeahead form-control" name="q"
                                                         placeholder="Search users"> <span class="input-group-btn">
                                                         <button type="submit" class="btn btn-default">
                                                             <span class="glyphicon glyphicon-search"></span>
                                                         </button>
                                                     </span>
                                                 </div>
-                                                
                                             </form>
-                                            
                                         </div><!--panel-body--> <!-- showing search form -->
                     <div class="panel-body">
-                                            @if(isset($details))
-                                                <p> The Search results for your query <b> {{ $query }} </b> are :</p>
-                                            <h2>Searched User details</h2>
-                                            <table class="table table-striped">
-                                                <thead>
-                                                    <tr>
-                                                        <th>First Name</th>
-                                                        <th>Last Name</th>
-                                                        <th>Email</th>
-                                                        <th>Fix Appointment</th>
+                @if(isset($details))
+                    <p> The Search results for your query <b> {{ $query }} </b> are :</p>
+                    <h2>Searched User details</h2>
+                     <table class="table table-striped">
+                    <thead>
+                        <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>              
+                         <th>Email</th>
+                        <th>Fix Appointment</th>
+                        <th>Locate</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -63,31 +56,34 @@
                                                               font-size: 16px;
                                                               cursor: pointer;
                                                               display: inline-block;background: #eee;">
-                                                              <a href="/search/{{$user->id}}" onclick="showAlert">Fix <i class="fa fa-pencil-square-o"></i></a> 
+                                                              <a href="/search1/{{$user->id}}" onclick="showAlert">Fix <i class="fa fa-pencil-square-o"></i></a> 
                                                             </button>
                                                             
                                                         </td>
-                                                                                                                <td>
+            <td>
+                                                                        
                                                             <button style="color: dodgerblue; border: none;
                                                               background-color: inherit;
                                                               padding: 14px 28px;
                                                               font-size: 16px;
                                                               cursor: pointer;
                                                               display: inline-block;background: #eee;">
-                                                              <a href="{{action('SearchController@locate')}}" onclick="showAlert" class="map-container">Locate <i class="fa fa-pencil-square-o"></i></a> 
-                                                            </button>
+ <!--                <a href="{{action('SearchController@locate',$user->latitude)}}" onclick="showAlert" class="map-container">Locate <i class="fa fa-pencil-square-o"></i></a> --> 
+
+ <a href="/locate/{{$user->id}}" onclick="showAlert" class="map-container">Locate <i class="fa fa-pencil-square-o"></i></a>
+                                                            </button>                                      
                                                             
-                                                        </td>
+</td>
                                                     </tr>
                                                     @endforeach
                                                 </tbody>
                                             </table>
                                             @endif
-                                        </div> <!-- showing search result -->
+                                        </div> <!-- showing search result  -->
 
 
 
-        <div class="panel-body">
+               <div class="panel-body">
         <center>
         <div>
           <form action="/fixappointmentform" method="get">
@@ -111,7 +107,7 @@
 
           <div class="form-group" style="width: 340px; text-align: left;" >
             {!! Form::label('appointment time', 'Time: ' ) !!}
-            <input type="time" name="appointmentime" id="start" value="14:00" class = "form-control">
+            <input type="time" name="appointmentime" id="start" value="19:00:00" class = "form-control">
           </div>
 
           <div class="form-group" style="width: 340px;">
@@ -146,7 +142,7 @@
 
           <div class="form-group" style="width: 340px; text-align: left;" >
             {!! Form::label('appointment time', 'Time: ' ) !!}
-            <input type="time" name="appointmentime" id="start" value="14:00" class = "form-control">
+            <input type="time" name="appointmentime" id="start" value="19:00:00" class = "form-control">
           </div>
 
           <div class="form-group" style="width: 340px;">
@@ -172,9 +168,10 @@
                             <div> Pending  </div>
                             <div> Accepted </div>
                             <div> Rejected </div>
-                            
+                            {{ $logged_in_user->email }}
                             </font>
                         </center>
                     </div>
-                </div>
+ 				</div>
 @endsection
+<!-- https://map.what3words.com/daring.lion.race -->

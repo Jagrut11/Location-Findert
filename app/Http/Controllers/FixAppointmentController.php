@@ -69,5 +69,14 @@ class FixAppointmentController extends Controller
      return redirect()->route('frontend.fixappointment');
         
     }
+    public function update($id, $idd)
+    {
+        dd($id,$idd);
+        $a= Appointment::where('sender_id', $id)->
+        // $a= appointment:: where ('sender_id',$idd and 'receiver_id',$id)
+        // ->update(['appointment_status' => 'Accepted']); 
+        //  return view('frontend.user.dashboard');
+
+    }
 
 }

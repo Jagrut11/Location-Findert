@@ -26,8 +26,8 @@ class CreateUsersTable extends Migration
             $table->boolean('confirmed')->default(0);
             $table->boolean('is_term_accept')->default(0)->comment(' 0 = not accepted,1 = accepted');
             $table->string('remember_token', 100)->nullable();
-            $table->decimal('latitude');
-            $table->decimal('longitude');
+            $table->float('latitude',10,6)->unsigned();
+            $table->float('longitude',10,6)->unsigned();
             $table->integer('seat_id')->unsigned()->index('users_seat_id_foreign');
              $table->integer('branch_id')->unsigned()->index('users_branch_id_foreign');
             $table->integer('created_by')->unsigned();
