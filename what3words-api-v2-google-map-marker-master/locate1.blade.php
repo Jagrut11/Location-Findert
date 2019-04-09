@@ -17,7 +17,8 @@
     <script src="vendor/w3w-javascript-wrapper/dist/W3W.Geocoder.min.js"></script>
     <script src="js/init-w3w.js"></script>
     <script src='js/init-marker.js'></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&callback=initMap"
+    <script src="https://maps.googleapis.com/maps/api/js?key=KS18UC0Z&libraries=places&callback=initMap"
             async defer></script>
+            
 </body>
 </html>

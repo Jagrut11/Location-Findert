@@ -32,7 +32,7 @@
                         <div style="padding-left: 20px; padding-top: 20px; color: black;">
                             <p>Customer Services</p>
 
-                            <p>&diams; Help your al well as your clients find the best location to serve their needs with an employee Locator that easily provide you the location in our website.</p>
+                            <p>&diams; Help your as well as your clients find the best location to serve their needs with an employee Locator that easily provide you the location in our website.</p>
                         
                             <p>&diams; Make it easy for consumers to find employee location, whether they have 50 locations or 5,000. Guide consumers to their locations through organic search results.</p>
 

@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use DB;
 use What3words\Geocoder\Geocoder;
  use What3words\Geocoder\AutoSuggestOption;
+ 
+
 
 
 class SearchController extends Controller
@@ -17,7 +19,8 @@ class SearchController extends Controller
 	
 	    $q = Input::get ( 'q' );
 	     
-	    $user = User::where('first_name','LIKE','%'.$q.'%')->orWhere('email','LIKE','%'.$q.'%')->orWhere('last_name','LIKE','%'.$q.'%')->get();
+	    $user = User::where('first_name','LIKE','%'.$q.'%')->orWhere('email','LIKE','%'.$q.'%')->orWhere('last_name','LIKE','%'.$q.'%')->take(10)->get();
+
 
 	    if(count($user) > 0)
 	        
@@ -40,13 +43,15 @@ class SearchController extends Controller
 		  foreach($user as $usersDetail){
 		   $lat=($usersDetail->latitude);
 		   $lng=($usersDetail->longitude);
-		    // print_r($lat);
-		    //  print_r($lng);
+		     print_r($lat);
+		      print_r($lng);
 		  }
 		$api= new Geocoder("79NK10MQ");
 		$result= $api->convertTo3wa($lat,$lng);
 		$words = $result["words"];
 		print"The words for ($lat,$lng) are " . $words . "\n";
+		$result1 = $api->convertToCoordinates($words);
+		print "The coordinates for $words are (" . $result1["coordinates"]["lat"] . "),(" . $result1["coordinates"]["lng"] . ")\n";
 		print_r($api->getError());	        
 	 	return view('frontend.locate',array('words'=> $words,'user'=>$user));
 	}

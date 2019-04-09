@@ -1,14 +1,24 @@
 @extends('frontend.layouts.app')
 
 @section('content')
+<script type="text/javascript">
+    $('#q').autocomplete({
+      
+      minlenght:1,
+      autoFocus:true,
+      select:function(e,ui){
+        alert(ui);
+      }
+    });
+</script>
 
 
 <link href="/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.css">
-<!--     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/locales.js"></script>
- -->   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.css"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.css"></script>
     <div class="row">
 
         <div class="col-xs-12">
@@ -60,10 +70,6 @@
                                                             </button>
                                                             
                                                         </td>
-                                                              </td>
-                                                                                                                <td>
- <button style="color: dodgerblue; border: none;
-
             <td>
                                                                         
                                                             <button style="color: dodgerblue; border: none;
@@ -71,11 +77,21 @@
                                                               padding: 14px 28px;
                                                               font-size: 16px;
                                                               cursor: pointer;
-                                                              display: inline-block;background: #eee;>
+                                                              display: inline-block;background: #eee;">
  <!--                <a href="{{action('SearchController@locate',$user->latitude)}}" onclick="showAlert" class="map-container">Locate <i class="fa fa-pencil-square-o"></i></a> --> 
 
  <a href="/locate/{{$user->id}}" onclick="showAlert" class="map-container">Locate <i class="fa fa-pencil-square-o"></i></a>
-                                                            </button>                                      
+                                                            </button>    
+                                                            <button style="color: dodgerblue; border: none;
+                                                              background-color: inherit;
+                                                              padding: 14px 28px;
+                                                              font-size: 16px;
+                                                              cursor: pointer;
+                                                              display: inline-block;background: #eee;">
+ <!--                <a href="{{action('SearchController@locate',$user->latitude)}}" onclick="showAlert" class="map-container">Locate <i class="fa fa-pencil-square-o"></i></a> --> 
+
+ <!-- <a href="/autocomplete" onclick="showAlert" class="map-container">auto <i class="fa fa-pencil-square-o"></i></a> -->
+                                                            </button>                                    
                                                             
 </td>
                                                     </tr>
@@ -87,64 +103,78 @@
 
 
 
-                <div class="panel-body">
-                
+               <div class="panel-body">
+        <center>
+        <div>
+          <form action="/fixappointmentform" method="get">
+          <?php if(isset($user))
+                {
+          ?>
+          <div class="form-group"  style="width: 340px; text-align: left;">
+            {!! Form::label('name', 'Employee Name') !!}
+            {!! Form::text('name',$user->first_name. ' '. $user-> last_name,['class' => 'form-control']) !!}
+          </div>
 
-<center>
-    <div><form action="/fixappointmentform" method="get">
-<?php if(isset($user))
-{
-    ?>
-<div class="form-group"  style="width: 340px; text-align: left;">
-    {!! Form::label('name', 'Employee Name') !!}
-    {!! Form::text('name',$user->first_name. ' '. $user-> last_name,['class' => 'form-control']) !!}
-    
+          <div class="form-group" style="width: 340px; text-align: left;">
+            {!! Form::label('email', 'E-mail Address') !!}
+            {!! Form::text('email', $user->email, ['class' => 'form-control']) !!}
+          </div>
 
-  </div>
+          <div class="form-group" style="width: 340px; text-align: left;">
+            {!! Form::label('appointment date', 'Date: ' ) !!}
+            <input type="date" name="appointmentdate" id="start" value="2018-07-22" min="2019-01-01" max="2019-12-31" class = "form-control">
+          </div>
 
+          <div class="form-group" style="width: 340px; text-align: left;" >
+            {!! Form::label('appointment time', 'Time: ' ) !!}
+            <input type="time" name="appointmentime" id="start" value="19:00:00" class = "form-control">
+          </div>
 
-<div class="form-group" style="width: 340px; text-align: left;">
-    {!! Form::label('email', 'E-mail Address') !!}
-    {!! Form::text('email', $user->id, ['class' => 'form-control']) !!}
-<input type="text" name="loggedinuser" id="start" value="{{ $logged_in_user->id }}" class = "form-control" placeholder="{{ $logged_in_user->id }}">
-</div>
-<?php }
-else
-{
-    ?>
-<div class="form-group"  style="width: 340px; text-align: left;">
-    {!! Form::label('name', 'Employee Name') !!}
-    {!! Form::text('name','', ['class' => 'form-control']) !!}
-    
-  </div>
+          <div class="form-group" style="width: 340px;">
+<!-- {!! Form::submit('Submit', ['class' => 'btn btn-info']) !!}
+ -->        
+            <input type="submit" name="submit"  >
+          <div class="form-group" style="width: 340px; text-align: left; visibility: hidden;">
+            {!! Form::text('email', $user->id, ['class' => 'form-control']) !!}
+            <input type="text" name="loggedinuser" id="start" value="{{ $logged_in_user->id }}" class = "form-control" placeholder="{{ $logged_in_user->id }}">
+          </div>
+          
+          <?php }
+                else
+                {
+          ?>
+          <div class="form-group"  style="width: 340px; text-align: left;">
+            {!! Form::label('name', 'Employee Name') !!}
+            {!! Form::text('name','', ['class' => 'form-control']) !!}
+          </div>
 
+          <div class="form-group" style="width: 340px; text-align: left;">
+            {!! Form::label('email', 'E-mail Address') !!}
+            {!! Form::text('email', '', ['class' => 'form-control']) !!}
+            
+          </div>
+          
 
-<div class="form-group" style="width: 340px; text-align: left;">
-    {!! Form::label('email', 'E-mail Address') !!}
-    {!! Form::text('email', '', ['class' => 'form-control']) !!}
-<input type="text" name="loggedinuser" id="start" value="{{ $logged_in_user->id }}" class = "form-control" placeholder="{{ $logged_in_user->id }}">
-</div>
-<?php } ?>
-<div class="form-group" style="width: 340px; text-align: left;">
-{!! Form::label('appointment date', 'Date: ' ) !!}
-<input type="date" name="appointmentdate" id="start" value="2018-07-22" min="2019-01-01" max="2019-12-31" class = "form-control">
-</div>
+          <div class="form-group" style="width: 340px; text-align: left;">
+            {!! Form::label('appointment date', 'Date: ' ) !!}
+            <input type="date" name="appointmentdate" id="start" value="2018-07-22" min="2019-01-01" max="2019-12-31" class = "form-control">
+          </div>
 
-<div class="form-group" style="width: 340px; text-align: left;" >
-{!! Form::label('appointment time', 'Time: ' ) !!}
-<input type="time" name="appointmentime" id="start" value="14:00" class = "form-control">
-</div>
+          <div class="form-group" style="width: 340px; text-align: left;" >
+            {!! Form::label('appointment time', 'Time: ' ) !!}
+            <input type="time" name="appointmentime" id="start" value="19:00:00" class = "form-control">
+          </div>
 
-<div class="form-group" style="width: 340px;">
- <!-- {!! Form::submit('Submit', ['class' => 'btn btn-info']) !!} -->
-
- <input type="submit" name="submit"  >
-</form> 
-</div>
-
-</div>
-</center>
-</div>
+          <div class="form-group" style="width: 340px;">
+<!-- {!! Form::submit('Submit', ['class' => 'btn btn-info']) !!}
+ -->        
+            <input type="submit" name="submit"  >
+          </div>
+        <?php } ?>
+          </form> 
+        </div>
+        </center>
+        </div>
             </div>
         </div>
 
@@ -162,8 +192,6 @@ else
                             </font>
                         </center>
                     </div>
-
-                </div>
  				</div>
 @endsection
-
+<!-- https://map.what3words.com/daring.lion.race -->

@@ -47,6 +47,9 @@ Route::get('/locate/{id}','SearchController@locate');
 
 //Route::get('locate/{lat}/{lng}', 'SearchController@locate');
 
+Route::get('/logs','ShowAppointmentLogsController@showlogs');
+Route::get('/autocomplete', 'AutoCompleteController@index');
+Route::post('/autocomplete/fetch', 'AutoCompleteController@fetch')->name('autocomplete.fetch');
 
 //Route::get('/create', 'BranchesController@create');
 

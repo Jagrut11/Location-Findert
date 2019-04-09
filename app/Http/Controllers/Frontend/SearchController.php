@@ -15,15 +15,25 @@ class SearchController extends Controller
     public function search()
 	{     
 	
-	    $q = Input::get ( 'q' );
+		// use this search functionality
+	    // $q = Input::get ( 'q' );
 	     
-	    $user = User::where('first_name','LIKE','%'.$q.'%')->orWhere('email','LIKE','%'.$q.'%')->orWhere('last_name','LIKE','%'.$q.'%')->get();
+	    // $user = User::where('first_name','LIKE','%'.$q.'%')->orWhere('email','LIKE','%'.$q.'%')->orWhere('last_name','LIKE','%'.$q.'%')->get();
 
-	    if(count($user) > 0)
+	    // if(count($user) > 0)
 	        
-	        return view('frontend.fixappointment')->withDetails($user)->withQuery ( $q );
-	    else return view ('frontend.fixappointment')->withMessage('No Details found. Try to search again !')
-;	}
+	    //     return view('frontend.fixappointment')->withDetails($user)->withQuery ( $q );
+	    // else return view ('frontend.fixappointment')->withMessage('No Details found. Try to search again !');
+	    // search functionality end
+
+
+		// or use this search functionality
+    	$q = Input::get ( 'q' );
+        $data = User::select("title as name")->where('first_name','LIKE','%'.$q.'%')->orWhere('email','LIKE','%'.$q.'%')->orWhere('last_name','LIKE','%'.$q.'%')->get();
+        return view('frontend.fixappointment')->withDetails($user)->withQuery ( $q );
+        //return response()->json($data);
+        // search functionality end
+	}
 
 	public function locate($id)
 	{
@@ -52,5 +62,7 @@ class SearchController extends Controller
 		print_r($api->getError());	        
 	 	return view('frontend.locate',array('words'=> $words,'user'=>$user));
 	}
+
+	
 }
  

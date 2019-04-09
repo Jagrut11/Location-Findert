@@ -57,8 +57,34 @@
 
                                 </div><!--panel-body-->
                                 <div class="panel-body">
-                                  <a href=""> sdjgdsyfdbf</a>
+                                  <center><a href="/logs" name="notify" >Show Fixed Appointments</a></center> 
                                 </div><!--panel-body-->
+
+                                @if(isset($appointment))   
+                                <div class="panel-body">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Receiver</th>
+                                                <th>Date</th>
+                                                <th>Time</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($appointment as $applogs)
+                                            <tr>
+                                                <td>{{$applogs->first_name}} {{$applogs->last_name}}</td>
+                                                <td>{{$applogs->appointment_date}}</td>
+                                                <td>{{$applogs->appointment_time}}</td>
+                                                <td>{{$applogs->appointment_status}}</td>
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                                @endif
+
                             </div><!--panel-->
 
                             
@@ -67,16 +93,7 @@
                         <div class="col-md-8 col-md-pull-4">
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <div class="panel panel-default" class="box">
-                                        <div class="panel-heading" class="heading-color" >
-                                        </div><!--panel-heading-->
-
-                                        <div class="panel-body">
-                                            <div id="faqs-table_filter" class="dataTables_filter">
-                                                <form action="{{ trans('userdetails')}}"/>
-                                            </div>
-                                        </div><!--panel-body-->
-                                    </div><!--panel-->
+                                    
                                 </div><!--col-xs-12-->
                             </div><!--row-->
 
@@ -136,6 +153,17 @@
                                         </div><!--panel-body-->
                                     </div><!--panel-->
                                 </div><!--col-md-6-->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js">
+    Push.permission.request(onGranted,onDenied);
+    var= requestButton=document.querySelection(".request-button");
+    function onGranted()
+    {
+        push.create("hello varun here",{
+            body: "this is a web Notification",
+            onClick: function(){ console.log(this);}
+
+    });
+</script> -->
 
                             </div><!--row-->
 
