@@ -57,7 +57,8 @@ Route::get('/logs','ShowAppointmentLogsController@showlogs');
 
 Route::get('/getlatlong', 'Backend\Access\User\UserController@convert');
 
-Route::get('/accept/{id}/{idd}','FixAppointmentController@update');
+Route::get('/accept/{iddd}','FixAppointmentController@update');
+Route::get('/reject/{iddd}','FixAppointmentController@reject');
 /* ----------------------------------------------------------------------- */
 
 /*

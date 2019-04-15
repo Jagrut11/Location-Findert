@@ -32,7 +32,7 @@ class Appointment extends Model
      */
     protected $fillable = [
         'sender_id','receiver_id','appointment_date','appointment_status','status'
-
+,'appointment_time'
 
 
     ];

@@ -16,7 +16,7 @@
         <div class="col-xs-12">
 
             <div class="panel panel-default">
- <div class="panel-heading">{{ trans('Home') }}</div>
+ <div class="panel-heading"><h1 align="center"><a  class="effect-box">Home</a></h1></div>
                 <div class="panel-body">
 
                     <div class="row">
@@ -26,7 +26,7 @@
                             <ul class="media-list">
                                 <li class="media">
                                     <div class="media-left">
-                                        <img class="media-object" src="img/frontend/profile-picture/pic-1.png" alt="profile-picture">
+                                        <img class="media-object" src="img/frontend/profile-picture/pic-1.png" alt="profile-picture" style="height: 100px; width: 100px;">
                                     </div><!--media-left-->
 
                                     <div class="media-body">
@@ -49,18 +49,82 @@
 
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4>Notifications</h4>
+                                    <a  href="fixappointment"><h4>Click Here To Fix Appointment <i class="fas fa-handshake"></i></h4></a>
                                 </div><!--panel-heading-->
 
                                 <div class="panel-body">
                                   <video src="img/frontend/homelocation.mp4" loop="" width="100%" autoplay></video>
 
                                 </div><!--panel-body-->
-                                <div class="panel-body">
-                                  <center><a href="/logs" name="notify" >Show Fixed Appointments</a></center> 
-                                </div><!--panel-body-->
+                            </div><!--panel-->
+     
+                        </div><!--col-md-4-->
 
-                                @if(isset($appointment))   
+                        <div class="col-md-8 col-md-pull-4">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    
+                                </div><!--col-xs-12-->
+                            </div><!--row-->
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="panel panel-default" class="box">
+                                        <div class="panel-heading">
+                                            <h4>Find Location <i class="fas fa-street-view"></i></h4>
+                                        </div><!--panel-heading-->
+
+                                        <div class="panel-body">
+                                            
+                                            <div class="panel-body">
+                                                <div class="container1">
+                                                    <img src="img/frontend/location1.jpg" alt="Avatar" class="image" style="height: 250px; width: 250px;">
+                                                    <div class="overlay">
+                                                        <div class="text">
+                                                            <p>The "Location Finder <i class="fas fa-map-marked-alt"></i>" Website shows your current geograph location of the employee, including latitude & longitude, on Maps. The geolocation service is available on both desktop computers and mobile phones. The location finder service uses the Maps Geolocation API to determine the exact place.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><!--panel-body-->
+                                    </div><!--panel-->
+                                </div><!--col-md-6-->
+
+                                <div class="col-md-6">
+                                    <div class="panel panel-default" class="box">
+                                        <div class="panel-heading">
+                                            <h4>Fix Appointment <i class="fas fa-handshake"></i></h4>
+                                        </div><!--panel-heading-->
+
+                                        <div class="panel-body">
+                                            <div class="panel-body">
+                                                <div class="container1">
+                                                    <img src="img/frontend/fix-Meeting.jpg" alt="Avatar" class="image" style="height: 250px; width: 250px;">
+                                                    <div class="overlay">
+                                                        <div class="text">
+                                                            <p>The way you ask for the appointment could determine whether you'll make a sale. Be sure you get it right. You can request an appointment for a presentation. If the Employee agrees to meet you at their office, you can fix a convenient date and time for the same. </p>
+                                                        </div>
+                                                    </div>
+                                                 </div>
+                                            </div>
+                                        </div><!--panel-body-->
+                                    </div><!--panel-->
+                                </div><!--col-md-6-->
+
+
+                                <div class="col-md-12" >
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4>
+                                                <center>
+                                                    <a href="/logs" name="notify" >Show Fixed Appointments <i class="fas fa-clipboard-list"></i></a>
+                                                </center>
+                                            </h4> 
+                                        </div> <!--panel-heading-->
+                                        <div class="panel-body">
+                                        </div><!--panel-body-->
+
+                                 @if(isset($appointment))   
                                 <div class="panel-body">
                                     <table class="table table-striped">
                                         <thead>
@@ -78,101 +142,55 @@
                                                 <td>{{$applogs->appointment_date}}</td>
                                                 <td>{{$applogs->appointment_time}}</td>
                                                 <td>{{$applogs->appointment_status}}</td>
+                                                <?php 
+                                                    if($applogs->appointment_status == 'Pending')
+                                                    {
+                                                        if($applogs->sender_id == $logged_in_user->id)
+                                                        { }
+                                                        else
+                                                        {
+                                                ?>
+                                                
                                                 <td>
-                                                    <button type="submit" style="border-radius: 50%; background-color: coral;" ><i class="fa fa-times-circle" aria-hidden="true"></i>
-                                                    </button> 
+                                                    <form action="/reject/{{$applogs->id}}" method="get">
+                                                        <button type="submit" style="border-radius: 50%; background-color: coral;" >
+                                                        <a onclick="alertreject()">
+                                                            <i class="fa fa-times-circle" aria-hidden="true"></i>
+                                                        </a>
+                                                        </button>
+                                                    </form> 
                                                     <br>
-                                                    <form action="/accept/{{$applogs->sender_id}}/{{$applogs->receiver_id}}" method="get">
-                                                    <button type="submit" style="border-radius: 50%; background-color: lightgreen;" ><i  class="fa fa-check-circle" aria-hidden="true"></i>
-                                                    </button>
+                                                    <form action="/accept/{{$applogs->id}}" method="get">
+                                                        <button  type="submit" style="border-radius: 50%; background-color: lightgreen;" >
+                                                        <a onclick="openForm()" onclick="alertaccept()">
+                                                            <i class="fa fa-check-circle" aria-hidden="true"></i>
+                                                        </a>
+                                                        </button>
+                                                        <div id="alert" style="padding: 20px; background-color: #4CAF50; /* Red */color: white;margin-bottom: 15px">
+                                                            <span style="margin-left: 15px; color: white; font-weight: bold; float: right; font-size: 22px; line-height: 20px;  cursor: pointer; transition: 0.3s;" onclick="this.parentElement.style.display='none';">&times;</span> 
+                                                            <p style="color: white;">This is an alert box.</p>
+                                                        </div>
                                                     </form>
+                                                    <script>
+                                                        function openForm() 
+                                                        {
+                                                            document.getElementById("alert").style.display = "block";
+                                                        }
+                                                    </script>
                                                 </td>
+                                                <?php 
+                                                    }
+                                                }
+                                                ?>
                                             </tr>
                                         @endforeach
                                         </tbody>
                                     </table>
                                 </div>
                                 @endif
+                                </div><!--panel-->
 
-                            </div><!--panel-->
 
-                            
-                        </div><!--col-md-4-->
-
-                        <div class="col-md-8 col-md-pull-4">
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    
-                                </div><!--col-xs-12-->
-                            </div><!--row-->
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="panel panel-default" class="box">
-                                        <div class="panel-heading">
-                                            <h4>Find Location</h4>
-                                        </div><!--panel-heading-->
-
-                                        <div class="panel-body">
-                                            <p>
-                                                <center><img src="img/frontend/location1.jpg"></center ><br>
-                                                Quick and easy to track down the location of employee.
-                                            </p>
-                                        </div><!--panel-body-->
-                                    </div><!--panel-->
-                                </div><!--col-md-6-->
-
-                                <div class="col-md-6">
-                                    <div class="panel panel-default" class="box">
-                                        <div class="panel-heading">
-                                            <a href="fixappointment"><h4>Fix Appointment</h4></a>
-                                        </div><!--panel-heading-->
-
-                                        <div class="panel-body">
-                                            <p>
-                                                <center>
-                                                    <img style="height: 224px; width: 300px;" src="img/frontend/fix-Meeting.jpg">
-                                                </center ><br>
-                                                Quick and easy to fix the meeting with an employee <br>
-                                            </p>
-                                        </div><!--panel-body-->
-                                    </div><!--panel-->
-                                </div><!--col-md-6-->
-
-                                <div class="col-md-6">
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h4>Item</h4>
-                                        </div><!--panel-heading-->
-
-                                        <div class="panel-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non qui facilis deleniti expedita fuga ipsum numquam aperiam itaque cum maxime.</p>
-                                        </div><!--panel-body-->
-                                    </div><!--panel-->
-                                </div><!--col-md-6-->
-
-                                <div class="col-md-6">
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h4>Item</h4>
-                                        </div><!--panel-heading-->
-
-                                        <div class="panel-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non qui facilis deleniti expedita fuga ipsum numquam aperiam itaque cum maxime.</p>
-                                        </div><!--panel-body-->
-                                    </div><!--panel-->
-                                </div><!--col-md-6-->
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js">
-    Push.permission.request(onGranted,onDenied);
-    var= requestButton=document.querySelection(".request-button");
-    function onGranted()
-    {
-        push.create("hello varun here",{
-            body: "this is a web Notification",
-            onClick: function(){ console.log(this);}
-
-    });
-</script> -->
 
                             </div><!--row-->
 
@@ -188,3 +206,4 @@
 
     </div><!-- row -->
 @endsection
+

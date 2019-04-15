@@ -47,7 +47,9 @@
 
                     {{ Form::close() }}
 
-                    <div class="row text-center">
+                    
+
+
 
                     </div>
                 </div><!-- panel body -->

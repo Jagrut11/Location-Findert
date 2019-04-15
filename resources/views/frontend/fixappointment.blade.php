@@ -38,8 +38,7 @@
                         <tr>
                         <th>First Name</th>
                         <th>Last Name</th>              
-                         <th>Email</th>
-                        <th>Fix Appointment</th>
+                        <th>Email</th>
                         <th>Locate</th>
                                                     </tr>
                                                 </thead>
@@ -50,17 +49,6 @@
                                                         <td>{{$user->last_name}}</td>
                                                         <td>{{$user->email}}</td>
                                                         <td>
-                                                            <button style="color: dodgerblue; border: none;
-                                                              background-color: inherit;
-                                                              padding: 14px 28px;
-                                                              font-size: 16px;
-                                                              cursor: pointer;
-                                                              display: inline-block;background: #eee;">
-                                                              <a href="/search1/{{$user->id}}" onclick="showAlert">Fix <i class="fa fa-pencil-square-o"></i></a> 
-                                                            </button>
-                                                            
-                                                        </td>
-            <td>
                                                                         
                                                             <button style="color: dodgerblue; border: none;
                                                               background-color: inherit;
@@ -70,7 +58,7 @@
                                                               display: inline-block;background: #eee;">
  <!--                <a href="{{action('SearchController@locate',$user->latitude)}}" onclick="showAlert" class="map-container">Locate <i class="fa fa-pencil-square-o"></i></a> --> 
 
- <a href="/locate/{{$user->id}}" onclick="showAlert" class="map-container">Locate <i class="fa fa-pencil-square-o"></i></a>
+ <a href="/locate/{{$user->id}}" onclick="showAlert" class="map-container">Details <i class="fa fa-pencil-square-o"></i></a>
                                                             </button>                                      
                                                             
 </td>
@@ -96,7 +84,7 @@
           </div>
 
           <div class="form-group" style="width: 340px; text-align: left;">
-            {!! Form::label('email', 'E-mail Address') !!}
+            {!! Form::label('email', 'E-mail Address') !!}<i style="margin-left: 3px;" class="fas fa-envelope-square"></i>
             {!! Form::text('email', $user->email, ['class' => 'form-control']) !!}
           </div>
 
