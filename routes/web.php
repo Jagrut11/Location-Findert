@@ -37,10 +37,14 @@ Route::get('/fixappointment', function () {
     return view('frontend.fixappointment');
  });//route to redirect to Fix Appointment page
 
- Route::post('/search1','SearchController@search');
+ Route::post('/fixappointment/search1','SearchController@search');
 
 Route::get('/locate/{id}','SearchController@locate');
+// Route::get('/autocomplete', 'AutocompleteController@index');
+// Route::post('/autocomplete/fetch', 'AutocompleteController@fetch')->name('autocomplete.fetch');
 
+ Route::get('/fixappointment', 'SearchController@index');
+Route::post('/fixappointment/fetch','SearchController@fetch')->name('fixappointment.fetch');
 //Route::get('locate/{lat}/{lng}', 'SearchController@locate');
 Route::get('/logs','ShowAppointmentLogsController@showlogs');
 

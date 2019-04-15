@@ -49,6 +49,27 @@
                     </div><!--col-lg-10-->
                 </div><!--form control-->
 
+
+                  {{-- Latitude --}}
+                <div class="form-group">
+                    {{ Form::label('latitude', 'Latitude',  ['class' => 'col-lg-2 control-label required']) }}
+
+                    <div class="col-lg-10">
+                        {{ Form::text('latitude', null, ['class' => 'form-control box-size', 'placeholder' => 'Enter Latitude', 'required' => 'required']) }}
+                    </div><!--col-lg-10-->
+                </div><!--form control-->
+
+
+                  {{-- Longitude --}}
+                <div class="form-group">
+                    {{ Form::label('longitude', 'Longitude',  ['class' => 'col-lg-2 control-label required']) }}
+
+                    <div class="col-lg-10">
+                        {{ Form::text('longitude', null, ['class' => 'form-control box-size', 'placeholder' => 'Enter Longitude', 'required' => 'required']) }}
+                    </div><!--col-lg-10-->
+                </div><!--form control-->
+
+
                 {{-- Status --}}
                 @if ($user->id != 1)
                     <div class="form-group">
