@@ -23,10 +23,10 @@
                         </ol>
 
                         <div class="carousel-inner" role="listbox">
-                            <div class="item">
+                            <div class="item" >
                                 <div class="intro-content text-center">
                                     <h1>welcome to Ranger</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit agrel. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh viverra non.</p>
+                                    <p>The way you ask for the appointment could determine whether you'll make a sale. Be sure you get it right. You can request an appointment for a presentation. If the Employee agrees to meet you at their office, you can fix a convenient date and time for the same.</p>
                                     <br><br><br>
                                     <!-- <a class="btn btn-default" href="#" role="button">Read More <i class="lnr lnr-chevron-right"></i></a>
                                     <a class="btn btn-primary scroll" href="#what-we-do" role="button">Get Started <i class="lnr lnr-chevron-down"></i></a> -->
@@ -35,7 +35,7 @@
                             <div class="item active">
                                 <div class="intro-content text-center">
                                     <h1>we can help you</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit agrel. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh viverra non.</p>
+                                    <p>The location finder helps you to locate an employee city,branch and floor of your choice from any of the countries we service.</p>
                                     <br><br><br>
                                     <!-- <a class="btn btn-default" href="#" role="button">Read More <i class="lnr lnr-chevron-right"></i></a>
                                     <a class="btn btn-primary scroll" href="#what-we-do" role="button">Get Started <i class="lnr lnr-chevron-down"></i></a> -->
@@ -44,7 +44,7 @@
                             <div class="item">
                                 <div class="intro-content text-center">
                                     <h1>we can Guide you</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit agrel. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh viverra non.</p>
+                                    <p>The "Location Finder " Website shows your current geograph location of the employee, including latitude & longitude, on Maps. The geolocation service is available on both desktop computers and mobile phones. The location finder service uses the Maps Geolocation API to determine the exact place.</p>
                                     <br><br><br>
                                     <!-- <a class="btn btn-default" href="#" role="button">Read More <i class="lnr lnr-chevron-right"></i></a>
 
@@ -73,55 +73,6 @@
             		</div> -->
                 </div>
             </div>
-           <div class="row">
-                <div class="col-md-3  col-sm-12">
-                    <div class="event-box text-center">
-                        <h3>Recent Events</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit agrel.</p>
-                        <a class="btn btn-primary" href="#" role="button">Read More <i class="lnr lnr-chevron-right "></i></a>
-                    </div>
-                </div>
-                <div class="col-md-8 col-xs-12">
-                    <div class="row">
-                        <div class="col-sm-3 p-l-r-0">
-                            <div class="event-img">
-                                <img src="img/frontend/profile-picture/pic-1.png" alt="image">
-                                <div class="event-overflow">
-                                    <p>Hanery Parkin</p>
-                                    <small>Jan 8, 2016</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3 p-l-r-0">
-                            <div class="event-img">
-                                <img src="img/frontend/profile-picture/pic-1.png" alt="image">
-                                <div class="event-overflow">
-                                    <p>Hanery Parkin</p>
-                                    <small>Jan 8, 2016</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3 p-l-r-0">
-                            <div class="event-img">
-                                <img src="img/frontend/profile-picture/pic-1.png" alt="image">
-                                <div class="event-overflow">
-                                    <p>Hanery Parkin</p>
-                                    <small>Jan 8, 2016</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3 p-l-r-0">
-                            <div class="event-img">
-                                <img src="img/frontend/profile-picture/pic-1.png" alt="image">
-                                <div class="event-overflow">
-                                    <p>Hanery Parkin</p>
-                                    <small>Jan 8, 2016</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+          
 </div>
 @endsection

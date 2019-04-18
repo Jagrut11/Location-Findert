@@ -9,12 +9,12 @@
      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/locales.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.css"></script>
-    <div class="row">
+    <div oncontextmenu="return false;"><div class="row">
 
         <div class="col-xs-12">
 
             <div class="panel panel-default">
-                    <div class="panel-heading"><center><font size="3">{{ trans('Fix Appointment') }}</font></center></div>
+                    <div class="panel-heading"><center><font size="3"><h1 align="center"><a  class="effect-box">Fix Appointment</a></h1></font></center></div>
 
                     <div class="panel-body">
                                             <form action="/search1" method="POST" role="search">
@@ -49,7 +49,7 @@
                                                         <td>{{$user->last_name}}</td>
                                                         <td>{{$user->email}}</td>
                                                         <td>
-                                                                        
+                                                                  
                                                             <button style="color: dodgerblue; border: none;
                                                               background-color: inherit;
                                                               padding: 14px 28px;
@@ -58,7 +58,8 @@
                                                               display: inline-block;background: #eee;">
  <!--                <a href="{{action('SearchController@locate',$user->latitude)}}" onclick="showAlert" class="map-container">Locate <i class="fa fa-pencil-square-o"></i></a> --> 
 
- <a href="/locate/{{$user->id}}" onclick="showAlert" class="map-container">Details <i class="fa fa-pencil-square-o"></i></a>
+<!--  <a href="/locate/{{$user->id}}"> <button  class="submitbtn map-container" style="vertical-align:middle" ><span>Details</span></button></a> -->
+<a href="/locate/{{$user->id}}" onclick="showAlert" class="map-container">Details <i class="fa fa-pencil-square-o"></i></a>
                                                             </button>                                      
                                                             
 </td>
@@ -101,7 +102,9 @@
           <div class="form-group" style="width: 340px;">
 <!-- {!! Form::submit('Submit', ['class' => 'btn btn-info']) !!}
  -->        
-            <input type="submit" name="submit"  >
+ <button class="submitbtn" style="vertical-align:middle" type="submit"><span>Submit</span></button>
+
+            <!-- <input type="submit" name="submit"  > -->
           <div class="form-group" style="width: 340px; text-align: left; visibility: hidden;">
             {!! Form::text('email', $user->id, ['class' => 'form-control']) !!}
             <input type="text" name="loggedinuser" id="start" value="{{ $logged_in_user->id }}" class = "form-control" placeholder="{{ $logged_in_user->id }}">
@@ -136,7 +139,12 @@
           <div class="form-group" style="width: 340px;">
 <!-- {!! Form::submit('Submit', ['class' => 'btn btn-info']) !!}
  -->        
-            <input type="submit" name="submit"  >
+          <div class="form-group">
+<button class="submitbtn" style="vertical-align:middle" type="submit"><span>Submit</span></button>
+
+              
+          </div><!--form-group-->
+             
           </div>
         <?php } ?>
           </form> 
@@ -147,19 +155,66 @@
         </div>
 
     </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <center>
-                            <font size="3">
-                            <h3>Appointment Status</h3>
-
-                            <div> Pending  </div>
-                            <div> Accepted </div>
-                            <div> Rejected </div>
-                            {{ $logged_in_user->email }}
-                            </font>
-                        </center>
+    
+    <div class="panel panel-default">
+      <div class="panel-heading">
+    <!-- footer
+            =======================================-->
+            <section class="footer2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="well well-lg footer-box"> 
+                                <strong><i class="fa fa-map-marker" aria-hidden="true"></i>Location Finder</strong>
+                                <p>The location finder helps you to locate an employee city,branch and floor of your choice from any of the countries we service.</p> 
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="well well-lg footer-box contact-box"> 
+                                <strong>Contact Us</strong>
+                                <p>Phone:  079 6712 4000</p>
+                                <p>Email: support@gmail.com</p>
+                                <p>Fax: (614) 395-7696</p>
+                                <br>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="well well-lg footer-box service-box"> 
+                                <strong>Services</strong>
+                                <ul class="list-unstyled">
+                                    <li>Find Location</li>
+                                    <li>Search User</li>
+                                    <li>Fix Appointment</li>
+                                    <li>Identify Location</li>
+                                </ul>
+                                <br>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="well well-lg footer-box"> 
+                                <strong>Working Hours</strong>
+                                <ul class="list-unstyled schedule">
+                                    <li><span>Open</span><span>9am - 10pm</span></li>
+                                    <li><span>Saterday and Sunday</span><span>Closed</span></li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
- 				</div>
+                </div>
+            </section>
+            <footer class="footer2 f-bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-11 well well-lg footer-box">
+                            <p>Copyright 2015 Made by <a href="https://www.cygnet-infotech.com/" target="_blank">Cygnet Infotech</a>. All Rights Reserved.</p>
+                        </div>
+                    </div>  
+                </div>
+            </footer>
+
+        
+      </div>
+        </div>
+</div>
 @endsection
 <!-- https://map.what3words.com/daring.lion.race -->

@@ -11,7 +11,9 @@
   <source src="C:\wamp64\www\Final LF\Location-Findert\public\img\frontend\bgvideo.mp4" type="video/mp4">
   Your browser does not support HTML5 video.
 </video> 
- -->    <div class="row" class="box-wrap">
+ -->    
+<div oncontextmenu="return false;">
+ <div class="row" class="box-wrap">
 
         <div class="col-xs-12">
 
@@ -26,7 +28,7 @@
                             <ul class="media-list">
                                 <li class="media">
                                     <div class="media-left">
-                                        <img class="media-object" src="img/frontend/profile-picture/pic-1.png" alt="profile-picture" style="height: 100px; width: 100px;">
+                                        <img class="media-object" src="/img/frontend/profile-picture/pic-1.png" alt="profile-picture" style="height: 100px; width: 100px;">
                                     </div><!--media-left-->
 
                                     <div class="media-body">
@@ -53,7 +55,7 @@
                                 </div><!--panel-heading-->
 
                                 <div class="panel-body">
-                                  <video src="img/frontend/homelocation.mp4" loop="" width="100%" autoplay></video>
+                                  <video src="/img/frontend/homelocation.mp4" loop="" width="100%" autoplay></video>
 
                                 </div><!--panel-body-->
                             </div><!--panel-->
@@ -78,7 +80,7 @@
                                             
                                             <div class="panel-body">
                                                 <div class="container1">
-                                                    <img src="img/frontend/location1.jpg" alt="Avatar" class="image" style="height: 250px; width: 250px;">
+                                                    <img src="/img/frontend/location1.jpg" alt="Avatar" class="image" style="height: 250px; width: 250px;">
                                                     <div class="overlay">
                                                         <div class="text">
                                                             <p>The "Location Finder <i class="fas fa-map-marked-alt"></i>" Website shows your current geograph location of the employee, including latitude & longitude, on Maps. The geolocation service is available on both desktop computers and mobile phones. The location finder service uses the Maps Geolocation API to determine the exact place.</p>
@@ -99,7 +101,7 @@
                                         <div class="panel-body">
                                             <div class="panel-body">
                                                 <div class="container1">
-                                                    <img src="img/frontend/fix-Meeting.jpg" alt="Avatar" class="image" style="height: 250px; width: 250px;">
+                                                    <img src="/img/frontend/fix-Meeting.jpg" alt="Avatar" class="image" style="height: 250px; width: 250px;">
                                                     <div class="overlay">
                                                         <div class="text">
                                                             <p>The way you ask for the appointment could determine whether you'll make a sale. Be sure you get it right. You can request an appointment for a presentation. If the Employee agrees to meet you at their office, you can fix a convenient date and time for the same. </p>
@@ -160,7 +162,7 @@
                                                         </button>
                                                     </form> 
                                                     <br>
-                                                    <form action="/accept/{{$applogs->id}}" method="get">
+                                                    <form action="accept/{{$applogs->id}}" method="get">
                                                         <button  type="submit" style="border-radius: 50%; background-color: lightgreen;" >
                                                         <a onclick="openForm()" onclick="alertaccept()">
                                                             <i class="fa fa-check-circle" aria-hidden="true"></i>
@@ -190,8 +192,7 @@
                                 @endif
                                 </div><!--panel-->
 
-
-
+                
                             </div><!--row-->
 
                         </div><!--col-md-8-->
@@ -204,6 +205,69 @@
 
         </div><!-- col-md-10 -->
 
+        <div class="panel panel-default">
+      <div class="panel-heading">
+        
+
+           <!-- footer
+            =======================================-->
+            <section class="footer2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="well well-lg footer-box"> 
+                                <strong><i class="fa fa-map-marker" aria-hidden="true"></i>Location Finder</strong>
+                                <p>The location finder helps you to locate an employee city,branch and floor of your choice from any of the countries we service.</p> 
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="well well-lg footer-box contact-box"> 
+                                <strong>Contact Us</strong>
+                                <p>Phone:  079 6712 4000</p>
+                                <p>Email: support@gmail.com</p>
+                                <p>Fax: (614) 395-7696</p>
+                                <br>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="well well-lg footer-box service-box"> 
+                                <strong>Services</strong>
+                                <ul class="list-unstyled">
+                                    <li>Find Location</li>
+                                    <li>Search User</li>
+                                    <li>Fix Appointment</li>
+                                    <li>Identify Location</li>
+                                </ul>
+                                <br>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="well well-lg footer-box"> 
+                                <strong>Working Hours</strong>
+                                <ul class="list-unstyled schedule">
+                                    <li><span>Open</span><span>9am - 10pm</span></li>
+                                    <li><span>Saturday and Sunday</span><span>Closed</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <footer class="footer2 f-bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-11 well well-lg footer-box">
+                            <p>Copyright 2019 Made by <a href="https://www.cygnet-infotech.com/" target="_blank">Cygnet Infotech</a>. All Rights Reserved.</p>
+                        </div>
+                    </div>  
+                </div>
+            </footer>
+
+        
+      </div>
+        </div>
+
     </div><!-- row -->
+</div>
 @endsection
 
