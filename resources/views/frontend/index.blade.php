@@ -145,22 +145,22 @@
                     <p>Cygnet Infotech is one of the most trusted names in the IT space delivering technology innovation across 35 countries. Our digital transformation strategies, problem-solving benchmarks and agile business models, enable our clients to digitize, scale, and transform in to high performance businesses.</p><br><br>
 
                     <div class="col-md-3 about-count-box">
-                        <div class="about-count"><span class="about-count-number">35</span></div>
+                        <div class="about-count"><span class="about-count-number"><h2>35</h2></span></div>
                         <p>countries where we have<br>happy customers</p>
                         </div>
 
                         <div class="col-md-3 about-count-box">
-                        <div class="about-count"><span class="about-count-number">2000</span>+</div>
+                        <div class="about-count"><span class="about-count-number"><h2>2000+</h2></span></div>
                         <p>enterprise-class solutions &amp; products<br>delivered</p>
                         </div>
 
                         <div class="col-md-3 about-count-box">
-                        <div class="about-count"><span class="about-count-number">900</span>+</div>
+                        <div class="about-count"><span class="about-count-number"><h2>900+</h2></span></div>
                         <p>technology enthusiasts working<br>with global brands</p>
                         </div>
 
                         <div class="col-md-3 about-count-box">
-                        <div class="about-count"><span class="about-count-number">10</span></div>
+                        <div class="about-count"><span class="about-count-number"><h2>10</h2></span></div>
                         <p>locations from where we engage<br>with global clients</p>
                         </div>
                     </div>
@@ -190,15 +190,7 @@
             
         </div><br><hr>
 
-                    <center><span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                    <span class="glyphicon glyphicon glyphicon-euro" aria-hidden="true"></span>
-                    <span class="glyphicon glyphicon glyphicon-cloud" aria-hidden="true"></span>
-                    <span class="glyphicon glyphicon glyphicon-envelope" aria-hidden="true"></span>
-                    <i class="fa fa-home"></i>
-                    <i class="fa fa-facebook"></i>
-                    <i class="fa fa-twitter"></i>
-                    <i class="fa fa-pinterest"></i>
-                </center><br>
+                    
                 </div>
             </div><!-- panel -->
 

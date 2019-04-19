@@ -4,6 +4,7 @@
 
 
 <link href="/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.css">
      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.js"></script>
@@ -60,6 +61,12 @@
 
 <!--  <a href="/locate/{{$user->id}}"> <button  class="submitbtn map-container" style="vertical-align:middle" ><span>Details</span></button></a> -->
 <a href="/locate/{{$user->id}}" onclick="showAlert" class="map-container">Details <i class="fa fa-pencil-square-o"></i></a>
+<script>
+  function showalert() {
+    // body...
+    
+  }
+</script>
                                                             </button>                                      
                                                             
 </td>
@@ -156,65 +163,57 @@
 
     </div>
     
-    <div class="panel panel-default">
-      <div class="panel-heading">
     <!-- footer
             =======================================-->
-            <section class="footer2">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <div class="well well-lg footer-box"> 
-                                <strong><i class="fa fa-map-marker" aria-hidden="true"></i>Location Finder</strong>
-                                <p>The location finder helps you to locate an employee city,branch and floor of your choice from any of the countries we service.</p> 
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="well well-lg footer-box contact-box"> 
-                                <strong>Contact Us</strong>
-                                <p>Phone:  079 6712 4000</p>
-                                <p>Email: support@gmail.com</p>
-                                <p>Fax: (614) 395-7696</p>
-                                <br>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="well well-lg footer-box service-box"> 
-                                <strong>Services</strong>
-                                <ul class="list-unstyled">
-                                    <li>Find Location</li>
-                                    <li>Search User</li>
-                                    <li>Fix Appointment</li>
-                                    <li>Identify Location</li>
-                                </ul>
-                                <br>
-                            </div>
-                        </div>
-                        <div class="col-sm-2">
-                            <div class="well well-lg footer-box"> 
-                                <strong>Working Hours</strong>
-                                <ul class="list-unstyled schedule">
-                                    <li><span>Open</span><span>9am - 10pm</span></li>
-                                    <li><span>Saterday and Sunday</span><span>Closed</span></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+    
+    <footer id="myFooter">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h5>Location Finder</h5>
+                    <ul>
+                        <li>The location finder helps you to locate an employee, city , branch and floor of your choice from any of the counteries we service. </li>
+                    </ul>
                 </div>
-            </section>
-            <footer class="footer2 f-bottom">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-11 well well-lg footer-box">
-                            <p>Copyright 2015 Made by <a href="https://www.cygnet-infotech.com/" target="_blank">Cygnet Infotech</a>. All Rights Reserved.</p>
-                        </div>
-                    </div>  
+                <div class="col-sm-3">
+                    <h5>Contact us</h5>
+                    <ul>
+                        <li>Phone: 079 6712 4000</li>
+                        <li>Email: support@gmail.com</li>
+                        <li>Fax: (614) 395-7696</li>
+                    </ul>
                 </div>
-            </footer>
-
-        
-      </div>
+                <div class="col-sm-3">
+                    <h5>Services</h5>
+                    <ul>
+                        <li>Find Location</li>
+                        <li>Search User</li>
+                        <li>Fix Appointment</li>
+                        <li>Identify Location</li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h5>Working Hours</h5>
+                    <ul>
+                        <li>Open 9am-10pm</a></li>
+                        <li>5 Working Days</a></li>
+                        <li>Holiday on weekend</a></li>
+                    </ul>
+                </div>
+                
+            </div>
+            
         </div>
+        <div class="social-networks">
+            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+            <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+            <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
+        </div>
+        <div class="footer-copyright">
+            <p>Copyright© 2019  Made by Cygnet Infotech.All Rights Reserved. </p>
+        </div>
+    </footer>
+
 </div>
 @endsection
 <!-- https://map.what3words.com/daring.lion.race -->

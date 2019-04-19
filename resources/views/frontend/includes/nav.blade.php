@@ -18,8 +18,11 @@
            {{--   @if(settings()->logo)
             <a href="{{ route('frontend.index') }}" class="logo"><img height="48" width="226" class="navbar-brand" src="{{route('frontend.index')}}/img/site_logo/{{settings()->logo}}"></a>
             @else --}}
-             
-             <button class="w3-btn w3-white w3-border w3-border-blue w3-round-large">{{ link_to_route('frontend.index',"Location Finder", [], ['class' => 'navbar-brand']) }}<img src="/img/frontend/Animated-icon-for-affiliations.gif" style="height: 50px; width: 50px; margin-top: 0px;"></button>
+            
+             <button class="w3-btn w3-white w3-border w3-border-blue w3-round-large" href="/cygnet"><!-- {{ link_to_route('frontend.index',"Location Finder", [], ['class' => 'navbar-brand']) }} -->
+                <!-- <img src="/img/frontend/Animated-icon-for-affiliations.gif" style="height: 50px; width: 50px; margin-top: 0px;"></button> -->
+                 <a href="/cygnet"><img src="/img/frontend/cyglogo.png"  style="height: 50px; width: 250px; margin-top: 0px;"></a>
+</button>
            {{--  @endif --}}
            
 
@@ -40,7 +43,7 @@
 
              <li> <a href="{{ trans('contactus') }}" role="button"> Contact Us <i class="fas fa-address-book"></i></a></li>
             <li><a href="{{ trans('AboutUs') }}" role="button"> About Us<i style="margin-left: 4px;" class="fab fa-artstation"></i></a></li>
-            <li><a href="{{ trans('howitworks') }}" role="button">How It Works<i style="margin-left: 4px;" class="fas fa-lightbulb"></i></a></li>
+            <!-- <li><a href="{{ trans('howitworks') }}" role="button">How It Works<i style="margin-left: 4px;" class="fas fa-lightbulb"></i></a></li> -->
 
                 @if (config('locale.status') && count(config('locale.languages')) > 1)
 

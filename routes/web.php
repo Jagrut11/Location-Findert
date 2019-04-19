@@ -37,6 +37,9 @@ Route::get('/fixappointment', function () {
     return view('frontend.fixappointment');
 });//route to redirect to Fix Appointment page
 
+Route::get('/cygnet', function () {
+    return view('frontend.index');
+});
 
 Route::POST('/search1','searchController@search');
 //route to execute search Functionality 

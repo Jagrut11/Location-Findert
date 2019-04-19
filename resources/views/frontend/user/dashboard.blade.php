@@ -7,18 +7,16 @@
 @endsection
 
 @section('content')
-<!-- <video autoplay muted loop id="myVideo">
-  <source src="C:\wamp64\www\Final LF\Location-Findert\public\img\frontend\bgvideo.mp4" type="video/mp4">
-  Your browser does not support HTML5 video.
-</video> 
- -->    
+
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <div oncontextmenu="return false;">
  <div class="row" class="box-wrap">
 
         <div class="col-xs-12">
 
             <div class="panel panel-default">
- <div class="panel-heading"><h1 align="center"><a  class="effect-box">Home</a></h1></div>
+ <div class="panel-heading" style="height: 80px;"><h1 align="center"><a  class="effect-box">Location Finder</a></h1></div>
                 <div class="panel-body">
 
                     <div class="row">
@@ -131,6 +129,7 @@
                                     <table class="table table-striped">
                                         <thead>
                                             <tr>
+                                                <th>Sender</th>
                                                 <th>Receiver</th>
                                                 <th>Date</th>
                                                 <th>Time</th>
@@ -139,7 +138,9 @@
                                         </thead>
                                         <tbody>
                                         @foreach($appointment as $applogs)
+                                             @foreach($appointmentsender as $applogsender)
                                             <tr>
+                                                <td>{{$applogsender->first_name}} {{$applogsender->last_name}}</td>
                                                 <td>{{$applogs->first_name}} {{$applogs->last_name}}</td>
                                                 <td>{{$applogs->appointment_date}}</td>
                                                 <td>{{$applogs->appointment_time}}</td>
@@ -154,29 +155,44 @@
                                                 ?>
                                                 
                                                 <td>
+                                                    <div>
                                                     <form action="/reject/{{$applogs->id}}" method="get">
-                                                        <button type="submit" style="border-radius: 50%; background-color: coral;" >
+                                                        <button type="submit" class="reject" >
                                                         <a onclick="alertreject()">
                                                             <i class="fa fa-times-circle" aria-hidden="true"></i>
                                                         </a>
                                                         </button>
                                                     </form> 
-                                                    <br>
+                                                    </div>
+                                                    <div style="float: left;">
                                                     <form action="accept/{{$applogs->id}}" method="get">
-                                                        <button  type="submit" style="border-radius: 50%; background-color: lightgreen;" >
-                                                        <a onclick="openForm()" onclick="alertaccept()">
+                                                        <button  type="submit" class="accept" >
+                                                        <a onclick="alertaccept()">
                                                             <i class="fa fa-check-circle" aria-hidden="true"></i>
                                                         </a>
                                                         </button>
-                                                        <div id="alert" style="padding: 20px; background-color: #4CAF50; /* Red */color: white;margin-bottom: 15px">
-                                                            <span style="margin-left: 15px; color: white; font-weight: bold; float: right; font-size: 22px; line-height: 20px;  cursor: pointer; transition: 0.3s;" onclick="this.parentElement.style.display='none';">&times;</span> 
-                                                            <p style="color: white;">This is an alert box.</p>
-                                                        </div>
                                                     </form>
+                                                </div>
                                                     <script>
-                                                        function openForm() 
+                                                        function alertaccept() 
                                                         {
-                                                            document.getElementById("alert").style.display = "block";
+                                                            swal({
+                                                                title:"Good Job!",
+                                                                text: "Request Accepted.",
+                                                                timer:4000,
+                                                                showConfirmButton: false
+                                                            })
+
+                                                        }
+                                                        function alertreject() 
+                                                        {
+                                                            swal({
+                                                                title:"Oh!",
+                                                                text: "Request Rejected.",
+                                                                timer:4000,
+                                                                showConfirmButton: false
+                                                            })
+
                                                         }
                                                     </script>
                                                 </td>
@@ -185,6 +201,7 @@
                                                 }
                                                 ?>
                                             </tr>
+                                            @endforeach
                                         @endforeach
                                         </tbody>
                                     </table>
@@ -205,69 +222,56 @@
 
         </div><!-- col-md-10 -->
 
-        <div class="panel panel-default">
-      <div class="panel-heading">
-        
 
-           <!-- footer
-            =======================================-->
-            <section class="footer2">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <div class="well well-lg footer-box"> 
-                                <strong><i class="fa fa-map-marker" aria-hidden="true"></i>Location Finder</strong>
-                                <p>The location finder helps you to locate an employee city,branch and floor of your choice from any of the countries we service.</p> 
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="well well-lg footer-box contact-box"> 
-                                <strong>Contact Us</strong>
-                                <p>Phone:  079 6712 4000</p>
-                                <p>Email: support@gmail.com</p>
-                                <p>Fax: (614) 395-7696</p>
-                                <br>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="well well-lg footer-box service-box"> 
-                                <strong>Services</strong>
-                                <ul class="list-unstyled">
-                                    <li>Find Location</li>
-                                    <li>Search User</li>
-                                    <li>Fix Appointment</li>
-                                    <li>Identify Location</li>
-                                </ul>
-                                <br>
-                            </div>
-                        </div>
-                        <div class="col-sm-2">
-                            <div class="well well-lg footer-box"> 
-                                <strong>Working Hours</strong>
-                                <ul class="list-unstyled schedule">
-                                    <li><span>Open</span><span>9am - 10pm</span></li>
-                                    <li><span>Saturday and Sunday</span><span>Closed</span></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+    
+    <footer id="myFooter">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h5>Location Finder</h5>
+                    <ul>
+                        <li>The location finder helps you to locate an employee, city , branch and floor of your choice from any of the counteries we service. </li>
+                    </ul>
                 </div>
-            </section>
-            <footer class="footer2 f-bottom">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-11 well well-lg footer-box">
-                            <p>Copyright 2019 Made by <a href="https://www.cygnet-infotech.com/" target="_blank">Cygnet Infotech</a>. All Rights Reserved.</p>
-                        </div>
-                    </div>  
+                <div class="col-sm-3">
+                    <h5>Contact us</h5>
+                    <ul>
+                        <li>Phone: 079 6712 4000</li>
+                        <li>Email: support@gmail.com</li>
+                        <li>Fax: (614) 395-7696</li>
+                    </ul>
                 </div>
-            </footer>
-
-        
-      </div>
+                <div class="col-sm-3">
+                    <h5>Services</h5>
+                    <ul>
+                        <li>Find Location</li>
+                        <li>Search User</li>
+                        <li>Fix Appointment</li>
+                        <li>Identify Location</li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h5>Working Hours</h5>
+                    <ul>
+                        <li>Open 9am-10pm</a></li>
+                        <li>5 Working Days</a></li>
+                        <li>Holiday on weekend</a></li>
+                    </ul>
+                </div>
+                
+            </div>
+            
         </div>
+        <div class="social-networks">
+            <a href="https://twitter.com/cygnetinfotech?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" class="twitter" target="_blank"><i class="fa fa-twitter"></i></a>
+            <a href="https://www.facebook.com/IT.is.about.you/" class="facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+            <a href="https://mail.google.com/mail/u/1/#drafts?compose=CllgCKCDCjdCBpSJXGzFfxQmZSbjQtTqJHtvTCwglBWPnvdFljwfwkXHMxPLtvvMxSSQwPrtjVq" class="google" target="_blank"><i class="fa fa-google-plus"></i></a>
+        </div>
+        <div class="footer-copyright">
+            <p>Copyright© 2019  Made by <a href="https://www.cygnet-infotech.com/" target="_blank"> Cygnet Infotech</a> .All Rights Reserved. </p>
+        </div>
+    </footer>
 
-    </div><!-- row -->
-</div>
+    
 @endsection
 
