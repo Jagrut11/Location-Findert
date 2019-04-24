@@ -8,9 +8,6 @@ use Illuminate\Http\Request;
 use DB;
 use What3words\Geocoder\Geocoder;
  use What3words\Geocoder\AutoSuggestOption;
- 
-
-
 
 class SearchController extends Controller
 {
@@ -39,19 +36,20 @@ class SearchController extends Controller
 		   ->select('users.*', 'branches.branch_name','floors.floor_no','seats.seat_no')
 		   ->where('users.id',$id)
 		   ->get();
+
+		   // print_r($user);
+		   // exit();
               
 		  foreach($user as $usersDetail){
 		   $lat=($usersDetail->latitude);
 		   $lng=($usersDetail->longitude);
-		     print_r($lat);
-		      print_r($lng);
+		    // print_r($lat);
+		    //  print_r($lng);
 		  }
 		$api= new Geocoder("79NK10MQ");
 		$result= $api->convertTo3wa($lat,$lng);
 		$words = $result["words"];
 		print"The words for ($lat,$lng) are " . $words . "\n";
-		$result1 = $api->convertToCoordinates($words);
-		print "The coordinates for $words are (" . $result1["coordinates"]["lat"] . "),(" . $result1["coordinates"]["lng"] . ")\n";
 		print_r($api->getError());	        
 	 	return view('frontend.locate',array('words'=> $words,'user'=>$user));
 	}

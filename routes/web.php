@@ -53,6 +53,14 @@ Route::post('/autocomplete/fetch', 'AutoCompleteController@fetch')->name('autoco
 
 //Route::get('/create', 'BranchesController@create');
 
+// Route::get('/getlatlong', function () {
+//     return view('backend.access.getlatlong');
+// });
+
+Route::get('/getlatlong', 'Backend\Access\User\UserController@convert');
+
+Route::get('/accept/{iddd}','FixAppointmentController@update');
+Route::get('/reject/{iddd}','FixAppointmentController@reject');
 /* ----------------------------------------------------------------------- */
 
 /*

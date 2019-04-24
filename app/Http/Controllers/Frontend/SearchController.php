@@ -2,6 +2,7 @@
 
 
 namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend;
 use App\Models\Access\User\User;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
@@ -63,6 +64,5 @@ class SearchController extends Controller
 	 	return view('frontend.locate',array('words'=> $words,'user'=>$user));
 	}
 
-	
 }
  

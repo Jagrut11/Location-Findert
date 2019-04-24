@@ -13,7 +13,8 @@
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
     -->
-    <div class="panel panel-default">
+    <div oncontextmenu="return false;">
+      <div class="panel panel-default">
           <div class="panel-heading"><center><font size="3">Details</font></center></div>
 
      <div class="panel-body">
@@ -37,6 +38,7 @@
           <td>{{$users->seat_no}}</td>
         </tr>
          @endforeach
+       </tbody>
       </table>      
     </div> 
     <center>
@@ -49,9 +51,11 @@
   display: inline-block;
   font-size: 16px;
   cursor: pointer";>
-     <a href="https://map.what3words.com/{{$words}}">Locate</a>
+  
+     <a href="https://map.what3words.com/{{$words}}" target="_blank">Locate</a>
      </button>
      </center><br>
       <!-- AIzaSyAtUZHevSsuCITMsYD2etL5b-FSdmcfBjA -->
     <!-- 79NK10MQ -->
+ </div>
 @endsection

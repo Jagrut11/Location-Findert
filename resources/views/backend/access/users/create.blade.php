@@ -10,6 +10,7 @@
 @endsection
 
 @section('content')
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     {{ Form::open(['route' => 'admin.access.user.store', 'class' => 'form-horizontal', 'role' => 'form', 'method' => 'post']) }}
 
         <div class="box box-info">
@@ -69,7 +70,7 @@
 
                 {{-- Latitude --}}
 
-                <div class="form-group">
+                <div class="form-group" >
                     {{ Form::label('name', 'Latitude', ['class' => 'col-lg-2 control-label required']) }}
 
                     <div class="col-lg-10">
@@ -257,6 +258,60 @@
             </div><!-- /.box-body -->
         </div><!--box-->
     {{ Form::close() }}
+<div style="background-color: white;border-radius: 5px; padding: 20px">
+    <center>
+        <!-- <form onsubmit="myFunction()" style=" width: 100%; padding: 12px 20px; margin: 8px 0; display: inline-block; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;"> -->
+            <form action="/getlatlong" style=" width: 100%; padding: 12px 20px; margin: 8px 0; display: inline-block; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;" target="_blank">
+            <input type="text" id="threewordaddress" name="threewordaddress" placeholder="Enter 3 Words Address Here" style="float: center; border: 3px solid #555; width: 20%;
+  margin-top: 6px;border-radius: 4px;">
+            
+            <button type="submit" style="border-radius: 50%;" ><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+        </form>
+        <a href="https://map.what3words.com/rudder.knocking.nicer" target="_blank" style="background-color: #f44336; color: white; padding: 14px 25px; text-align: center; text-decoration: none; display: inline-block;">Select 3 word address here</a>
+    </center>
+</div>
+
+<!-- <script>
+function myFunction() {
+    var age = document.getElementById("threewordaddress").value;
+    
+        
+    //    window.open("https://api.what3words.com/v3/convert-to-coordinates?words="+age+"&key=KS18UC0Z");
+    
+    var http = require("https");
+
+var options = {
+  "method": "GET",
+  "hostname": "api.what3words.com",
+  "port": null,
+  "path": "/v3/convert-to-coordinates?key=KS18UC0Z&words="+age+"&format=json",
+  "headers": {}
+};
+
+var req = http.request(options, function (res) {
+  var chunks = [];
+
+  res.on("data", function (chunk) {
+    chunks.push(chunk);
+  });
+
+  res.on("end", function () {
+    var body = Buffer.concat(chunks);
+    console.log(body.toString());
+  });
+});
+
+req.end();
+    
+}
+</script> -->
+
+    <!-- <div style="width: 140%;" >
+        <a href="/getlatlong" >ab</a>
+       @include('backend.getlatlong')
+
+    </div> -->
+    
 @endsection
 
 @section('after-scripts')
