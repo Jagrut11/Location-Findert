@@ -17,15 +17,29 @@
   <!--   <div class="col-xs-12"> -->
 
     <div class="panel panel-default">
+
+
       <div class="panel-heading"><center><font size="3">{{ trans('Fix Appointment') }}</font></center></div>
 
-      <div class="panel-body">
+            
+                                                       
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/locales.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.css"></script>
+    <div class="row">
+
+        <div class="col-xs-12">
+
+
+
+                     <div class="panel-body">
         <form action="/fixappointment/search1" method="POST" role="search">
           {{ csrf_field() }}
           <div class="input-group">
-                                                    <!-- <input type="text" class="typeahead form-control" name="q"
-                                                      placeholder="Search users"> <span class="input-group-btn"> -->
-                                                       <input type="text" name="search_text" id="search_text" class="form-control input-lg" placeholder="Search Employee"><span class="input-group-btn">
+                                            
+                                                   <input type="text" name="q" id="search_text"  class="form-control input-lg" placeholder="Search Employee"><span class="input-group-btn">
+
+
                                                         <button type="submit" class="btn btn-default">
                                                           <span class="glyphicon glyphicon-search"></span>
                                                         </button>
@@ -37,6 +51,7 @@
                                                    <div id="nameList">
                                                        </div>
                                                 </div>
+
                                                 <!--panel-body--> <!-- showing search form -->
                                                 <div class="form-group">
 
@@ -124,20 +139,6 @@ else
 </div>
 
 </div>
-<div class="panel panel-default">
-  <!-- <div class="panel-heading">
-    <center>
-      <font size="3">
-        <h3>Appointment Status</h3>
-
-        <div> Pending  </div>
-        <div> Accepted </div>
-        <div> Rejected </div>
-        {{ $logged_in_user->email }}
-      </font>
-    </center>
-  </div> -->
-</div>
 
 <script>
   $(document).ready(function(){
@@ -166,4 +167,16 @@ else
 
  });
 </script>
+
+
+                                            </form>
+                                        </div><!--panel-body--> <!-- showing search form -->
+                    
+             
+
+
+                  
+        </div>
 @endsection
+<!-- https://map.what3words.com/daring.lion.race -->
+

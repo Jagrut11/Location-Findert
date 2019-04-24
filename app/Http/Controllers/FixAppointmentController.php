@@ -17,6 +17,7 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
+
 class FixAppointmentController extends Controller
 {
     //
@@ -43,6 +44,7 @@ class FixAppointmentController extends Controller
         // $q= $request->get('email');
         //$time=  $request->get('appointmentime');
         // $senderid = DB::table('users')->where('email', $q)->pluck('id');
+        // dump($request->get('appointmentime'));
         $fix_appointment = new Appointment([
 
             'sender_id' => $request->get('loggedinuser'),
@@ -54,7 +56,9 @@ class FixAppointmentController extends Controller
         ]);
 
         //dd($fix_appointment, $time);
-        $fix_appointment -> save();
+        $fix_appointment->save();
+        // dump($fix_appointment->save());
+        // dd($fix_appointment);
         
              //Notification::send($users, new App\Notifications\EmailNotification);   
 
@@ -70,6 +74,28 @@ class FixAppointmentController extends Controller
      $user->notify(new App\Notifications\EmailNotification);
      return redirect()->route('frontend.fixappointment');
         
+    }
+    public function update($iddd)
+    {
+        // dd($id,$idd);
+        //$a= Appointment::where('id', $iddd)->where('sender_id', $id)->where('receiver_id', $idd)
+        $a= Appointment::where('id', $iddd)
+        // $a= appointment:: where ('sender_id',$idd and 'receiver_id',$id)
+         ->update(['appointment_status' => 'Accepted']); 
+          return view('frontend.user.dashboard');
+
+    }
+    public function reject($iddd)
+    {
+        // dd($id,$idd);
+        $ap= Appointment::where('id', $iddd)
+        // $a= appointment:: where ('sender_id',$idd and 'receiver_id',$id)
+         ->update(['appointment_status' => 'Rejected']); 
+          
+         
+         
+          return view('frontend.user.dashboard');
+
     }
 
 

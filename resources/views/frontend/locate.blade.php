@@ -49,7 +49,7 @@
   display: inline-block;
   font-size: 16px;
   cursor: pointer";>
-     <a href="https://map.what3words.com/{{$words}}">Locate</a>
+     <a href="https://map.what3words.com/{{$words}}" target="_blank">Locate</a>
      </button>
      </center><br>
       <!-- AIzaSyAtUZHevSsuCITMsYD2etL5b-FSdmcfBjA -->

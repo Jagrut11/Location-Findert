@@ -18,9 +18,9 @@ class CreateAppointmentTable extends Migration
             $table->Integer('sender_id')->unsigned()->index('appointment_sender_id_foreign');
             $table->Integer('receiver_id')->unsigned()->index('appointment_receiver_id_foreign');
             $table->date('appointment_date');
-            $table->time('appointment_time'); // remove this // datetime default null
-            $table->string('appointment_status')->default('Pending'); // tiny int
-            $table->boolean('status')->default('1'); // should be small / tiny int
+            $table->time('appointment_time'); 
+            $table->string('appointment_status')->default('Pending'); 
+            $table->boolean('status')->default('1');
             $table->timestamps();
             $table->softDeletes();
         });

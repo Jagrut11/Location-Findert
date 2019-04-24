@@ -24,6 +24,11 @@ use App\Repositories\Backend\Seat\SeatRepository;
 use App\Repositories\Backend\Floor\FloorRepository;
 use App\Repositories\Backend\Branch\BranchRepository;
 
+use What3words\Geocoder\Geocoder;
+use What3words\Geocoder\AutoSuggestOption;
+use Illuminate\Support\Facades\Input;
+
+
 /**
  * Class UserController.
  */
@@ -150,5 +155,23 @@ class UserController extends Controller
         $this->users->delete($user);
 
         return new RedirectResponse(route('admin.access.user.index'), ['flash_success' => trans('alerts.backend.users.deleted')]);
+    }
+
+    public function convert()
+    {
+        $api= new Geocoder("79NK10MQ");
+        // $result= $api->convertTo3wa($lat,$lng);
+        // $words = $result["words"];
+        // print"The words for ($lat,$lng) are " . $words . "\n";
+        // print_r($api->getError());  
+
+        $words= input::get('threewordaddress');
+        $result = $api->convertToCoordinates($words);
+
+        //print "The coordinates for $words are (" . $result["coordinates"]["lat"] . "),(" . $result["coordinates"]["lng"] . ")\n";
+
+        print "The coordinates for $words are (" . $result["coordinates"]["lat"] . "),(" . $result["coordinates"]["lng"] . ")\n First is lattitude and second is longitude \n";
+
+        //return new RedirectResponse(route('admin.access.user.index'), ['flash_success' => trans('alerts.backend.users.deleted')]);
     }
 }

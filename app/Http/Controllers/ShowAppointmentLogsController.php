@@ -21,6 +21,7 @@ class ShowAppointmentLogsController extends Controller
 	    ->join('users','users.id','=','appointment.receiver_id')
 	    ->select('appointment.*','users.first_name','users.last_name')
 	    ->where('sender_id','=',$q)
+	    ->orwhere('receiver_id','=',$q)
 	    ->get();
 
 	    //print_r($appointment);
