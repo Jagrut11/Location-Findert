@@ -21,23 +21,14 @@
                 </div><!--box-tools pull-right-->
             </div><!--box-header with-border-->
 
-             <div class="form-group">
-                    {{ Form::label('name', 'Branch Name', ['class' => 'col-lg-2 control-label required']) }} 
-
-                     <div class="col-lg-10">
-                        {{ Form::text('company_id', null, ['class' => 'form-control box-size', 'placeholder' => 'Enter Branch Name', 'required' => 'required']) }}
-                    </div><!--col-lg-10-->
-                    </div><!--form control-->
-
              {{-- Branch Name --}}
                 <div class="form-group">
-                    {{ Form::label('name', 'Branch Name', ['class' => 'col-lg-2 control-label required']) }} 
+                    {{ Form::label('name','Branch Name', ['class' => 'col-lg-2 control-label required']) }}
 
-                     <div class="col-lg-10">
-                        {{ Form::text('branch_name', null, ['class' => 'form-control box-size', 'placeholder' => 'Enter Branch Name', 'required' => 'required']) }}
+                    <div class="col-lg-10">
+                        {{ Form::text('branch_name', null, ['class' => 'form-control box-size', 'placeholder' => trans('validation.attributes.backend.access.users.firstName'), 'required' => 'required']) }}
                     </div><!--col-lg-10-->
-                    </div><!--form control-->
-
+                </div><!--form control-->
                    
 
                  

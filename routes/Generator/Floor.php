@@ -9,6 +9,9 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'as' => 'admin.', '
         Route::resource('floors', 'FloorsController');
         //For Datatable
         Route::post('floors/get', 'FloorsTableController')->name('floors.get');
+
+        Route::post('floors/store', 'FloorsController@store')->name('floors.store');
+
     });
     
 });

@@ -7,7 +7,7 @@
         <div class="col-xs-12">
 
             <div class="panel panel-default">
- 				<div><center><div><br><img src="img/frontend/social-media.png" alt="company logo" style="height: 100px; width: 100px;"></div><font size="3" >{{ trans('About Location Finder') }}</font></center></div>
+ 				<div><center><div><br><img src="img/frontend/Animated-icon-for-affiliations.gif" alt="company logo" style="height: 100px; width: 100px;"></div><font size="3" >{{ trans('About Location Finder') }}</font></center></div>
                 <hr>
                 <table>
                     <tr>

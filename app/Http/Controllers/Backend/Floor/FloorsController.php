@@ -73,12 +73,18 @@ class FloorsController extends Controller
      */
     public function store(StoreFloorRequest $request)
     {
+        $data=(json_decode($request->jsonData, true));
+        //dd($request->all());
+        //$request->get('jsonData');
         //Input received from the request
         $input = $request->except(['_token']);
         //Create the model using repository create method
-        $this->floor->create($input);
+        // dd($input);
+        // exit();
+        $this->floor->create($input,$data);
         //return with successfull message
-        return new RedirectResponse(route('admin.floors.index'), ['flash_success' => trans('alerts.backend.floors.created')]);
+         return new RedirectResponse(route('admin.floors.index'), ['flash_success' => trans('alerts.backend.floors.created')]);
+        // return response()->json(['success'=>'Data is successfully added']);
     }
     /**
      * Show the form for editing the specified resource.
@@ -103,10 +109,12 @@ class FloorsController extends Controller
         //Input received from the request
         $input = $request->except(['_token']);
         //Update the model using repository update method
-        $this->floor->update( $floor, $input );
+        $this->floor->update( $floor, $Input );
         //return with successfull message
         return new RedirectResponse(route('admin.floors.index'), ['flash_success' => trans('alerts.backend.floors.updated')]);
     }
+
+
     /**
      * Remove the specified resource from storage.
      *

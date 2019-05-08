@@ -93,13 +93,12 @@
                 <div class="form-group">
                     {{ Form::label('name', 'Branch Name', ['class' => 'col-lg-2 control-label required']) }} 
 
-
                     <div class="col-lg-10">
 
-                <select class="form-control" id="Company" name="branch_id">
-                    <option value=""> Branch Name </option> 
+                    <select class="form-control" id="Branch" name="branch_id">
+                    <option value="">Branch Name </option> 
                     @foreach ($branch as $key=>$value)
-                        <option value="<?php echo $value->id ?>">
+                        <option value="{{$value->id }}">
                             {{ $value->branch_name }}
                         </option>
                         @endforeach 
@@ -114,7 +113,7 @@
 
                     <div class="col-lg-10">
 
-                <select class="form-control" id="Company" name="branch_id">
+                <select class="form-control" id="Floor" name="floor_id">
                     <option value=""> Floor No </option> 
                     @foreach ($floor as $key=>$value)
                         <option value="<?php echo $value->id ?>">
@@ -143,11 +142,6 @@
                 </select>
                     </div><!--col-lg-10-->
                 </div><!--form control-->
-
-
-
-
-
 
                 {{-- Status --}}
                 <div class="form-group">
@@ -269,6 +263,7 @@
         </form>
         <a href="https://map.what3words.com/rudder.knocking.nicer" target="_blank" style="background-color: #f44336; color: white; padding: 14px 25px; text-align: center; text-decoration: none; display: inline-block;">Select 3 word address here</a>
     </center>
+    
 </div>
 
 <!-- <script>

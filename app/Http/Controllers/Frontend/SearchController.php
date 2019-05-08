@@ -1,6 +1,4 @@
 <?php
-
-
 namespace App\Http\Controllers;
 // namespace App\Http\Controllers\Backend;
 use App\Models\Access\User\User;
@@ -9,8 +7,6 @@ use Illuminate\Http\Request;
 use DB;
 use What3words\Geocoder\Geocoder;
  use What3words\Geocoder\AutoSuggestOption;
-
-
 class SearchController extends Controller
 {
 	public function index()
@@ -25,15 +21,12 @@ class SearchController extends Controller
 	    $q = Input::get ( 'q' );
 	     
 	    $user = User::where('first_name','LIKE','%'.$q.'%')->orWhere('email','LIKE','%'.$q.'%')->orWhere('last_name','LIKE','%'.$q.'%')->get();
-
 	    if(count($user) > 0)
 	        
 	        return view('frontend.fixappointment')->withDetails($user)->withQuery ( $q );
 	    else return view ('frontend.fixappointment')->withMessage('No Details found. Try to search again !');
 	    //search functionality end
 	}
-
-
 	function fetch(Request $request)
 	{
 		if($request->get('query'))
@@ -52,10 +45,8 @@ class SearchController extends Controller
 			}
 			$output .= '</ul>';
 			echo $output;	
-
 		}
 	}
-
 	public function locate($id)
 	{
 		// echo $id;
@@ -75,7 +66,6 @@ class SearchController extends Controller
 		    //  print_r($lng);
 		  }
 		 
-
 		$api= new Geocoder("79NK10MQ");
 		$result= $api->convertTo3wa($lat,$lng);
 		$words = $result["words"];
@@ -83,6 +73,4 @@ class SearchController extends Controller
 		print_r($api->getError());	        
 	 	return view('frontend.locate',array('words'=> $words,'user'=>$user));
 	}
-
 }
- 

@@ -21,14 +21,17 @@ class EditResponse implements Responsable
      */
     protected $roles;
 
+     protected $branch;
+
     /**
      * @param \App\Models\Access\User\User $user
      */
-    public function __construct($user, $roles, $permissions)
+    public function __construct($user, $roles, $permissions, $branch)
     {
         $this->user = $user;
         $this->roles = $roles;
         $this->permissions = $permissions;
+        $this->branch = $branch;
     }
 
     /**
@@ -47,6 +50,7 @@ class EditResponse implements Responsable
             'user'            => $this->user,
             'userRoles'       => $this->user->roles->pluck('id')->all(),
             'roles'           => $this->roles,
+            'branch'          => $this->branch,
             'userPermissions' => $userPermissions,
             'permissions'     => $permissions,
         ]);

@@ -31,12 +31,13 @@ class UpdateUserRequest extends Request
             'first_name'      => 'required',
             'last_name'       => 'required',
             'permissions'     => 'required',
+            'branch_id'       => 'required',
             'assignees_roles' => 'required',
         ];
     }
 
     /**
-     * Get the validation massages that apply to the rules.
+     * Get the validation messages that apply to the rules.
      *
      * @return array
      */

@@ -48,11 +48,15 @@
                 </select>
                     </div><!--col-lg-10-->
                 </div><!--form control-->
+
+                
                     {{-- Including Form blade file --}}
                     @include("backend.floors.form")
                     <div class="edit-form-btn">
                         {{ link_to_route('admin.floors.index', trans('buttons.general.cancel'), [], ['class' => 'btn btn-danger btn-md']) }}
                         {{ Form::submit(trans('buttons.general.crud.create'), ['class' => 'btn btn-primary btn-md']) }}
+
+                        <!-- <a href="/index1" target="_blank" style="background-color: #f44336; color: white; padding: 14px 25px; text-align: center; text-decoration: none; display: inline-block;">Add Layout</a> -->
                         <div class="clearfix"></div>
                     </div><!--edit-form-btn-->
                 </div><!-- form-group -->

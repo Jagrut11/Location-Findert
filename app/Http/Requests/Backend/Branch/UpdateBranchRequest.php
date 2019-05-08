@@ -25,7 +25,7 @@ class UpdateBranchRequest extends FormRequest
     {
         return [
             'branch_name' => 'required',
-            'company_id'  =>  'required',
+            //'company_id'  =>  'required',
             //Put your rules for the request in here
             //For Example : 'title' => 'required'
             //Further, see the documentation : https://laravel.com/docs/5.4/validation#creating-form-requests

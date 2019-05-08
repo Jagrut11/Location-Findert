@@ -20,12 +20,16 @@
             <div class="table-responsive data-table-wrapper">
                 <table id="floors-table" class="table table-condensed table-hover table-bordered">
                     <thead>
+                      
+                        <!-- for apostropheS &#039; -->
                         <tr>
                             <th>{{ trans('labels.backend.floors.table.id') }}</th>
                             <th>{{ trans('labels.backend.floors.table.floor_no') }}</th>
                             <th>{{ trans('labels.backend.branches.table.branch_name') }}</th>
                             <th>{{ trans('labels.backend.floors.table.createdat') }}</th>
+                            <th>{{('Layout')}}</th>
                             <th>{{ trans('labels.general.actions') }}</th>
+                           
                         </tr>
                     </thead>
                     <thead class="transparent-bg">
@@ -33,9 +37,14 @@
                             <th></th>
                             <th></th>
                             <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
                         </tr>
+                         
                     </thead>
                 </table>
+
             </div><!--table-responsive-->
         </div><!-- /.box-body -->
     </div><!--box-->
@@ -59,8 +68,13 @@
                     {data: 'id', name: '{{config('module.floors.table')}}.id'},
                     {data: 'floor_no', name: '{{config('module.floors.table')}}.floor_no'},
                     {data: 'branches', name: '{{config('module.branches.table')}}.branch_name'},
+
                     {data: 'created_at', name: '{{config('module.floors.table')}}.created_at'},
+                    {data: 'actions', name: 'actions', searchable: false, sortable: false},
+
                     {data: 'actions', name: 'actions', searchable: false, sortable: false}
+                        
+
                 ],
                 order: [[0, "asc"]],
                 searchDelay: 500,

@@ -89,7 +89,7 @@ class UserController extends Controller
         $branch = $this->branch->getAll();
         $seats = $this->seats->getAll();
         $floor['floor'] = DB::table('floors')->get();
-
+        
         return view('backend.access.users.create',$floor,array('roles'=> $roles,'branch'=>$branch,'seats'=>$seats));
         //return new CreateResponse($roles);
     }
@@ -102,7 +102,7 @@ class UserController extends Controller
     public function store(StoreUserRequest $request)
     {
         $this->users->create($request);
-
+       //     dd($request);
         return new RedirectResponse(route('admin.access.user.index'), ['flash_success' => trans('alerts.backend.users.created')]);
     }
 
@@ -127,8 +127,9 @@ class UserController extends Controller
     {
         $roles = $this->roles->getAll();
         $permissions = Permission::getSelectData('display_name');
-
-        return new EditResponse($user, $roles, $permissions);
+          $branch = $this->branch->getAll();
+          
+        return new EditResponse($user, $roles, $permissions, $branch);
     }
 
     /**
@@ -140,7 +141,7 @@ class UserController extends Controller
     public function update(User $user, UpdateUserRequest $request)
     {
         $this->users->update($user, $request);
-
+        //dd($request);
         return new RedirectResponse(route('admin.access.user.index'), ['flash_success' => trans('alerts.backend.users.updated')]);
     }
 
