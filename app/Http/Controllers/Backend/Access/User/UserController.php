@@ -23,7 +23,6 @@ use App\Repositories\Backend\Access\User\UserRepository;
 use App\Repositories\Backend\Seat\SeatRepository;
 use App\Repositories\Backend\Floor\FloorRepository;
 use App\Repositories\Backend\Branch\BranchRepository;
-
 use What3words\Geocoder\Geocoder;
 use What3words\Geocoder\AutoSuggestOption;
 use Illuminate\Support\Facades\Input;
@@ -103,6 +102,7 @@ class UserController extends Controller
     {
         $this->users->create($request);
 
+
         return new RedirectResponse(route('admin.access.user.index'), ['flash_success' => trans('alerts.backend.users.created')]);
     }
 
@@ -157,7 +157,7 @@ class UserController extends Controller
         return new RedirectResponse(route('admin.access.user.index'), ['flash_success' => trans('alerts.backend.users.deleted')]);
     }
 
-    public function convert()
+    public function convert(CreateUserRequest $request)
     {
         $api= new Geocoder("79NK10MQ");
         // $result= $api->convertTo3wa($lat,$lng);
@@ -167,11 +167,28 @@ class UserController extends Controller
 
         $words= input::get('threewordaddress');
         $result = $api->convertToCoordinates($words);
+        $a= $result["coordinates"]["lat"];
+        $b= $result["coordinates"]["lng"];
+        $this->a=$a;
+        $this->b=$b;
+
+print_r($a,$b); 
+echo "$a";
+        // $this->a = $a;
+        // $this->b = $b;
 
         //print "The coordinates for $words are (" . $result["coordinates"]["lat"] . "),(" . $result["coordinates"]["lng"] . ")\n";
 
-        print "The coordinates for $words are (" . $result["coordinates"]["lat"] . "),(" . $result["coordinates"]["lng"] . ")\n First is lattitude and second is longitude \n";
+        //print "The coordinates for $words are (" . $result["coordinates"]["lat"] . "),(" . $result["coordinates"]["lng"] . ")\n First is latitude and second is longitude \n";
 
+        //return route('/showcord',compact($result));
+        //return view('/showcord',compact($result));
+// $request->session()->put('lat', $a);
+// $request->session()->put('lng', $b);
+            return new RedirectResponse(route('admin.access.user.create'),['flash_success' =>"latitude= '$a' "  .  " longitude = '$b'"]);
+
+       // return new RedirectResponse(route('admin.access.user.create'), array('result' => $result , 'words' => $words));    
+            
         //return new RedirectResponse(route('admin.access.user.index'), ['flash_success' => trans('alerts.backend.users.deleted')]);
     }
 }

@@ -31,7 +31,9 @@ class SearchController extends Controller
 		// or use this search functionality
     	$q = Input::get ( 'q' );
         $data = User::select("title as name")->where('first_name','LIKE','%'.$q.'%')->orWhere('email','LIKE','%'.$q.'%')->orWhere('last_name','LIKE','%'.$q.'%')->get();
+        $message= "No Details found. Try to search again !";
         return view('frontend.fixappointment')->withDetails($user)->withQuery ( $q );
+        else return view ('frontend.fixappointment')->withMessage($message);
         //return response()->json($data);
         // search functionality end
 	}

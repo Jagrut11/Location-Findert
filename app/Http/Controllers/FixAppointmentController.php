@@ -80,7 +80,7 @@ class FixAppointmentController extends Controller
         $a= Appointment::where('id', $iddd)
         // $a= appointment:: where ('sender_id',$idd and 'receiver_id',$id)
          ->update(['appointment_status' => 'Accepted']); 
-          return view('frontend.user.dashboard');
+          return redirect('/logs');
 
     }
     public function reject($iddd)
@@ -92,7 +92,7 @@ class FixAppointmentController extends Controller
           
          
          
-          return view('frontend.user.dashboard');
+          return redirect('/logs');
 
     }
 

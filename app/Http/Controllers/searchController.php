@@ -49,7 +49,7 @@ class SearchController extends Controller
 		$api= new Geocoder("79NK10MQ");
 		$result= $api->convertTo3wa($lat,$lng);
 		$words = $result["words"];
-		print"The words for ($lat,$lng) are " . $words . "\n";
+		//print"The words for ($lat,$lng) are " . $words . "\n";
 		print_r($api->getError());	        
 	 	return view('frontend.locate',array('words'=> $words,'user'=>$user));
 	}

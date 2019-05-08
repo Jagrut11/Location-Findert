@@ -7,7 +7,7 @@
         <div class="col-xs-12">
 
             <div class="panel panel-default">
- 				<div><center><div><br><img src="img/frontend/social-media.png" alt="company logo" style="height: 100px; width: 100px;"></div><font size="3" >{{ trans('About Location Finder') }}</font></center></div>
+ 				<div><center><div><br><img src="img/frontend/Animated-icon-for-affiliations.gif" alt="company logo" style="height: 100px; width: 100px;"></div><font size="3" >{{ trans('About Location Finder') }}</font></center></div>
                 <hr>
                 <table>
                     <tr>
@@ -17,11 +17,11 @@
                         <div style="padding-left: 20px; padding-top: 20px; color: white;">
                             <p>Why We Started Website??</p>
                         
-                            <p>&diams; We started location Finder because Many companies were facing problems in booking appointmrents and the clients of our comapany were also facing problem in finding the location of the company as well as employee.</p>
+                            <p>&diams; We started location Finder because Many companies were facing problems in booking appointments and the clients of our comapany were also facing problem in finding the location of the company as well as employee.</p>
 
-                            <p>&diams; That's why we created Location finder to help our clients as well as other companies for finding location of an employee of a company and fixing the appointment.</p>
+                            <p>&diams; We created Location finder to help our clients as well as other companies for finding location of an employee of a company and fixing the appointment.</p>
 
-                            <p>&diams; Along the way, at the time of creating Location Finder we had face many challanges but due to hardwork and support of our team we were able to create the "Location Finder".</p>
+                            <p>&diams; With the help of our guiders, at the time of creating Location Finder we had face many challanges but due to hardwork and support of our team we were able to create the "Location Finder".</p>
                         </div>
                     </div>
 </div>
@@ -34,7 +34,7 @@
 
                             <p>&diams; Help your as well as your clients find the best location to serve their needs with an employee Locator that easily provide you the location in our website.</p>
                         
-                            <p>&diams; Make it easy for consumers to find employee location, whether they have 50 locations or 5,000. Guide consumers to their locations through organic search results.</p>
+                            <p>&diams; Make it easy for consumers to find employee location, even for multiple locations. Guide consumers to their locations through organic search results.</p>
 
                             <p>&diams; Whenever customers need to do business at a physical location, they can easily book an appointment through our website.</p>
 

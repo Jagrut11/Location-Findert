@@ -21,43 +21,20 @@ Route::group(['namespace' => 'Frontend', 'as' => 'frontend.'], function () {
     includeRouteFiles(__DIR__.'/Frontend/');
 });
 
-Route::get('/contactus', function(){
-    return view('frontend.contactus');
-});
-
-Route::get('/AboutUs', function () {
-    return view('frontend.AboutUs');
-});//route to redirect to About Us page
-
-Route::get('/howitworks', function () {
-    return view('frontend.howitworks');
-});//route to redirect to How It Works page
-
-Route::get('/fixappointment', function () {
-    return view('frontend.fixappointment');
-});//route to redirect to Fix Appointment page
-
-
 Route::POST('/search1','searchController@search');
-//route to execute search Functionality 
 
-Route::post('/search','SearchController@search');
 
 Route::get('/locate/{id}','SearchController@locate');
 
-//Route::get('locate/{lat}/{lng}', 'SearchController@locate');
 
 Route::get('/logs','ShowAppointmentLogsController@showlogs');
 Route::get('/autocomplete', 'AutoCompleteController@index');
 Route::post('/autocomplete/fetch', 'AutoCompleteController@fetch')->name('autocomplete.fetch');
 
-//Route::get('/create', 'BranchesController@create');
 
-// Route::get('/getlatlong', function () {
-//     return view('backend.access.getlatlong');
-// });
 
 Route::get('/getlatlong', 'Backend\Access\User\UserController@convert');
+
 
 Route::get('/accept/{iddd}','FixAppointmentController@update');
 Route::get('/reject/{iddd}','FixAppointmentController@reject');
