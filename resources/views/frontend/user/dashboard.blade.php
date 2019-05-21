@@ -130,7 +130,7 @@
                                         <thead>
                                             <tr>
                                                 <th>Sender</th>
-                                                <th>Receiver</th>
+                                                
                                                 <th>Date</th>
                                                 <th>Time</th>
                                                 <th>Status</th>
@@ -138,10 +138,10 @@
                                         </thead>
                                         <tbody>
                                         @foreach($appointment as $applogs)
-                                             @foreach($appointmentsender as $applogsender)
+                                             
                                             <tr>
-                                                <td>{{$applogsender->first_name}} {{$applogsender->last_name}}</td>
                                                 <td>{{$applogs->first_name}} {{$applogs->last_name}}</td>
+                                                
                                                 <td>{{$applogs->appointment_date}}</td>
                                                 <td>{{$applogs->appointment_time}}</td>
                                                 <td>{{$applogs->appointment_status}}</td>
@@ -202,7 +202,7 @@
                                                 }
                                                 ?>
                                             </tr>
-                                            @endforeach
+                                            
                                         @endforeach
                                         </tbody>
                                     </table>

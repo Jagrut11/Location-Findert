@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -183,22 +182,6 @@
             node.filters([]);
             node.clearCache();
           }
-
-        // function a(item, index)
-        // {
-        //   if (item.name === 'seat') {
-        //     var s=seats.push(item.name);
-        //     console.log(s);
-        //   } 
-        //   else if (item.id=="table1") {
-        //     var st=table1.push(item.id);
-
-        //     console.log(st);
-        //   } 
-        //   else{
-        //     console.log("hello");
-        //   }
-        // }
         });
 
         layer.batchDraw();
@@ -227,15 +210,16 @@
         });
 
 
-      //   function downloadURI(uri, name) {
-      //   var link = document.createElement('a');
-      //   link.download = name;
-      //   link.href = uri;
-      //   document.body.appendChild(link);
-      //   link.click();
-      //   document.body.removeChild(link);
-      //   delete link;
-      // }
+        function downloadURI(uri, name) {
+        var link = document.createElement('a');
+        //console.log(link);
+        link.download = name;
+        link.href = uri;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        delete link;
+      }
 
       
         document
@@ -243,27 +227,29 @@
         .addEventListener('click', function()
         {
           var dataURL = stage.toDataURL();
-          //downloadURI(dataURL, 'stage.png');
+          //console.log(stage);
+          var name=Math.random();
+          downloadURI(dataURL,name+'.png');
+          var layoutImg=name+'.png';
           var jsonData = stage.toJSON();
           console.log(jsonData);
         
 
         var payload = {
           jsonData : jsonData,
+          layoutImg:layoutImg,
           _token: '{{ csrf_token() }}'
         };
+
+        // var payload1 = {
+        //   layoutImg : layoutImg,
+        //   _token: '{{ csrf_token() }}'
+        // };
     //event.preventDefault();
     $.ajax({
-        //url:'/Backend/Floor/Floors/store',
-        url: '{{ route('admin.floors.store') }}',
+        url: '{{ route('admin.floors.updateJson') }}',
         type: 'post',
-        data: payload, // Remember that you need to have your csrf token included
-        dataType: 'json',
-     //    .done(function(response) {
-     // // Make sure that the formMessages div has the 'success' class.
-     // formMessages.removeClass('alert-danger');
-     //    formMessages.addClass('alert-success');
-     //    })
+        data: payload,layoutImg, // Remember that you need to have your csrf token included
     });
   });
        

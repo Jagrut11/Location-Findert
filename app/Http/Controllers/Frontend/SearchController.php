@@ -19,6 +19,12 @@ class SearchController extends Controller
 	
 		//use this search functionality
 	    $q = Input::get ( 'q' );
+
+	    if(is_null($q))
+	    {
+	    	$alert=true;
+	    	return view('frontend.fixappointment')->with('alert','No details found. Try to search again !!!');
+	    }
 	     
 	    $user = User::where('first_name','LIKE','%'.$q.'%')->orWhere('email','LIKE','%'.$q.'%')->orWhere('last_name','LIKE','%'.$q.'%')->get();
 	    if(count($user) > 0)

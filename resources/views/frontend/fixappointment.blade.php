@@ -57,7 +57,13 @@
 
               <!-- showing search form -->
               <div class="form-group">
-                <div class="panel-body"> 
+                <div class="panel-body">
+                  <?php if(isset($alert))
+                    { ?>
+                      {{ $alert }}
+                  <?php 
+                    } ?>
+                
                   @if(isset($details))
                   <p> The Search results for your query <b> {{ $query }} </b> are :</p>
                   <h2>Searched User details</h2>
@@ -213,8 +219,10 @@
             <a href="https://mail.google.com/mail/u/1/#drafts?compose=CllgCKCDCjdCBpSJXGzFfxQmZSbjQtTqJHtvTCwglBWPnvdFljwfwkXHMxPLtvvMxSSQwPrtjVq" class="google" target="_blank"><i class="fa fa-google-plus"></i></a>
         </div>
         <div class="footer-copyright">
-            <p>Copyright© 2019  Made by <a href="https://www.cygnet-infotech.com/" target="_blank"> Cygnet Infotech</a> .All Rights Reserved. </p>
+            <p>CopyrightÂ© 2019  Made by <a href="https://www.cygnet-infotech.com/" target="_blank"> Cygnet Infotech</a> .All Rights Reserved. </p>
         </div>
     </footer>
 @endsection
 <!-- https://map.what3words.com/daring.lion.race -->
+
+

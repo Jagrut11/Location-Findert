@@ -40,7 +40,7 @@
                     {{ Form::label('name', 'Company Name', ['class' => 'col-lg-2 control-label required']) }} 
                     
                     <div class="col-lg-10">
-                <select class="form-control" id="Company" name="company_id">
+                <select class="form-control" id="Company" name="company_id"  required="required">
                     <option value=""> Select Company </option> 
                     @foreach ($company as $key=>$value)
                         <option value="<?php echo $value->id ?>">

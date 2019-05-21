@@ -10,7 +10,7 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'as' => 'admin.', '
         //For Datatable
         Route::post('floors/get', 'FloorsTableController')->name('floors.get');
 
-        Route::post('floors/store', 'FloorsController@store')->name('floors.store');
+        Route::post('floors/updateJson', 'FloorsController@updateJson')->name('floors.updateJson');
 
     });
     

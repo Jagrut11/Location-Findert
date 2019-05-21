@@ -10,6 +10,8 @@
 @endsection
 
 @section('content')
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     {{ Form::open(['route' => 'admin.access.user.store', 'class' => 'form-horizontal', 'role' => 'form', 'method' => 'post']) }}
 
@@ -69,22 +71,35 @@
                 </div><!--form control-->
 
                 {{-- Latitude --}}
+                <?php 
+
+       $lat = session()->get('lat');  
+        ?>&nbsp;
+        <?php
+        $lng = session()->get('lng');    
+        ?> 
 
                 <div class="form-group" >
                     {{ Form::label('name', 'Latitude', ['class' => 'col-lg-2 control-label required']) }}
 
+         
+    
                     <div class="col-lg-10">
-                        {{ Form::text('latitude', null, ['class' => 'form-control box-size', 'placeholder' => 'Latitude', 'required' => 'required']) }}
+                        {{ Form::text("Latitude","$lat", ['class' => 'form-control box-size', 'placeholder' => 'Latitude', 'required' => 'required']) }}
+                         
+                        
+
                     </div><!--col-lg-10-->
                 </div><!--form control-->
+                
 
                 {{-- Longitude --}}
 
-                <div class="form-group">
+                <div class="form-group" >
                     {{ Form::label('name', 'Longitude', ['class' => 'col-lg-2 control-label required']) }}
 
                     <div class="col-lg-10">
-                        {{ Form::text('longitude', null, ['class' => 'form-control box-size', 'placeholder' => 'Longitude', 'required' => 'required']) }}
+                        {{ Form::text("Longitude","$lng", ['class' => 'form-control box-size', 'placeholder' => 'Longitude', 'required' => 'required']) }}
                     </div><!--col-lg-10-->
                 </div><!--form control-->
 
@@ -252,61 +267,27 @@
             </div><!-- /.box-body -->
         </div><!--box-->
     {{ Form::close() }}
-<div style="background-color: white;border-radius: 5px; padding: 20px">
-    <center>
-        <!-- <form onsubmit="myFunction()" style=" width: 100%; padding: 12px 20px; margin: 8px 0; display: inline-block; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;"> -->
-            <form action="/getlatlong" style=" width: 100%; padding: 12px 20px; margin: 8px 0; display: inline-block; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;" target="_blank">
+    <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">Get Co-ordinates</h3>
+
+                
+            </div><!--box-header with-border-->
+            <center>
+            <form action="/getlatlong" style=" width: 100%; padding: 12px 20px; margin: 8px 0; display: inline-block;  border-radius: 4px; box-sizing: border-box;" >
             <input type="text" id="threewordaddress" name="threewordaddress" placeholder="Enter 3 Words Address Here" style="float: center; border: 3px solid #555; width: 20%;
   margin-top: 6px;border-radius: 4px;">
             
             <button type="submit" style="border-radius: 50%;" ><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+            
         </form>
-        <a href="https://map.what3words.com/rudder.knocking.nicer" target="_blank" style="background-color: #f44336; color: white; padding: 14px 25px; text-align: center; text-decoration: none; display: inline-block;">Select 3 word address here</a>
-    </center>
+        <a href="https://map.what3words.com/rudder.knocking.nicer" target="_blank" style="background-color: #f44336; color: white; padding: 10px 34px; text-align: center; text-decoration: none; display: inline-block;">Select 3 word address here</a>
+
+        </center>
+        <br>
+</div><!--col-lg-10-->
     
 </div>
-
-<!-- <script>
-function myFunction() {
-    var age = document.getElementById("threewordaddress").value;
-    
-        
-    //    window.open("https://api.what3words.com/v3/convert-to-coordinates?words="+age+"&key=KS18UC0Z");
-    
-    var http = require("https");
-
-var options = {
-  "method": "GET",
-  "hostname": "api.what3words.com",
-  "port": null,
-  "path": "/v3/convert-to-coordinates?key=KS18UC0Z&words="+age+"&format=json",
-  "headers": {}
-};
-
-var req = http.request(options, function (res) {
-  var chunks = [];
-
-  res.on("data", function (chunk) {
-    chunks.push(chunk);
-  });
-
-  res.on("end", function () {
-    var body = Buffer.concat(chunks);
-    console.log(body.toString());
-  });
-});
-
-req.end();
-    
-}
-</script> -->
-
-    <!-- <div style="width: 140%;" >
-        <a href="/getlatlong" >ab</a>
-       @include('backend.getlatlong')
-
-    </div> -->
-    
 @endsection
 
 @section('after-scripts')

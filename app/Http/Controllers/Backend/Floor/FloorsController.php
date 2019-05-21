@@ -62,8 +62,9 @@ class FloorsController extends Controller
      */
     public function create(CreateFloorRequest $request)
     {
-        $data['data'] = DB::table('branches')->get();
-        return view('backend.floors.create',$data);
+        $data = DB::table('branches')->get();
+        $data1 = DB::table('floors')->get();
+        return view('backend.floors.create',array('data'=>$data,'data1'=>$data1));
     }
     /**
      * Store a newly created resource in storage.
@@ -73,19 +74,43 @@ class FloorsController extends Controller
      */
     public function store(StoreFloorRequest $request)
     {
-        $data=(json_decode($request->jsonData, true));
-        //dd($request->all());
-        //$request->get('jsonData');
+        
         //Input received from the request
         $input = $request->except(['_token']);
         //Create the model using repository create method
-        // dd($input);
-        // exit();
-        $this->floor->create($input,$data);
+        
+        $this->floor->create($input);
         //return with successfull message
          return new RedirectResponse(route('admin.floors.index'), ['flash_success' => trans('alerts.backend.floors.created')]);
         // return response()->json(['success'=>'Data is successfully added']);
     }
+
+    public function updateJson(StoreFloorRequest $request)
+    {
+        $data=(json_decode($request->jsonData, true));
+        $layout= $request->layoutImg;
+
+        $input = $request->except(['_token']);
+
+
+        $details = DB::table('floors')
+        ->select('floors.id')
+        ->where('branch_id', $request->session()->get('branch'))
+        ->where('floor_no', $request->session()->get('floor'))
+        ->get();
+       
+        //
+                $path='C:/Users/admin/'.$layout;
+                $request->session()->put('path', $path);
+                //dd($request->session()->get('path'));
+
+    $result=$details ? $details[0]->id : 0;
+    //dd($result);
+    //$something=move('C:/Users/admin/'.$layout,'/img/',$layout);
+         $updateDetails=DB::table('floors')->where('id', $result)->update( [ 'layout' => $request->jsonData,'LayoutImg' => $request->layoutImg]);
+         $request->session()->forget('branch');
+        $request->session()->forget('floor');
+    }   
     /**
      * Show the form for editing the specified resource.
      *
@@ -109,7 +134,7 @@ class FloorsController extends Controller
         //Input received from the request
         $input = $request->except(['_token']);
         //Update the model using repository update method
-        $this->floor->update( $floor, $Input );
+        $this->floor->update( $floor, $input);
         //return with successfull message
         return new RedirectResponse(route('admin.floors.index'), ['flash_success' => trans('alerts.backend.floors.updated')]);
     }

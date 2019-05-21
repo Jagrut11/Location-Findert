@@ -48,14 +48,20 @@
                         {{ Form::text('email', null, ['class' => 'form-control box-size', 'placeholder' => trans('validation.attributes.backend.access.users.email'), 'required' => 'required']) }}
                     </div><!--col-lg-10-->
                 </div><!--form control-->
+<?php 
 
+       $lat = session()->get('lat');  
+        ?>&nbsp;
+        <?php
+        $lng = session()->get('lng');    
+        ?> 
 
                   {{-- Latitude --}}
                 <div class="form-group">
                     {{ Form::label('latitude', 'Latitude',  ['class' => 'col-lg-2 control-label required']) }}
 
                     <div class="col-lg-10">
-                        {{ Form::text('latitude', null, ['class' => 'form-control box-size', 'placeholder' => 'Enter Latitude', 'required' => 'required']) }}
+                        {{ Form::text('latitude', "$lat", ['class' => 'form-control box-size', 'placeholder' => 'Enter Latitude', 'required' => 'required']) }}
                     </div><!--col-lg-10-->
                 </div><!--form control-->
 
@@ -65,7 +71,7 @@
                     {{ Form::label('longitude', 'Longitude',  ['class' => 'col-lg-2 control-label required']) }}
 
                     <div class="col-lg-10">
-                        {{ Form::text('longitude', null, ['class' => 'form-control box-size', 'placeholder' => 'Enter Longitude', 'required' => 'required']) }}
+                        {{ Form::text('longitude', "$lng", ['class' => 'form-control box-size', 'placeholder' => 'Enter Longitude', 'required' => 'required']) }}
                     </div><!--col-lg-10-->
                 </div><!--form control-->
 
@@ -199,19 +205,29 @@
         @endif
 
     {{ Form::close() }}
-    <div style="background-color: white;border-radius: 5px; padding: 20px">
-    <center>
-        <!-- <form onsubmit="myFunction()" style=" width: 100%; padding: 12px 20px; margin: 8px 0; display: inline-block; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;"> -->
-            <form action="/getlatlong" style=" width: 100%; padding: 12px 20px; margin: 8px 0; display: inline-block; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;" target="_blank">
+    <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">Get Co-ordinates</h3>
+
+                
+            </div><!--box-header with-border-->
+            <center>
+            <form action="/getcoords" style=" width: 100%; padding: 12px 20px; margin: 8px 0; display: inline-block;  border-radius: 4px; box-sizing: border-box;">
+
             <input type="text" id="threewordaddress" name="threewordaddress" placeholder="Enter 3 Words Address Here" style="float: center; border: 3px solid #555; width: 20%;
   margin-top: 6px;border-radius: 4px;">
             
-            <button type="submit" style="border-radius: 50%;" ><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+            <button type="submit" style="border-radius: 50%;" ><i class="fa fa-paper-plane" aria-hidden="true" ></i>
+            </button>
+            
         </form>
-        <a href="https://map.what3words.com/rudder.knocking.nicer" target="_blank" style="background-color: #f44336; color: white; padding: 14px 25px; text-align: center; text-decoration: none; display: inline-block;">Select 3 word address here</a>
-    </center>
-</div>
+        <a href="https://map.what3words.com/rudder.knocking.nicer" target="_blank" style="background-color: #f44336; color: white; padding: 10px 34px; text-align: center; text-decoration: none; display: inline-block;">Select 3 word address here</a>
 
+        </center>
+        <br>
+</div><!--col-lg-10-->
+    
+</div>
 @endsection
 
 @section('after-scripts')

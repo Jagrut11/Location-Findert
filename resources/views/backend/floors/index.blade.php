@@ -27,7 +27,6 @@
                             <th>{{ trans('labels.backend.floors.table.floor_no') }}</th>
                             <th>{{ trans('labels.backend.branches.table.branch_name') }}</th>
                             <th>{{ trans('labels.backend.floors.table.createdat') }}</th>
-                            <th>{{('Layout')}}</th>
                             <th>{{ trans('labels.general.actions') }}</th>
                            
                         </tr>
@@ -41,7 +40,6 @@
                             <th></th>
                             <th></th>
                         </tr>
-                         
                     </thead>
                 </table>
 
@@ -72,7 +70,7 @@
                     {data: 'created_at', name: '{{config('module.floors.table')}}.created_at'},
                     {data: 'actions', name: 'actions', searchable: false, sortable: false},
 
-                    {data: 'actions', name: 'actions', searchable: false, sortable: false}
+                    //{data: 'actions', name: 'actions', searchable: false, sortable: false}
                         
 
                 ],

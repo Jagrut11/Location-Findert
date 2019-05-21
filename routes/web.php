@@ -2,6 +2,7 @@
 //use App\User;
 use App\Models\Access\User\User;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Http\Request;
 /**
  * Global Routes
  * Routes that are used between both frontend and backend.
@@ -17,34 +18,15 @@ Route::group(['namespace' => 'Frontend', 'as' => 'frontend.'], function () {
     includeRouteFiles(__DIR__.'/Frontend/');
 });
 
-Route::get('/contactus', function(){
-    return view('frontend.contactus');
-});
-
-Route::get('/AboutUs', function () {
-    return view('frontend.AboutUs');
-});
-//route to redirect to About Us page
-
-Route::get('/howitworks', function () {
-    return view('frontend.howitworks');
-});
-
-Route::post('/fixappointment/search1','SearchController@search');
-
-Route::get('/locate/{id}','SearchController@locate');
-
-Route::get('/fixappointment', 'SearchController@index');
-
-Route::post('/fixappointment/fetch','SearchController@fetch')->name('fixappointment.fetch');
-
-Route::get('/logs','ShowAppointmentLogsController@showlogs');
+Route::get('/fixappointment', function () {
+    return view('frontend.fixappointment');
+});//route to redirect to FixAppointment page
 
 Route::get('/getlatlong', 'Backend\Access\User\UserController@convert');
+//route to redirect to Maps page to show user location (for user side)
 
-Route::get('/accept/{iddd}','FixAppointmentController@update');
+Route::get('/getcoords','Backend\Access\User\UserController@convertcoords');
 
-Route::get('/reject/{iddd}','FixAppointmentController@reject');
 
 /* ----------------------------------------------------------------------- */
 /*
@@ -65,13 +47,37 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'as' => 'admin.', '
 * Routes From Module Generator
 */
 includeRouteFiles(__DIR__.'/Generator/');
+
+Route::post('/fixappointment/search1','SearchController@search');//route to implement and redirect to Search Functionality
+
+Route::get('/locate/{id}','SearchController@locate');//route to redirect to Locate page to see user details
+
+Route::post('/fixappointment/fetch','SearchController@fetch')->name('fixappointment.fetch');//route to implement auto suggesstion dropdown in Search Bar page
+
+Route::get('/logs','ShowAppointmentLogsController@showlogs');//route to shoe appointment Logs to user on Dashboard page page
+
+Route::get('/accept/{iddd}','FixAppointmentController@update');//route to Accept Appointment Request from logs page
+
+Route::get('/reject/{iddd}','FixAppointmentController@reject');//route to Reject Appointment Request from logs page
+
 Route::get('/fixappointmentform','FixAppointmentController@store');
 //route for store data in appointment table
 
 
-Route::get('/index1', function () {
+//Route::get('/viewLayout/{floor_no}','LayoutController@viewLayout');
+
+Route::get('/locate1','LayoutController@viewLayout');
+
+
+Route::get('/index1', function (Request $request) {
+    $branch= Input::get('branch_id');
+    $floor= Input::get('floor_id');;
+    //dd($request->session()->put('my_name','Virat Gandhi'));
+    $request->session()->put('branch', $branch);
+    $request->session()->put('floor', $floor);
+    // dd($request->session()->get('branch'),$request->session()->get('floor'));
     return view('backend.floors.index1');
 });
 
-Route::post('/backend/Floor/Floors','Backend\Floor\FloorsController@store')->name('backend.floors.store');
+Route::post('/backend/Floor/Floors/','Backend\Floor\FloorsController@updateJson')->name('backend.floors.updateJson');
 
