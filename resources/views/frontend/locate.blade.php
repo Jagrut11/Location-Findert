@@ -2,18 +2,6 @@
 
 @section('content')
 
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
-<!-- 
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <meta name="viewport" content="initial-scale=1.0">
-    <meta charset="utf-8">  -->
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
- <!--  <script src="/js/what3words.js"></script>
-    <meta name="viewport" content="initial-scale=1.0">
-    <meta charset="utf-8">
-    -->
-    <div oncontextmenu="return false;">
       <div class="panel panel-default">
           <div class="panel-heading"><center><font size="3">Details</font></center></div>
 
@@ -30,16 +18,23 @@
         </thead>
             <tbody>
              @foreach($user as $users)
-              <tr>
+        <tr>
           <td>{{$users->first_name}}</td>
           <td>{{$users->last_name}}</td>
           <td>{{$users->branch_name}}</td>
           <td>{{$users->floor_no}}</td>
           <td>{{$users->seat_no}}</td>
+
+          <!--  <td><form action="/viewLayout/{{$users->floor_no}}" target="_blank" method="get"> 
+            <button type="submit" >View</button></form></td>
+           -->  
+           <!-- <td><form action="/locate1" target="_blank" method="get"> 
+            <button type="submit" >View</button></form></td> -->
         </tr>
          @endforeach
        </tbody>
-      </table>      
+      </table>
+      
     </div> 
     <center>
     <button style="background-color: #e7e7e7;
@@ -59,3 +54,4 @@
     <!-- 79NK10MQ -->
  </div>
 @endsection
+

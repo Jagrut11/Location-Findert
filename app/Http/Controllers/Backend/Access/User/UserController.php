@@ -88,7 +88,7 @@ class UserController extends Controller
         $branch = $this->branch->getAll();
         $seats = $this->seats->getAll();
         $floor['floor'] = DB::table('floors')->get();
-
+        
         return view('backend.access.users.create',$floor,array('roles'=> $roles,'branch'=>$branch,'seats'=>$seats));
         //return new CreateResponse($roles);
     }
@@ -101,8 +101,7 @@ class UserController extends Controller
     public function store(StoreUserRequest $request)
     {
         $this->users->create($request);
-
-
+       //     dd($request);
         return new RedirectResponse(route('admin.access.user.index'), ['flash_success' => trans('alerts.backend.users.created')]);
     }
 
@@ -127,8 +126,9 @@ class UserController extends Controller
     {
         $roles = $this->roles->getAll();
         $permissions = Permission::getSelectData('display_name');
-
-        return new EditResponse($user, $roles, $permissions);
+          $branch = $this->branch->getAll();
+          
+        return new EditResponse($user, $roles, $permissions, $branch);
     }
 
     /**
@@ -140,7 +140,7 @@ class UserController extends Controller
     public function update(User $user, UpdateUserRequest $request)
     {
         $this->users->update($user, $request);
-
+        //dd($request);
         return new RedirectResponse(route('admin.access.user.index'), ['flash_success' => trans('alerts.backend.users.updated')]);
     }
 
@@ -159,11 +159,7 @@ class UserController extends Controller
 
     public function convert(CreateUserRequest $request)
     {
-        $api= new Geocoder("79NK10MQ");
-        // $result= $api->convertTo3wa($lat,$lng);
-        // $words = $result["words"];
-        // print"The words for ($lat,$lng) are " . $words . "\n";
-        // print_r($api->getError());  
+        $api= new Geocoder("79NK10MQ"); 
 
         $words= input::get('threewordaddress');
         $result = $api->convertToCoordinates($words);
@@ -171,24 +167,32 @@ class UserController extends Controller
         $b= $result["coordinates"]["lng"];
         $this->a=$a;
         $this->b=$b;
-
-print_r($a,$b); 
-echo "$a";
-        // $this->a = $a;
-        // $this->b = $b;
-
-        //print "The coordinates for $words are (" . $result["coordinates"]["lat"] . "),(" . $result["coordinates"]["lng"] . ")\n";
-
-        //print "The coordinates for $words are (" . $result["coordinates"]["lat"] . "),(" . $result["coordinates"]["lng"] . ")\n First is latitude and second is longitude \n";
-
-        //return route('/showcord',compact($result));
-        //return view('/showcord',compact($result));
-// $request->session()->put('lat', $a);
-// $request->session()->put('lng', $b);
+        $input = $request->except(['_token']);
+        echo $a;
+      
+ $request->session()->put('lat', $a);
+ $request->session()->put('lng', $b);
             return new RedirectResponse(route('admin.access.user.create'),['flash_success' =>"latitude= '$a' "  .  " longitude = '$b'"]);
 
-       // return new RedirectResponse(route('admin.access.user.create'), array('result' => $result , 'words' => $words));    
-            
-        //return new RedirectResponse(route('admin.access.user.index'), ['flash_success' => trans('alerts.backend.users.deleted')]);
+      
     }
+    public function convertcoords(User $user,EditUserRequest $request)
+    {
+       $api= new Geocoder("79NK10MQ"); 
+
+        $words= input::get('threewordaddress');
+        $result = $api->convertToCoordinates($words);
+        $a= $result["coordinates"]["lat"];
+        $b= $result["coordinates"]["lng"];
+        $this->a=$a;
+        $this->b=$b;
+        $input = $request->except(['_token']);
+        echo $a,$b;
+      
+ $request->session()->put('lat', $a);
+ $request->session()->put('lng', $b);
+ return back();
+            
+    }
+
 }

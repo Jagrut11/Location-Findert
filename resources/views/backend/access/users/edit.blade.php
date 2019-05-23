@@ -48,6 +48,50 @@
                         {{ Form::text('email', null, ['class' => 'form-control box-size', 'placeholder' => trans('validation.attributes.backend.access.users.email'), 'required' => 'required']) }}
                     </div><!--col-lg-10-->
                 </div><!--form control-->
+<?php 
+
+       $lat = session()->get('lat');  
+        ?>&nbsp;
+        <?php
+        $lng = session()->get('lng');    
+        ?> 
+
+                  {{-- Latitude --}}
+                <div class="form-group">
+                    {{ Form::label('latitude', 'Latitude',  ['class' => 'col-lg-2 control-label required']) }}
+
+                    <div class="col-lg-10">
+                        {{ Form::text('latitude', "$lat", ['class' => 'form-control box-size', 'placeholder' => 'Enter Latitude', 'required' => 'required']) }}
+                    </div><!--col-lg-10-->
+                </div><!--form control-->
+
+
+                  {{-- Longitude --}}
+                <div class="form-group">
+                    {{ Form::label('longitude', 'Longitude',  ['class' => 'col-lg-2 control-label required']) }}
+
+                    <div class="col-lg-10">
+                        {{ Form::text('longitude', "$lng", ['class' => 'form-control box-size', 'placeholder' => 'Enter Longitude', 'required' => 'required']) }}
+                    </div><!--col-lg-10-->
+                </div><!--form control-->
+
+                 {{-- Branch Name --}}
+                <div class="form-group">
+                    {{ Form::label('branch_name', 'Branch Name',  ['class' => 'col-lg-2 control-label required']) }}
+
+                    <div class="col-lg-10">
+
+                <select class="form-control" id="Branch" name="branch_id">
+                    <option value=""> Select </option> 
+                    @foreach ($branch as $key=>$value)
+                        <option value="<?php echo $value->id ?>">
+                            {{ $value->branch_name }}
+                        </option>
+                        @endforeach 
+                </select>
+                    </div><!--col-lg-10-->
+                </div><!--form control-->
+
 
                 {{-- Status --}}
                 @if ($user->id != 1)
@@ -161,6 +205,29 @@
         @endif
 
     {{ Form::close() }}
+    <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">Get Co-ordinates</h3>
+
+                
+            </div><!--box-header with-border-->
+            <center>
+            <form action="/getcoords" style=" width: 100%; padding: 12px 20px; margin: 8px 0; display: inline-block;  border-radius: 4px; box-sizing: border-box;">
+
+            <input type="text" id="threewordaddress" name="threewordaddress" placeholder="Enter 3 Words Address Here" style="float: center; border: 3px solid #555; width: 20%;
+  margin-top: 6px;border-radius: 4px;">
+            
+            <button type="submit" style="border-radius: 50%;" ><i class="fa fa-paper-plane" aria-hidden="true" ></i>
+            </button>
+            
+        </form>
+        <a href="https://map.what3words.com/rudder.knocking.nicer" target="_blank" style="background-color: #f44336; color: white; padding: 10px 34px; text-align: center; text-decoration: none; display: inline-block;">Select 3 word address here</a>
+
+        </center>
+        <br>
+</div><!--col-lg-10-->
+    
+</div>
 @endsection
 
 @section('after-scripts')

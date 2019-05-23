@@ -19,200 +19,199 @@
  <div class="panel-heading" style="height: 80px;"><h1 align="center"><a  class="effect-box">Location Finder</a></h1></div>
                 <div class="panel-body">
 
-<div class="row">
+                    <div class="row">
 
-    <div class="col-md-4 col-md-push-8">
+<div class="col-md-4 col-md-push-8">
 
-        <ul class="media-list">
-            <li class="media">
-                <div class="media-left">
-                    <img class="media-object" src="/img/frontend/profile-picture/pic-1.png" alt="profile-picture" style="height: 100px; width: 100px;">
-                </div><!--media-left-->
+    <ul class="media-list">
+        <li class="media">
+            <div class="media-left">
+                <img class="media-object" src="/img/frontend/profile-picture/pic-1.png" alt="profile-picture" style="height: 100px; width: 100px;">
+            </div><!--media-left-->
 
-                <div class="media-body">
-                    <h4 class="media-heading">
-                        {{ $logged_in_user->name }}<br/>
-                        <small>
-                            {{ $logged_in_user->email }}<br/>
-                            Joined {{ $logged_in_user->created_at->format('F jS, Y') }}
-                        </small>
-                    </h4>
+            <div class="media-body">
+                <h4 class="media-heading">
+                    {{ $logged_in_user->name }}<br/>
+                    <small>
+                        {{ $logged_in_user->email }}<br/>
+                        Joined {{ $logged_in_user->created_at->format('F jS, Y') }}
+                    </small>
+                </h4>
 
-                    {{ link_to_route('frontend.user.account', trans('navs.frontend.user.account'), [], ['class' => 'btn btn-info btn-xs']) }}
+                {{ link_to_route('frontend.user.account', trans('navs.frontend.user.account'), [], ['class' => 'btn btn-info btn-xs']) }}
 
-                    @permission('view-backend')
-                        {{ link_to_route('admin.dashboard', trans('navs.frontend.user.administration'), [], ['class' => 'btn btn-danger btn-xs']) }}
-                    @endauth
-                </div><!--media-body-->
-            </li><!--media-->
-        </ul><!--media-list-->
+                @permission('view-backend')
+                    {{ link_to_route('admin.dashboard', trans('navs.frontend.user.administration'), [], ['class' => 'btn btn-danger btn-xs']) }}
+                @endauth
+            </div><!--media-body-->
+        </li><!--media-->
+    </ul><!--media-list-->
 
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <a  href="fixappointment"><h4>Click Here To Fix Appointment <i class="fas fa-handshake"></i></h4></a>
-            </div><!--panel-heading-->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <a  href="fixappointment"><h4>Click Here To Fix Appointment <i class="fas fa-handshake"></i></h4></a>
+        </div><!--panel-heading-->
 
-            <div class="panel-body">
-              <video src="/img/frontend/homelocation.mp4" loop="" width="100%" autoplay></video>
+        <div class="panel-body">
+          <video src="/img/frontend/homelocation.mp4" loop="" width="100%" autoplay></video>
 
-            </div><!--panel-body-->
-        </div><!--panel-->
-
-    </div><!--col-md-4-->
-
-    <div class="col-md-8 col-md-pull-4">
-        <div class="row">
-            <div class="col-xs-12">
-                
-            </div><!--col-xs-12-->
-        </div><!--row-->
-
-<div class="row">
-    <div class="col-md-6">
-        <div class="panel panel-default" class="box">
-            <div class="panel-heading">
-                <h4>Find Location <i class="fas fa-street-view"></i></h4>
-            </div><!--panel-heading-->
-
-            <div class="panel-body">
-                
-                <div class="panel-body">
-                    <div class="container1">
-                        <img src="/img/frontend/location1.jpg" alt="Avatar" class="image" style="height: 250px; width: 250px;">
-                        <div class="overlay">
-                            <div class="text">
-                                <p>The "Location Finder <i class="fas fa-map-marked-alt"></i>" Website shows your current geograph location of the employee, including latitude & longitude, on Maps. The geolocation service is available on both desktop computers and mobile phones. The location finder service uses the Maps Geolocation API to determine the exact place.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div><!--panel-body-->
-        </div><!--panel-->
-    </div><!--col-md-6-->
-
-    <div class="col-md-6">
-        <div class="panel panel-default" class="box">
-            <div class="panel-heading">
-                <h4>Fix Appointment <i class="fas fa-handshake"></i></h4>
-            </div><!--panel-heading-->
-
-            <div class="panel-body">
-                <div class="panel-body">
-                    <div class="container1">
-                        <img src="/img/frontend/fix-Meeting.jpg" alt="Avatar" class="image" style="height: 250px; width: 250px;">
-                        <div class="overlay">
-                            <div class="text">
-                                <p>The way you ask for the appointment could determine whether you'll make a sale. Be sure you get it right. You can request an appointment for a presentation. If the Employee agrees to meet you at their office, you can fix a convenient date and time for the same. </p>
-                            </div>
-                        </div>
-                     </div>
-                </div>
-            </div><!--panel-body-->
-        </div><!--panel-->
-    </div><!--col-md-6-->
-
-
-    <div class="col-md-12" >
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4>
-                    <center>
-                        <a href="/logs" name="notify" >Show Fixed Appointments <i class="fas fa-clipboard-list"></i></a>
-                    </center>
-                </h4> 
-            </div> <!--panel-heading-->
-            <div class="panel-body">
-            </div><!--panel-body-->
-
-     @if(isset($appointment))   
-    <div class="panel-body">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Sender</th>
-                    <th>Receiver</th>
-                    <th>Date</th>
-                    <th>Time</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-            @foreach($appointment as $applogs)
-                 @foreach($appointmentsender as $applogsender)
-                <tr>
-                    <td>{{$applogsender->first_name}} {{$applogsender->last_name}}</td>
-                    <td>{{$applogs->first_name}} {{$applogs->last_name}}</td>
-                    <td>{{$applogs->appointment_date}}</td>
-                    <td>{{$applogs->appointment_time}}</td>
-                    <td>{{$applogs->appointment_status}}</td>
-                    <?php 
-                        if($applogs->appointment_status == 'Pending')
-                        {
-                            if($applogs->sender_id == $logged_in_user->id)
-                            { }
-                            else
-                            {
-                    ?>
-                    
-                    <td>
-                        <div>
-                        <form action="/reject/{{$applogs->id}}" method="get">
-                            <a onclick="alertreject()"><button type="submit" class="reject" >
-                            
-                                <i class="fa fa-times-circle" aria-hidden="true"></i>
-                            
-                            </button>
-                            </a>
-                        </form> 
-                        </div>
-                        <div style="float: left;">
-                        <form action="accept/{{$applogs->id}}" method="get">
-                            <a onclick="alertaccept()"><button  type="submit" class="accept" >
-                            
-                                <i class="fa fa-check-circle" aria-hidden="true"></i>
-                            
-                            </button>
-                            </a>
-                        </form>
-                    </div>
-                        <script>
-                            function alertaccept() 
-                            {
-                                swal({
-                                    title:"Good Job!",
-                                    text: "Request Accepted.",
-                                    timer:4000,
-                                    showConfirmButton: false
-                                })
-
-                            }
-                            function alertreject() 
-                            {
-                                swal({
-                                    title:"Oh!",
-                                    text: "Request Rejected.",
-                                    timer:4000,
-                                    showConfirmButton: false
-                                })
-
-                            }
-                        </script> 
-                    </td>
-                    <?php 
-                        }
-                    }
-                    ?>
-                </tr>
-                @endforeach
-            @endforeach
-            </tbody>
-        </table>
-    </div>
-    @endif
+        </div><!--panel-body-->
     </div><!--panel-->
 
+</div><!--col-md-4-->
 
-</div><!--row-->
+<div class="col-md-8 col-md-pull-4">
+    <div class="row">
+        <div class="col-xs-12">
+            
+        </div><!--col-xs-12-->
+    </div><!--row-->
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-default" class="box">
+                <div class="panel-heading">
+                    <h4>Find Location <i class="fas fa-street-view"></i></h4>
+                </div><!--panel-heading-->
+
+                <div class="panel-body">
+                    
+                    <div class="panel-body">
+                        <div class="container1">
+                            <img src="/img/frontend/location1.jpg" alt="Avatar" class="image" style="height: 250px; width: 250px;">
+                            <div class="overlay">
+                                <div class="text">
+                                    <p>The "Location Finder <i class="fas fa-map-marked-alt"></i>" Website shows your current geograph location of the employee, including latitude & longitude, on Maps. The geolocation service is available on both desktop computers and mobile phones. The location finder service uses the Maps Geolocation API to determine the exact place.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--panel-body-->
+            </div><!--panel-->
+        </div><!--col-md-6-->
+
+        <div class="col-md-6">
+            <div class="panel panel-default" class="box">
+                <div class="panel-heading">
+                    <h4>Fix Appointment <i class="fas fa-handshake"></i></h4>
+                </div><!--panel-heading-->
+
+                <div class="panel-body">
+                    <div class="panel-body">
+                        <div class="container1">
+                            <img src="/img/frontend/fix-Meeting.jpg" alt="Avatar" class="image" style="height: 250px; width: 250px;">
+                            <div class="overlay">
+                                <div class="text">
+                                    <p>The way you ask for the appointment could determine whether you'll make a sale. Be sure you get it right. You can request an appointment for a presentation. If the Employee agrees to meet you at their office, you can fix a convenient date and time for the same. </p>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div><!--panel-body-->
+            </div><!--panel-->
+        </div><!--col-md-6-->
+
+
+        <div class="col-md-12" >
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>
+                        <center>
+                            <a href="/logs" name="notify" >Show Fixed Appointments <i class="fas fa-clipboard-list"></i></a>
+                        </center>
+                    </h4> 
+                </div> <!--panel-heading-->
+                <div class="panel-body">
+                </div><!--panel-body-->
+
+         @if(isset($appointment))   
+        <div class="panel-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Receiver</th>
+                        
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach($appointment as $applogs)
+                     
+                    <tr>
+                        <td>{{$applogs->first_name}} {{$applogs->last_name}}</td>
+                        
+                        <td>{{$applogs->appointment_date}}</td>
+                        <td>{{$applogs->appointment_time}}</td>
+                        <td>{{$applogs->appointment_status}}</td>
+                        <?php 
+                            if($applogs->appointment_status == 'Pending')
+                            {
+                                if($applogs->sender_id == $logged_in_user->id)
+                                { }
+                                else
+                                {
+                        ?>
+                        
+                        <td>
+                            <div>
+                            <form action="/reject/{{$applogs->id}}" method="get">
+                                <a onclick="alertreject()"><button type="submit" class="w3-button w3-red" class="reject" >
+                                
+                                    <i class="fa fa-times-circle" aria-hidden="true"></i>
+                                
+                                </button>
+                                </a>
+                            </form> 
+                            </div>
+                            <div style="float: left;">
+                            <form action="accept/{{$applogs->id}}" method="get">
+                                <a onclick="alertaccept()"><button  type="submit" class="w3-button w3-green" class="accept" >
+                                
+                                    <i class="fa fa-check-circle" aria-hidden="true"></i>
+                                
+                                </button></a>
+                            </form>
+                        </div>
+                            <script>
+                                function alertaccept() 
+                                {
+                                    swal({
+                                        title:"Good Job!",
+                                        text: "Request Accepted.",
+                                        timer:4000,
+                                        showConfirmButton: false
+                                    })
+
+                                }
+                                function alertreject() 
+                                {
+                                    swal({
+                                        title:"Oh!",
+                                        text: "Request Rejected.",
+                                        timer:4000,
+                                        showConfirmButton: false
+                                    })
+
+                                }
+                            </script>
+                        </td>
+                        <?php 
+                            }
+                        }
+                        ?>
+                    </tr>
+                    
+                @endforeach
+                </tbody>
+            </table>
+        </div>
+        @endif
+        </div><!--panel-->
+
+
+    </div><!--row-->
 
 </div><!--col-md-8-->
 
@@ -225,7 +224,7 @@
 </div><!-- col-md-10 -->
 
 
-
+   
     <footer id="myFooter">
         <div class="container">
             <div class="row">
@@ -275,5 +274,6 @@
     </footer>
 
     
+
 @endsection
 

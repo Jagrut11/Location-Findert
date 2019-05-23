@@ -71,12 +71,23 @@
                 </div><!--form control-->
 
                 {{-- Latitude --}}
+                <?php 
+
+       $lat = session()->get('lat');  
+        ?>&nbsp;
+        <?php
+        $lng = session()->get('lng');    
+        ?> 
 
                 <div class="form-group" >
                     {{ Form::label('name', 'Latitude', ['class' => 'col-lg-2 control-label required']) }}
 
+         
+    
                     <div class="col-lg-10">
-                        {{ Form::text("Latitude", null, ['class' => 'form-control box-size', 'placeholder' => 'Latitude', 'required' => 'required']) }}
+                        {{ Form::text("Latitude","$lat", ['class' => 'form-control box-size', 'placeholder' => 'Latitude', 'required' => 'required']) }}
+                         
+                        
 
                     </div><!--col-lg-10-->
                 </div><!--form control-->
@@ -88,7 +99,7 @@
                     {{ Form::label('name', 'Longitude', ['class' => 'col-lg-2 control-label required']) }}
 
                     <div class="col-lg-10">
-                        {{ Form::text("Longitude", null, ['class' => 'form-control box-size', 'placeholder' => 'Longitude', 'required' => 'required']) }}
+                        {{ Form::text("Longitude","$lng", ['class' => 'form-control box-size', 'placeholder' => 'Longitude', 'required' => 'required']) }}
                     </div><!--col-lg-10-->
                 </div><!--form control-->
 
@@ -97,13 +108,12 @@
                 <div class="form-group">
                     {{ Form::label('name', 'Branch Name', ['class' => 'col-lg-2 control-label required']) }} 
 
-
                     <div class="col-lg-10">
 
-                <select class="form-control" id="Company" name="branch_id">
-                    <option value=""> Branch Name </option> 
+                    <select class="form-control" id="Branch" name="branch_id">
+                    <option value="">Branch Name </option> 
                     @foreach ($branch as $key=>$value)
-                        <option value="<?php echo $value->id ?>">
+                        <option value="{{$value->id }}">
                             {{ $value->branch_name }}
                         </option>
                         @endforeach 
@@ -118,7 +128,7 @@
 
                     <div class="col-lg-10">
 
-                <select class="form-control" id="Company" name="branch_id">
+                <select class="form-control" id="Floor" name="floor_id">
                     <option value=""> Floor No </option> 
                     @foreach ($floor as $key=>$value)
                         <option value="<?php echo $value->id ?>">
@@ -147,11 +157,6 @@
                 </select>
                     </div><!--col-lg-10-->
                 </div><!--form control-->
-
-
-
-
-
 
                 {{-- Status --}}
                 <div class="form-group">
@@ -262,85 +267,27 @@
             </div><!-- /.box-body -->
         </div><!--box-->
     {{ Form::close() }}
-<div style="background-color: white;border-radius: 5px; padding: 20px">
-    <center>
-        <!-- <form onsubmit="myFunction()" style=" width: 100%; padding: 12px 20px; margin: 8px 0; display: inline-block; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;"> -->
-            <form action="/getlatlong" style=" width: 100%; padding: 12px 20px; margin: 8px 0; display: inline-block; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;" >
-                <!-- autocomplete="" target="_blank" -->
+    <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">Get Co-ordinates</h3>
+
                 
+            </div><!--box-header with-border-->
+            <center>
+            <form action="/getlatlong" style=" width: 100%; padding: 12px 20px; margin: 8px 0; display: inline-block;  border-radius: 4px; box-sizing: border-box;" >
             <input type="text" id="threewordaddress" name="threewordaddress" placeholder="Enter 3 Words Address Here" style="float: center; border: 3px solid #555; width: 20%;
   margin-top: 6px;border-radius: 4px;">
             
-          <!--  <a href="/getlatlong" onclick="alertrequestsent()"> --> <button type="submit"  style="border-radius: 50%;" ><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-           <!-- <script>
-                function alertrequestsent() 
-                {
-                  swal({
-                    title:"Latitude & longitudes are",
-                    text: "Request has been sent to User",
-                    timer:4000,
-                    showConfirmButton: false
-                  })
-                }
-</script>  -->
+            <button type="submit" style="border-radius: 50%;" ><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+            
         </form>
-        <a href="https://map.what3words.com" target="_blank" style="background-color: #f44336; color: white; padding: 14px 25px; text-align: center; text-decoration: none; display: inline-block;">Select 3 word address here</a>
-        <div>
-        <!-- <?php 
+        <a href="https://map.what3words.com/rudder.knocking.nicer" target="_blank" style="background-color: #f44336; color: white; padding: 10px 34px; text-align: center; text-decoration: none; display: inline-block;">Select 3 word address here</a>
 
-       // $lat = session()->get('lat');
-        //echo "Latitude: ". $lat;
-        ?>&nbsp;
-        <?php
-       // $lng = session()->get('lng');
-        //echo "Longitude: ". $lng;
-        ?> -->
-    </div>
-    </center>
-
+        </center>
+        <br>
+</div><!--col-lg-10-->
+    
 </div>
-
-<!-- <script>
-function myFunction() {
-    var age = document.getElementById("threewordaddress").value;
-    
-        
-    //    window.open("https://api.what3words.com/v3/convert-to-coordinates?words="+age+"&key=KS18UC0Z");
-    
-    var http = require("https");
-
-var options = {
-  "method": "GET",
-  "hostname": "api.what3words.com",
-  "port": null,
-  "path": "/v3/convert-to-coordinates?key=KS18UC0Z&words="+age+"&format=json",
-  "headers": {}
-};
-
-var req = http.request(options, function (res) {
-  var chunks = [];
-
-  res.on("data", function (chunk) {
-    chunks.push(chunk);
-  });
-
-  res.on("end", function () {
-    var body = Buffer.concat(chunks);
-    console.log(body.toString());
-  });
-});
-
-req.end();
-    
-}
-</script> -->
-
-    <!-- <div style="width: 140%;" >
-        <a href="/getlatlong" >ab</a>
-       @include('backend.getlatlong')
-
-    </div> -->
-    
 @endsection
 
 @section('after-scripts')

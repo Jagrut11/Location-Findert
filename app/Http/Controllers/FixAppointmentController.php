@@ -66,7 +66,9 @@ class FixAppointmentController extends Controller
         
     }
 
-    public function appointmentlog()
+     
+
+     function appointmentlog()
     {     
      $user = FixAppointmentController::create();
      $user->notify(new App\Notifications\EmailNotification);
@@ -95,5 +97,6 @@ class FixAppointmentController extends Controller
           return redirect('/logs');
 
     }
+
 
 }

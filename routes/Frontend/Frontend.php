@@ -8,9 +8,12 @@ Route::get('/', 'FrontendController@index')->name('index');
 Route::post('/get/states', 'FrontendController@getStates')->name('get.states');
 Route::post('/get/cities', 'FrontendController@getCities')->name('get.cities');
 
+/**
+ * Frontend Functionalities and Routes
+ */
 Route::get('/contactus', function(){
     return view('frontend.contactus');
-});
+});//route to redirect to Contact Us page
 
 Route::get('/AboutUs', function () {
     return view('frontend.AboutUs');
@@ -20,13 +23,11 @@ Route::get('/howitworks', function () {
     return view('frontend.howitworks');
 });//route to redirect to How It Works page
 
-Route::get('/fixappointment', function () {
-    return view('frontend.fixappointment');
-});//route to redirect to Fix Appointment page
-
 Route::get('/cygnet', function () {
     return view('frontend.index');
-});
+});//route to redirect to Cygnet/index page
+
+
 /*
  * These frontend controllers require the user to be logged in
  * All route names are prefixed with 'frontend.'

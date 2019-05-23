@@ -30,16 +30,14 @@ class UpdateUserRequest extends Request
             'email'           => 'required|email',
             'first_name'      => 'required',
             'last_name'       => 'required',
-            'designation'     =>  'required',
-            'contact'         =>  'required',
-            'department'      =>   'required',
             'permissions'     => 'required',
+            'branch_id'       => 'required',
             'assignees_roles' => 'required',
         ];
     }
 
     /**
-     * Get the validation massages that apply to the rules.
+     * Get the validation messages that apply to the rules.
      *
      * @return array
      */

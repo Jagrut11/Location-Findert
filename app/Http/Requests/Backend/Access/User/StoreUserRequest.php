@@ -34,6 +34,9 @@ class StoreUserRequest extends Request
             'password'        => 'required|min:6|confirmed',
             'assignees_roles' => 'required',
             'permissions'     => 'required',
+            'latitude'        => 'required',
+            'longitude'       => 'required',
+            'branch_id'       => 'required', 
         ];
     }
 

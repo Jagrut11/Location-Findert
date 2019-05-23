@@ -63,6 +63,7 @@ return [
 	"created" => "The Branch was successfully created.",
 	"deleted" => "The Branch was successfully deleted.",
 	"updated" => "The Branch was successfully updated.",
+	
 	],
 	"floors" => [
 	"created" => "The Floor was successfully created.",

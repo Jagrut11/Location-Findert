@@ -75,7 +75,8 @@ class BranchesController extends Controller
         $this->branch->create($input);
         //return with successfull message
         return new RedirectResponse(route('admin.branches.index'), ['flash_success' => trans('alerts.backend.branches.created')]);
-    }
+
+            }
     /**
      * Show the form for editing the specified resource.
      *
